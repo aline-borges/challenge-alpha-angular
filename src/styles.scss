@@ -1,1 +1,181 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
+
+/* RESET CSS */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    color: #f9f3f3;
+  }
+}
+
+/* COLORS */
+
+$white: #FEFEFE;
+$blue: #143A7C;
+$pink: #E6207E;
+$lightPink: #E6359E;
+$purple: #A900D4;
+$lightGreenApple: #BECB2D;
+$greenApple: #C8FC07;
+$yellow: #F9C036;
+$greenMint: #015F32;
+$greenLemon: #4CAF50;
+$aqua: #00FFA0;
+$orange: #FF6D00;
+$darkGrey: #040418;
+$grey: #333333;
+$lightGrey: #656565;
+$extraLightGrey: #757575;
+$black: #000000;
+
+
+/* CONTAINERS */
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  background: $blue;
+  color: $white;
+}
+
+/* LISTS */
+
+.menu-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-options {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.menu-item {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0 15px 0 5px;
+
+  &:first-of-type {
+    margin-right: 2px;
+    margin-left: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: $lightGreenApple;
+  }
+}
+
+.search-options-items {
+  position: relative;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  margin-right: 20px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    background: $lightGreenApple;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    transition: width .2s ease;
+  }
+  
+  &:hover:before {
+    width: 100%;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: $lightGreenApple;
+  }
+}
+
+.site-name {
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.message {
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 48px;
+  width: 700px;
+  margin: 90px 0 20px;
+}
+
+/* INPUTS */
+
+.search-bar {
+  border: none;
+  border-radius: 2px;
+  padding: 18px;
+  min-width: 100%;
+  margin: 30px 0 120px;
+
+  &::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 28px;
+    color: $extraLightGrey;
+  }
+}
+
+.section {
+  margin: auto;
+}
+
+.search-button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  padding: 11px 40px;
+  margin-bottom: 90px;
+  border: none;
+  background: $pink;
+  color: $white;
+
+  &:hover {
+    cursor: pointer;
+    background: $lightPink;
+  }
+}
+
+.search-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
