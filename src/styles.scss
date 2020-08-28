@@ -58,6 +58,7 @@ $black: #000000;
   min-width: 100vw;
   background: $blue;
   color: $white;
+  padding-right: 200px;
 }
 
 /* LISTS */
@@ -65,8 +66,9 @@ $black: #000000;
 .menu-list {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  margin-left: 215px;
 }
 
 .search-options {
@@ -74,6 +76,39 @@ $black: #000000;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+}
+
+.advantages-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 45px 20px;
+}
+
+.advantages-item {
+  margin-right: 15px;
+  width: 300px;
+}
+
+.advantages-title {
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+}
+
+.advantages-icon {
+  margin-right: 18px;
+  width: 30px;
+}
+
+.advantages-text {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  color: $extraLightGrey;
 }
 
 .menu-item {
@@ -129,20 +164,22 @@ $black: #000000;
 
 .message {
   font-weight: 600;
-  font-size: 42px;
+  font-size: 36px;
   line-height: 48px;
   width: 700px;
-  margin: 90px 0 20px;
+  margin: 70px 0 20px;
 }
 
 /* INPUTS */
 
 .search-bar {
   border: none;
-  border-radius: 2px;
   padding: 18px;
-  min-width: 100%;
+  min-width: 400px;
   margin: 30px 0 120px;
+  outline: none;
+  background: $white;
+  color: $grey;
 
   &::placeholder {
     font-family: 'Montserrat', sans-serif;
@@ -162,11 +199,13 @@ $black: #000000;
   font-weight: 600;
   font-size: 18px;
   line-height: 28px;
-  padding: 11px 40px;
+  padding: 12px 40px;
   margin-bottom: 90px;
+  border-radius: 0 4px 4px 0;
   border: none;
   background: $pink;
   color: $white;
+  outline: none;
 
   &:hover {
     cursor: pointer;
@@ -178,4 +217,49 @@ $black: #000000;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.list-place-button {
+  text-align: center;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  padding: 15px;
+  margin: 30px 0 120px;
+  outline: none;
+  background: $white;
+}
+
+.search-date {
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  text-align: center;
+  border: none;
+  padding: 12px;
+  margin: 30px 0 120px;
+  outline: none;
+  background: $white;
+  color: $extraLightGrey;
+}
+
+.icon {
+  margin:  5px 10px;
+  width: 15px;
+}
+
+.search-guests {
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  text-align: center;
+  border: none;
+  padding: 12px 25px;
+  margin: 30px 0 120px;
+  outline: none;
+  background: $white;
+  color: $extraLightGrey;
 }
