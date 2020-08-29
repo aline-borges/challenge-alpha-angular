@@ -2,8 +2,9 @@
   <div class="page-content">
     <nav class="menu">
       <ul class="menu-list">
-        <li class="menu-item"><img src="../assets/images/touch-icon-57x57.png" /></li>
-        <li class="menu-item site-name">hurb</li>
+        <li class="menu-item logo"><img class="logo-icon" src="../assets/images/touch-icon-57x57.png" />
+          <p class="site-name">hurb</p>
+        </li>
         <li class="menu-item">Destinos</li>
         <li class="menu-item">Hotéis</li>
         <li class="menu-item">Pacotes</li>
@@ -15,10 +16,6 @@
     </nav>
 
     <section class="section">
-      <h1 class="message">
-        Os melhores hotéis, pacotes e experiências estão no Hurb.
-      </h1>
-      
       <ul class="search-options">
         <li class="search-options-items">Hotéis</li>
         <li class="search-options-items">Pacotes</li>
@@ -43,29 +40,49 @@
             1 Quarto, 2 Hóspedes
           </button>
 
-        <button type="submit" class="search-button">Pesquisar</button>
+        <button type="submit" class="button">Pesquisar</button>
       </form>
     </section>
   </div>
 
-  <ul class="advantages-list">
-    <img class="advantages-icon" src="../assets/images/bed.png" />
-    <li class="advantages-item">
-      <h3 class="advantages-title">Milhares de Hotéis</h3>
-      <p class="advantages-text">Mais de 8 mil hotéis no Brasil e 400 mil no mundo, só reservar e aproveitar!</p>
-    </li>
-
-    <img class="advantages-icon" src="../assets/images/calendar.png" />
-    <li class="advantages-item">
-      <h3 class="advantages-title">Cancelamento Grátis</h3>
-      <p class="advantages-text">Você pode cancelar sem custo a maioria das reservas até 14 dias após a compra.</p>
-    </li>
-
-    <img class="advantages-icon" src="../assets/images/telephone.png" />
-    <li class="advantages-item">
-      <h3 class="advantages-title">Atendimento 24h</h3>
-      <p class="advantages-text">Dúvida ou imprevisto? Você pode enviar a qualquer hora uma mensagem via Chat.</p>
-    </li>
-  </ul>
-  
+    <ul class="hotels-cards">
+      <li class="hotel-item">
+        <div class="hotel-view">
+          <img class="hotel-photo" src="../assets/images/armacao-dos-buzios.jpg" />
+          <div class="hotel-discount">-20%</div>
+        </div>
+        <div class="hotel-information">
+          <p class="hotel-location">Armação de Búzios, Rj</p>
+          <p class="hotel-name">Armação dos Búzios Pousada Design</p>
+          <p class="hotel-rating"></p>
+          <ul class="hotel-amenities">
+            <li class="amenities-item">
+              <img />
+              <p>Restaurantes</p>
+            </li>
+            <li class="amenities-item">
+              <img />
+              <p>Piscina</p>
+            </li>
+            <li class="amenities-item">
+              <img />
+              <p>Sauna</p>
+            </li>
+          </ul>
+          <p class="hotel-free-cancelation">
+            <img />
+            Cancelamento grátis!
+            <img />
+          </p>
+          <p class="hotel-great-location">Excelente localização!</p>
+          <div class="hotel-price-information">
+            <p>Diárias a partir de <span class="old-price">R$ 416</span></p>
+            <p><span class="new-price">R$ 333 </span>+ Taxas</p>
+          </div>
+        </div>
+        <button class="button">Ver Hotel</button>
+      </li>
+    </ul>
+       
+    
 </div>

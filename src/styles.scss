@@ -43,6 +43,7 @@ $grey: #333333;
 $lightGrey: #656565;
 $extraLightGrey: #757575;
 $black: #000000;
+$red: #F13845;
 
 
 /* CONTAINERS */
@@ -58,7 +59,7 @@ $black: #000000;
   min-width: 100vw;
   background: $blue;
   color: $white;
-  padding-right: 200px;
+  padding: 0 200px 12px 0;
 }
 
 /* LISTS */
@@ -68,7 +69,7 @@ $black: #000000;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin-left: 215px;
+  margin-left: 225px;
 }
 
 .search-options {
@@ -78,51 +79,19 @@ $black: #000000;
   justify-content: flex-start;
 }
 
-.advantages-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: 45px 20px;
-}
-
-.advantages-item {
-  margin-right: 15px;
-  width: 300px;
-}
-
-.advantages-title {
-  font-weight: 800;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.5px;
-}
-
-.advantages-icon {
-  margin-right: 18px;
-  width: 30px;
-}
-
-.advantages-text {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 20px;
-  letter-spacing: 0.5px;
-  color: $extraLightGrey;
-}
-
 .menu-item {
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
   margin: 0 15px 0 5px;
+  padding: 12px 0 0 5px;
 
   &:first-of-type {
     margin-right: 2px;
     margin-left: 0;
   }
 
-  &:hover {
+  &:hover:not(:first-of-type) {
     cursor: pointer;
     color: $lightGreenApple;
   }
@@ -131,9 +100,9 @@ $black: #000000;
 .search-options-items {
   position: relative;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 14px;
   line-height: 20px;
-  margin-right: 20px;
+  margin: 5px 20px 0 0;
 
   &:before {
     content: "";
@@ -152,22 +121,14 @@ $black: #000000;
 
   &:hover {
     cursor: pointer;
-    color: $lightGreenApple;
   }
 }
 
 .site-name {
   font-weight: 700;
-  font-size: 24px;
+  font-size: 22px;
   letter-spacing: 1px;
-}
-
-.message {
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 48px;
-  width: 700px;
-  margin: 70px 0 20px;
+  margin-right: 30px;
 }
 
 /* INPUTS */
@@ -176,7 +137,7 @@ $black: #000000;
   border: none;
   padding: 18px;
   min-width: 400px;
-  margin: 30px 0 120px;
+  margin-top: 30px;
   outline: none;
   background: $white;
   color: $grey;
@@ -194,13 +155,13 @@ $black: #000000;
   margin: auto;
 }
 
-.search-button {
+.button {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 18px;
   line-height: 28px;
   padding: 12px 40px;
-  margin-bottom: 90px;
+  margin-top: 29px;
   border-radius: 0 4px 4px 0;
   border: none;
   background: $pink;
@@ -224,7 +185,7 @@ $black: #000000;
   border: none;
   border-radius: 4px 0 0 4px;
   padding: 15px;
-  margin: 30px 0 120px;
+  margin-top: 30px;
   outline: none;
   background: $white;
 }
@@ -238,7 +199,7 @@ $black: #000000;
   text-align: center;
   border: none;
   padding: 12px;
-  margin: 30px 0 120px;
+  margin-top: 30px;
   outline: none;
   background: $white;
   color: $extraLightGrey;
@@ -258,8 +219,116 @@ $black: #000000;
   text-align: center;
   border: none;
   padding: 12px 25px;
-  margin: 30px 0 120px;
+  margin-top: 30px;
   outline: none;
   background: $white;
   color: $extraLightGrey;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-icon {
+  width: 50px;
+}
+
+.hotel-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hotel-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 15px;
+  
+  &:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  &:hover::after {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+}
+
+.hotel-view {
+  display: flex;
+}
+
+.hotel-information {
+  display: flex;
+  flex-direction: column;
+}
+
+.hotel-photo {
+  width: 250px;
+  height: 200px;
+}
+.hotel-discount {
+  margin: 5px 0 0 -240px;
+  padding: 8px;
+  width: 48px;
+  height: 32px;
+  background: $orange;
+  color: $white;
+  font-weight: 600;
+  font-size: 12px;
+}
+.hotel-location {
+  font-weight: 700;
+  font-size: 10px;
+  color: $grey;
+}
+.hotel-name {
+  font-weight: 500;
+  font-size: 18px;
+  color: $extraLightGrey;
+}
+
+.hotel-amenities {
+  display: flex;
+  flex-direction: row;
+}
+
+.amenities-item {
+  font-weight: 500;
+  font-size: 10px;
+  color: $extraLightGrey;
+}
+
+.hotel-free-cancelation {
+  font-weight: 700;
+  font-size: 10px;
+  color: $greenLemon;
+}
+
+.hotel-great-location {
+  font-weight: 700;
+  font-size: 10px;
+  color: $red;
+}
+
+.hotel-price-information {
+  font-weight: 500;
+  font-size: 12px;
+  color: $extraLightGrey;
+}
+
+.old-price {
+  color: $black;
+  text-decoration-line: line-through;
+}
+
+.new-price {
+  font-weight: 700;
+  font-size: 24px;
+  color: $orange;
 }
