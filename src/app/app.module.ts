@@ -1,12 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-//import { StyledComponentsModule } from 'angular-styled-components';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavComponent } from './components/nav/nav.component';
+import { SearchComponent } from './components/searchForm/search.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HotelListComponent } from './components/hotelsList/hotel.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent,
+    SearchComponent,
+    HeaderComponent,
+    HotelListComponent
   ],
   imports: [
     BrowserModule,

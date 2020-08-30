@@ -1,0 +1,103 @@
+/* COLORS */
+
+$white: #FEFEFE;
+$red: #F13845;
+$pink: #E6207E;
+$lightPink: #E6359E;
+$greenLemon: #4CAF50;
+$orange: #FF6D00;
+$grey: #333333;
+$lightGrey: #656565;
+$extraLightGrey: #757575;
+$black: #000000;
+
+.hotel-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hotel-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 15px;
+  padding: 10px 0;
+}
+
+.hotel-view {
+  display: flex;
+}
+
+.hotel-information {
+  display: flex;
+  flex-direction: column;
+}
+
+.hotel-photo {
+  width: 250px;
+  height: 200px;
+}
+.hotel-discount {
+  margin: 5px 0 0 -240px;
+  padding: 8px;
+  width: 48px;
+  height: 32px;
+  background: $orange;
+  color: $white;
+  font-weight: 600;
+  font-size: 12px;
+}
+.hotel-location {
+  font-weight: 700;
+  font-size: 10px;
+  color: $grey;
+  text-transform: uppercase;
+}
+.hotel-name {
+  font-weight: 500;
+  font-size: 18px;
+  color: $extraLightGrey;
+}
+
+.hotel-amenities {
+  display: flex;
+  flex-direction: row;
+}
+
+.amenities-item {
+  font-weight: 500;
+  font-size: 10px;
+  color: $extraLightGrey;
+  margin-right: 15px;
+}
+
+.hotel-free-cancelation {
+  font-weight: 700;
+  font-size: 10px;
+  color: $greenLemon;
+}
+
+.hotel-great-location {
+  font-weight: 700;
+  font-size: 10px;
+  color: $red;
+}
+
+.hotel-price-information {
+  font-weight: 500;
+  font-size: 12px;
+  color: $extraLightGrey;
+}
+
+.old-price {
+  color: $black;
+  text-decoration-line: line-through;
+}
+
+.new-price {
+  font-weight: 700;
+  font-size: 24px;
+  color: $orange;
+}
