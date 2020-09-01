@@ -1,0 +1,27 @@
+<div class="container"> 
+  <h1 class="page-title">Hoteis</h1>
+ 
+  <input 
+   (keyup)="getLocation($event)"
+   (keyup.enter)="getHotels()"
+   class="search-input" 
+   placeholder="Digite o local desejado"
+   #campoInput
+   >
+ 
+  <button class="search-button" (click)="getHotels()">Buscar</button>
+ 
+  <ul>
+   <li *ngFor="let hotel of hotels">
+     <p>{{ hotel.address.city }}, {{ hotel.address.state }}</p>
+     <p> Diárias a partir de {{ hotel.price.amountPerDay }}</p>
+     <h1>{{ hotel.name }}</h1>
+     <img src="{{ hotel.image }}" width="150" alt="{{ hotel.name }}">
+     <p>{{ hotel.stars }}</p>
+     <p>{{ hotel.featuredItem.amenities}}</p>
+     <p>{{ hotel.hu_free_cancellation === true ? 'Cancelamento Grátis' : ''}}</p>
+     <p> {{ hotel.tags }}</p>
+   </li>
+  </ul>
+  
+ </div>

@@ -1,25 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
-import { NavComponent } from './components/nav/nav.component';
-import { SearchComponent } from './components/searchForm/search.component';
-import { HeaderComponent } from './components/header/header.component';
-import { HotelListComponent } from './components/hotelsList/hotel.component';
+import { HotelComponent } from './hotel/hotel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
-    SearchComponent,
-    HeaderComponent,
-    HotelListComponent
+    HotelComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -1,0 +1,43 @@
+/* COLORS */
+
+$blue: #143A7C;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.page-title {
+  color: $blue;
+}
+
+.search-input {
+  border: 2px solid $blue;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin: 5px 0 10px;
+  min-width: 300px;
+  color: $blue;
+  outline: none;
+
+  &::placeholder {
+    color: $blue;
+  }
+}
+
+.search-button {
+  padding: 16px 64px;
+  margin-top: 10px;
+  color: #f3f3f3;
+  background: $blue;
+  border: none;
+  border-radius: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  outline: none;
+}
