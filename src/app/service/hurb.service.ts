@@ -10,8 +10,9 @@ export class HurbService {
 
   constructor(private http: HttpClient) {}
 
-  getData(location):Observable<any> {
-    const url = `https://www.hurb.com/search/api?q=${location}`;
+  getData(location, filter):Observable<any> {
+    const type = filter === 'hotel' ? 'hotel' : 'package'
+    const url = `https://www.hurb.com/search/api?q=${location}&filters=is_${type}|1`;
 
     return this.http.get<any>(url);
   }

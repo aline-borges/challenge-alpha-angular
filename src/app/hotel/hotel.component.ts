@@ -9,8 +9,12 @@ import { HurbService } from '../service/hurb.service';
 
 export class HotelComponent implements OnInit {
 
-  hotels:Array<any>
+  hotels: Array<any>
+  newHotels: Array<any>
+  amenities: Array<any>
+  types: Array<any>
   location: string
+  stars: string
 
   constructor(private hurbService: HurbService){}
 
@@ -19,11 +23,20 @@ export class HotelComponent implements OnInit {
   }
 
   getHotels(){
-    this.hurbService.getData(this.location ).subscribe((data) => {
+    this.hurbService.getData(this.location, 'hotel').subscribe((data) => {
       this.hotels = data.results;
       console.log(this.hotels);
     })
   }
 
-  ngOnInit(){}
+  showStars(rating) {
+    this.items = [];
+
+    for(let i=0; i<rating; i++){
+      this.items.push(i);
+    }
+
+    return this.items;
+  }
+
 }

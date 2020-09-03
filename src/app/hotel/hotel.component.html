@@ -1,27 +1,64 @@
 <div class="container"> 
-  <h1 class="page-title">Hoteis</h1>
- 
-  <input 
-   (keyup)="getLocation($event)"
-   (keyup.enter)="getHotels()"
-   class="search-input" 
-   placeholder="Digite o local desejado"
-   #campoInput
-   >
- 
-  <button class="search-button" (click)="getHotels()">Buscar</button>
- 
-  <ul>
-   <li *ngFor="let hotel of hotels">
-     <p>{{ hotel.address.city }}, {{ hotel.address.state }}</p>
-     <p> Diárias a partir de {{ hotel.price.amountPerDay }}</p>
-     <h1>{{ hotel.name }}</h1>
-     <img src="{{ hotel.image }}" width="150" alt="{{ hotel.name }}">
-     <p>{{ hotel.stars }}</p>
-     <p>{{ hotel.featuredItem.amenities}}</p>
-     <p>{{ hotel.hu_free_cancellation === true ? 'Cancelamento Grátis' : ''}}</p>
-     <p> {{ hotel.tags }}</p>
-   </li>
+  <div class="page-content">
+    <header>
+      <nav class="menu">
+        <ul class="menu-list">
+          <li class="menu-item"><img class="logo" src="../../assets/images/touch-icon-57x57.png"></li>
+          <li class="menu-item site-name">hurb</li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="search-content">
+      <h1 class="page-title">
+        Os melhores hotéis, pacotes e experiências estão no Hurb.
+      </h1>
+
+      <div class="search-form">
+        <input 
+        (keyup)="getLocation($event)"
+        (keyup.enter)="getHotels()"
+        class="search-input" 
+        placeholder="Vai pra onde?"
+        #campoInput
+        >
+    
+        <button class="button" (click)="getHotels()">Buscar</button>
+      </div>
+    </main>
+  </div>
+
+  <ul class="hotel-cards">
+    <li class="hotel-item" *ngFor="let hotel of hotels">
+      <div class="hotel-view">
+        <img class="hotel-photo" src="{{ hotel.image }}" alt="{{ hotel.name }}" >
+      </div>
+      <div class="hotel-information">
+        <div class="header-information">
+          <p class="hotel-location">{{ hotel.address.city }}, {{ hotel.address.state }}</p>
+          <p class="hotel-tags" *ngIf=" hotel.tags == '' ? false : true">{{ hotel.tags }}</p>
+        </div>
+        <p class="hotel-name">{{ hotel.name }}</p>
+        <p class="hotel-rating">
+          <img *ngFor="let star of showStars(hotel.stars)" class="star-image" src="../../assets/icons/star.png">
+        </p>
+        <ul class="hotel-amenities">
+          <li class="amenities-item">
+            <img />
+            <p class="amenity-title">{{ (hotel.featuredItem.amenities.slice(0,3)).join(' ') }}</p>
+          </li>
+        </ul>
+        <div class="footer-information">
+          <p class="hotel-free-cancelation" *ngIf=" hotel.tags == '' ? false : true">{{ hotel.hu_free_cancellation === true ? 'Cancelamento Grátis' : ''}}</p>
+          <div class="hotel-price-information">
+            <p>Diárias a partir de <span class="old-price">{{ hotel.price.old_price > hotel.price.amountPerDay ? hotel.price.old_price : '' }}</span></p>
+            <p><span class="new-price">{{ hotel.price.amountPerDay.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</span> + Taxas</p>
+            <button class="button">Ver Hotel</button>
+          </div>
+        </div>
+        
+      </div>
+    </li>
   </ul>
-  
+
  </div>
