@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { HurbService } from '../service/hurb.service';
 
 @Component({
@@ -16,7 +17,9 @@ export class HotelComponent implements OnInit {
   location: string
   stars: string
 
-  constructor(private hurbService: HurbService){}
+  constructor(private hurbService: HurbService, private titleService: Title){
+
+  }
 
   getLocation(evento: KeyboardEvent){
     this.location = (<HTMLInputElement>evento.target).value;
@@ -26,6 +29,8 @@ export class HotelComponent implements OnInit {
     this.hurbService.getData(this.location, 'hotel').subscribe((data) => {
       this.hotels = data.results;
       console.log(this.hotels);
+
+      this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
     })
   }
 

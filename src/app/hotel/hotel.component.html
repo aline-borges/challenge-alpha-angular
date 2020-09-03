@@ -45,7 +45,7 @@
         <ul class="hotel-amenities">
           <li class="amenities-item">
             <img />
-            <p class="amenity-title">{{ (hotel.featuredItem.amenities.slice(0,3)).join(' ') }}</p>
+            <p class="amenity-title" *ngIf=" hotel.featuredItem.amenities == '' ? false : true">{{ (hotel.featuredItem.amenities.slice(0,3)).join(' ') }}</p>
           </li>
         </ul>
         <div class="footer-information">
@@ -53,7 +53,7 @@
           <div class="hotel-price-information">
             <p>Diárias a partir de <span class="old-price">{{ hotel.price.old_price > hotel.price.amountPerDay ? hotel.price.old_price : '' }}</span></p>
             <p><span class="new-price">{{ hotel.price.amountPerDay.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</span> + Taxas</p>
-            <button class="button">Ver Hotel</button>
+            <button class="button" id="hotel-button">Ver Hotel</button>
           </div>
         </div>
         
