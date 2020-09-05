@@ -3,13 +3,23 @@
     <header>
       <nav class="menu">
         <ul class="menu-list">
-          <li class="menu-item"><img class="logo" src="../../assets/images/touch-icon-57x57.png"></li>
-          <li class="menu-item site-name">hurb</li>
+          <div class="app-name">
+            <li class="menu-item">
+              <img class="logo" src="../../assets/images/logo.png">
+            </li>
+            <li class="site-name">hurb</li>
+          </div>
+          
+          <div class="options-menu">
+            <li class="menu-item">Hotel</li>
+            <li class="menu-item">Pacote</li>
+            <li class="menu-item">#FernandoDeNoronhaPE</li>
+          </div>
         </ul>
       </nav>
     </header>
 
-    <main class="search-content">
+    <div class="search-content">
       <h1 class="page-title">
         Os melhores hotéis, pacotes e experiências estão no Hurb.
       </h1>
@@ -23,9 +33,10 @@
         #campoInput
         >
     
-        <button class="button" (click)="getHotels()">Buscar</button>
+        <button class="button" (click)="getHotels()">Pesquisar</button>
       </div>
-    </main>
+    </div>
+   
   </div>
 
   <ul class="hotel-cards">
@@ -71,7 +82,7 @@
       <li><button class="button-page" (click)="getHotels(currentPage - 1)" *ngIf="pagination.previousPage">Página Anterior</button></li>
       <li><button class="button-page" (click)="getHotels(currentPage + 1)" *ngIf="pagination.nextPage">Próxima Página</button></li>
       <li><button class="button-page" (click)="getHotels(pagination.count)" *ngIf="pagination.nextPage">Última Página</button></li>
-      <li><a href="#topo" class="button-page">Voltar Ao Topo</a></li>
+      <li><a href="" class="button-page">Voltar Ao Topo</a></li>
     </ul>
   </ul>
 
