@@ -1,43 +1,5 @@
 <div id="topo" class="container"> 
-  <div class="page-content">
-    <header>
-      <nav class="menu">
-        <ul class="menu-list">
-          <div class="app-name">
-            <li class="menu-item">
-              <img class="logo" src="../../assets/images/logo.png">
-            </li>
-            <li class="site-name">hurb</li>
-          </div>
-          
-          <div class="options-menu">
-            <li class="menu-item">Hotel</li>
-            <li class="menu-item">Pacote</li>
-            <li class="menu-item">#FernandoDeNoronhaPE</li>
-          </div>
-        </ul>
-      </nav>
-    </header>
 
-    <div class="search-content">
-      <h1 class="page-title">
-        Os melhores hotéis, pacotes e experiências estão no Hurb.
-      </h1>
-
-      <div class="search-form">
-        <input 
-        (keyup)="getLocation($event)"
-        (keyup.enter)="getHotels()"
-        class="search-input" 
-        placeholder="Vai pra onde?"
-        #campoInput
-        >
-    
-        <button class="button" (click)="getHotels()">Pesquisar</button>
-      </div>
-    </div>
-   
-  </div>
 
   <ul class="hotel-cards">
     <li class="hotel-item" *ngFor="let hotel of hotels">
@@ -86,4 +48,7 @@
     </ul>
   </ul>
 
+  <footer>
+    <p class="background-place">#FernandoDeNoronhaPE</p>
+  </footer>
  </div>

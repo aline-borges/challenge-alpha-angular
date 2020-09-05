@@ -1,0 +1,28 @@
+<div class="page-content">
+  <div class="search-content">
+    <h1 class="page-title">
+      Os melhores hotéis, pacotes e experiências estão no Hurb.
+    </h1>
+
+    <div class="search-form">
+      <div class="header-form">
+        <i class="fas fa-map-marker-alt"></i>
+        <input 
+        (keyup)="getLocation($event)"
+        (keyup.enter)="getHotels()"
+        class="search-input" 
+        placeholder="Vai pra onde?"
+        #campoInput
+        >
+      </div>
+  
+      <button class="button" (click)="getHotels()">
+        Pesquisar
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </div>
+  <footer>
+    <p class="background-place">#FernandoDeNoronhaPE</p>
+  </footer>
+</div>

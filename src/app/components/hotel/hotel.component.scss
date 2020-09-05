@@ -1,6 +1,7 @@
 /* COLORS */
 
-$blue: #143A7C;
+$blue: #055AFE;
+$darkBlue: #0547C7;
 $white: #FEFEFE;
 $red: #F13845;
 $pink: #E6207E;
@@ -11,105 +12,6 @@ $grey: #333333;
 $lightGrey: #656565;
 $extraLightGrey: #757575;
 $black: #000000;
-
-.container {
-  display: flex;
-  flex-direction: column;
-  min-width: 100vw;
-  min-height: 100vh;
-  background-image: url('../../assets/images/fernando-de-noronha.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.logo {
-  
-}
-
-.app-name {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 50%;
-  cursor: pointer;
-}
-
-.page-title {
-  font-size: 36px;
-  min-width: 50px;
-}
-
-.page-content {
-  margin-top: 20px;
-  color: $white;
-}
-
-.menu {
-  display: flex;
-}
-
-.menu-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 45px;
-}
-
-.options-menu {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.menu-item {
-  font-weight: 700;
-  margin-right: 24px;
-  cursor: pointer;
-
-  &:not(:last-of-type){
-    text-transform: uppercase;
-  }
-
-  &:last-of-type {
-    margin-left: 500px;
-
-  }
-}
-
-.site-name {
-  font-weight: 700;
-  font-size: 48px;
-}
-
-.search-content {
-  margin: 10px 0 0 40px;
-  display: flex;
-  flex-direction: column;
-  min-width: 50vw;
-}
-
-.search-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.search-input {
-  font-family: 'Montserrat', sans-serif;
-  border: 2px solid $white;
-  border-radius: 4px 0 0 4px;
-  padding: 20px 40px;
-  min-width: 600px;
-  font-size: 48px;
-  font-weight: 700;
-  background: transparent;
-  color: $white;
-  outline: none;
-  margin-top: 15px;
-
-  &::placeholder {
-    color: $white;
-  }
-}
 
 .buttons-page{
   display: flex;
@@ -132,18 +34,6 @@ $black: #000000;
   cursor: pointer;
 }
 
-.button {
-  border: none;
-  border-radius: 0 4px 4px 0;
-  padding: 12px 40px;
-  min-width: 200px;
-  font-size: 14px;
-  font-weight: 600;
-  color: $white;
-  outline: none;
-  background: $blue;
-  margin-top: 15px;
-}
 
 .button#hotel-button {
   min-width: 150px;

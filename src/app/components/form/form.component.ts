@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { HurbService } from '../service/hurb.service';
+import { HurbService } from '../../service/hurb.service';
 
 @Component({
-  selector: 'app-hotel',
-  templateUrl: './hotel.component.html',
-  styleUrls: ['./hotel.component.scss']
+  selector: 'app-form',
+  templateUrl: './form.component.html',
+  styleUrls: ['./form.component.scss']
 })
-
-export class HotelComponent implements OnInit {
+export class FormComponent implements OnInit {
 
   hotels: Array<any>
   newHotels: Array<any>
@@ -36,31 +35,7 @@ export class HotelComponent implements OnInit {
     this.currentPage = page;
   }
 
-  showStars(rating) {
-    this.items = [];
-
-    for(let i=0; i<rating; i++){
-      this.items.push(i);
-    }
-
-    return this.items;
-  }
-
-  showAmenities(amenities) {
-    this.items = [];
-
-    if(amenities.length >= 3) {
-      for(let i=0; i<3; i++){
-        this.items.push(amenities[i]);
-      }
-    }
-    else {
-      for(let i=0; i<amenities.length; i++){
-        this.items.push(amenities[i]);
-      }
-    }
-
-    return this.items;
+  ngOnInit(): void {
   }
 
 }

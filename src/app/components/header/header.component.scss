@@ -1,0 +1,61 @@
+/* COLORS */
+
+$white: #FEFEFE;
+$tule: #0f0f0f60;
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  background: $tule;
+  padding: 20px 0;
+  color: $white;
+}
+
+.app-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 40px;
+}
+
+.logo {
+  width: 30px;
+}
+
+.site-name {
+  font-weight: 700;
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.menu-list {
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+}
+
+.menu-item {
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-right: 24px;
+  cursor: pointer;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    background: $white;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 3px;
+    transition: width .2s ease;
+  }
+
+  &:hover:before {
+    width: 100%;
+  }
+}
+
