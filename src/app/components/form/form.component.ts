@@ -18,6 +18,7 @@ export class FormComponent implements OnInit {
   currentPage: number
   quantity: string
   place: string
+  price: Array<any>
 
   constructor(private hurbService: HurbService, private titleService: Title){
     this.currentPage = 1;
@@ -31,12 +32,17 @@ export class FormComponent implements OnInit {
     this.hurbService.getData(this.location, 'hotel', page).subscribe((data) => {
       this.hotels = data.results;
       this.pagination = data.pagination;
-      console.log(this.hotels);
       this.quantity = data.meta.count;
       this.place = data.meta.query;
+      this.price = data.results.price;
+
+
+      console.log(this.hotels);
+      console.log(this.price);
 
       this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
     })
+
     this.currentPage = page;
     this.quantity;
     this.place;
@@ -45,6 +51,33 @@ export class FormComponent implements OnInit {
     document.getElementById('hotel-page').style.display = 'flex';
 
     window.scrollTo(0, 0);
+  }
+
+  orderBy(){
+    const selectBox = document.getElementById('selectOrder');
+    const selectOptions = selectBox.options[selectedIndex].value;
+
+    if(value === moreRelevance) {
+      this.data.results.stars == '5';
+    }
+
+    if(value === moreRelevance) {
+      this.data.results.stars == '5';
+    }
+  }
+
+  getHotelsByStars() {
+    const fiveStars = document.getElementById('five-stars');
+    const fourStars = document.getElementById('four-stars');
+    const threeStars = document.getElementById('three-stars');
+    const twoStars = document.getElementById('two-stars');
+    const oneStar = document.getElementById('one-stars');
+
+    if(fiveStars.checked) { return getHotels(this.hotels.results.stars = '5') }
+    if(fourStars.checked) { return this.hotels.results.stars = '4'}
+    if(threeStars.checked) { return this.hotels.results.stars = '3'}
+    if(twoStars.checked) { return this.hotels.results.stars = '2'}
+    if(oneStar.checked) { return this.hotels.results.stars = '1'}
   }
 
   changeBackgroundImage() {
@@ -147,4 +180,9 @@ export class FormComponent implements OnInit {
 
    return this.items
   }
+
+  ngOnInit() {
+    this.changeBackgroundImage();
+  }
+
  }
