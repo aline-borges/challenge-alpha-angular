@@ -31,7 +31,6 @@
 </div>
 
 <div class="container-hotel" id="hotel-page">
-  <app-header></app-header> 
   <div class="hotel-list">
     <ul class="hotel-cards">
       <li class="hotel-item" *ngFor="let hotel of hotels">
@@ -75,32 +74,38 @@
           </div>
         </div>
       </li>
-      <ul class="buttons-page" *ngIf="pagination">
-        <li>
-          <button class="button-page" (click)="getHotels(1)" *ngIf="pagination.previousPage">
-            <i class="fas fa-angle-double-left"></i>
-            Primeira Página
-          </button>
-        </li>
-        <li>
-          <button class="button-page" (click)="getHotels(currentPage - 1)" *ngIf="pagination.previousPage">
-            <i class="fas fa-angle-left"></i>
-            Página Anterior
+    </ul>
+    <ul class="buttons-page" *ngIf="pagination">
+      <li>
+        <button class="button-page" (click)="getHotels(1)" *ngIf="pagination.previousPage">
+          <i class="fas fa-angle-double-left"></i>
+          Primeira Página
         </button>
-        </li>
-        <li>
-          <button class="button-page" (click)="getHotels(currentPage + 1)" *ngIf="pagination.nextPage">
-            Próxima Página
-            <i class="fas fa-angle-right"></i>
-          </button>
-        </li>
-        <li>
-          <button class="button-page" (click)="getHotels(pagination.count)" *ngIf="pagination.nextPage">
-            Última Página
-            <i class="fas fa-angle-double-right"></i>
-          </button>
-        </li>
-      </ul>
+      </li>
+      <li>
+        <button class="button-page" (click)="getHotels(currentPage - 1)" *ngIf="pagination.previousPage">
+          <i class="fas fa-angle-left"></i>
+          Página Anterior
+      </button>
+      </li>
+      <li>
+        <button class="button-page" (click)="getHotels(currentPage + 1)" *ngIf="pagination.nextPage">
+          Próxima Página
+          <i class="fas fa-angle-right"></i>
+        </button>
+      </li>
+      <li>
+        <button class="button-page" (click)="getHotels(pagination.count)" *ngIf="pagination.nextPage">
+          Última Página
+          <i class="fas fa-angle-double-right"></i>
+        </button>
+      </li>
+      <li>
+        <button class="button-page" (click)="backToTop()">
+          Voltar ao Topo
+          <i class="fas fa-angle-up"></i>
+        </button>
+      </li>
     </ul>
   </div>
 </div>

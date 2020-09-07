@@ -37,6 +37,12 @@ export class FormComponent implements OnInit {
 
     document.getElementById('home-page').style.display = 'none';
     document.getElementById('hotel-page').style.display = 'flex';
+
+    window.scrollTo(0, 0);
+  }
+
+  backToTop() {
+    window.scrollTo(0, 0);
   }
 
   showStars(rating) {
