@@ -1,4 +1,4 @@
-<div class="container" id="home-page">
+<div class="container" id="home-page" (loadstart)="changeBackgroundImage()">
   <app-header></app-header>
   <div class="page-content">
     <div class="search-content">
@@ -10,6 +10,7 @@
         <div class="header-form">
           <i class="fas fa-map-marker-alt"></i>
           <input 
+          id="searchInput"
           (keyup)="getLocation($event)"
           (keyup.enter)="getHotels()"
           class="search-input" 
@@ -22,90 +23,166 @@
           Pesquisar
           <i class="fas fa-search"></i>
         </button>
+
+        <button class="button" (click)="changeBackgroundImage()">Mudar</button>
       </div>
     </div>
     <footer>
-      <p class="background-place">#FernandoDeNoronhaPE</p>
+      <button class="background-place" (click)="sendLocationToInput()" id="place-name"></button>
     </footer>
   </div>
 </div>
 
 <div class="container-hotel" id="hotel-page">
-  <div class="hotel-list">
-    <ul class="hotel-cards">
-      <li class="hotel-item" *ngFor="let hotel of hotels">
-        <img class="hotel-photo" src="{{ hotel.image }}" alt="{{ hotel.name }}" >
-        <div class="hotel-information">
-          <div class="header-information">
-            <p class="hotel-name">{{ hotel.name }}</p>
-            <p class="hotel-rating">
-              <i *ngFor="let star of showStars(hotel.stars)" class="fas fa-star"></i>
+  <div class="header-hotel-bar">
+    <p class="hotels-result"><span class="quantity-result">{{ this.quantity }}</span> Hotéis para <span class="place-result">{{ this.place }}</span></p>
+    <p class="ordenation-result">Ordenar por:</p>
+    <select class="ordenation-options">
+      <option>Mais Relevância</option>
+      <option>Menor Preço</option>
+      <option>Maior Preço</option>
+    </select>  
+  </div>
+  <div class="body-hotel">
+    <div class="ordenation">
+      <div class="slider">
+        <p class="ordenation-result">Valor até:</p>
+        <input type="range" min="1" max="100" value="50"> 
+      </div>
+      <ul class="ordenation-stars">
+        <li class="ordenation-star-item">
+          <label class="checkbox path">
+            <input type="checkbox">
+            <svg viewBox="0 0 21 21">
+                <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
+            </svg>
+          </label>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </li>
+        <li class="ordenation-star-item">
+          <label class="checkbox path">
+            <input type="checkbox">
+            <svg viewBox="0 0 21 21">
+                <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
+            </svg>
+          </label>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </li>
+        <li class="ordenation-star-item">
+          <label class="checkbox path">
+            <input type="checkbox">
+            <svg viewBox="0 0 21 21">
+                <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
+            </svg>
+          </label>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </li>
+        <li class="ordenation-star-item">
+          <label class="checkbox path">
+            <input type="checkbox">
+            <svg viewBox="0 0 21 21">
+                <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
+            </svg>
+          </label>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </li>
+        <li class="ordenation-star-item">
+          <label class="checkbox path">
+            <input type="checkbox">
+            <svg viewBox="0 0 21 21">
+                <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
+            </svg>
+          </label>
+          <i class="fas fa-star"></i>
+        </li>
+      </ul>   
+    </div>
+    <div class="hotel-list">
+      <ul class="hotel-cards">
+        <li class="hotel-item" *ngFor="let hotel of hotels">
+          <img class="hotel-photo" src="{{ hotel.image }}" alt="{{ hotel.name }}" >
+          <div class="hotel-information">
+            <div class="header-information">
+              <p class="hotel-name">{{ hotel.name }}</p>
+              <p class="hotel-rating">
+                <i *ngFor="let star of showStars(hotel.stars)" class="fas fa-star"></i>
+              </p>
+            </div>
+            
+            <p class="hotel-location">
+              <i class="fas fa-map-marker"></i>
+              {{ hotel.address.city }}, {{ hotel.address.state }}
             </p>
-          </div>
-          
-          <p class="hotel-location">
-            <i class="fas fa-map-marker"></i>
-            {{ hotel.address.city }}, {{ hotel.address.state }}
-          </p>
-          <ul class="hotel-amenities">
-            <li class="amenities-item" *ngFor="let amenity of showAmenities(hotel.featuredItem.amenities)">
-              <p class="amenity-title" *ngIf=" hotel.featuredItem.amenities == '' ? false : true">
-                {{ amenity }}
-                <i class="fas fa-check-circle"></i>
-              </p>
-            </li>
-          </ul>
-          <div class="footer-information">
-            <div class="tags">
-              <p class="hotel-tags" *ngIf=" hotel.tags == 'mais vendidos' ? true : false">
-                {{ hotel.tags }}
-                <i class="fas fa-fire-alt"></i>
-              </p>
-              <p class="hotel-free-cancelation" *ngIf=" hotel.tags == '' ? false : true">
-                {{ hotel.hu_free_cancellation === true ? 'Cancelamento Grátis' : ''}}
-                <i class="fas fa-info-circle"></i>
-              </p>
-            </div>
-            <div class="hotel-price-information">
-              <p>Diárias a partir de <span class="old-price">{{ hotel.price.old_price > hotel.price.amountPerDay ? hotel.price.old_price : '' }}</span></p>
-              <p><span class="new-price"><span class="currency">R$</span>{{ hotel.price.amountPerDay.toFixed(0) }}</span> + Taxas</p>
-              <button class="button" id="hotel-button">Visualizar Hotel</button>
+            <ul class="hotel-amenities">
+              <li class="amenities-item" *ngFor="let amenity of showAmenities(hotel.featuredItem.amenities)">
+                <p class="amenity-title" *ngIf=" hotel.featuredItem.amenities == '' ? false : true">
+                  {{ amenity }}
+                  <i class="fas fa-check-circle"></i>
+                </p>
+              </li>
+            </ul>
+            <div class="footer-information">
+              <div class="tags">
+                <p class="hotel-tags" *ngIf=" hotel.tags == 'mais vendidos' ? true : false">
+                  {{ hotel.tags }}
+                  <i class="fas fa-fire-alt"></i>
+                </p>
+                <p class="hotel-free-cancelation" *ngIf=" hotel.tags == '' ? false : true">
+                  {{ hotel.hu_free_cancellation === true ? 'Cancelamento Grátis' : ''}}
+                  <i class="fas fa-info-circle"></i>
+                </p>
+              </div>
+              <div class="hotel-price-information">
+                <p>Diárias a partir de <span class="old-price">{{ hotel.price.old_price > hotel.price.amountPerDay ? hotel.price.old_price : '' }}</span></p>
+                <p><span class="new-price"><span class="currency">R$</span>{{ hotel.price.amountPerDay.toFixed(0) }}</span> + Taxas</p>
+                <button class="button" id="hotel-button">Visualizar Hotel</button>
+              </div>
             </div>
           </div>
-        </div>
-      </li>
-    </ul>
-    <ul class="buttons-page" *ngIf="pagination">
-      <li>
-        <button class="button-page" (click)="getHotels(1)" *ngIf="pagination.previousPage">
-          <i class="fas fa-angle-double-left"></i>
-          Primeira Página
+        </li>
+      </ul>
+      <ul class="buttons-page" *ngIf="pagination">
+        <li>
+          <button class="button-page" (click)="getHotels(1)" *ngIf="pagination.previousPage">
+            <i class="fas fa-angle-double-left"></i>
+            Primeira Página
+          </button>
+        </li>
+        <li>
+          <button class="button-page" (click)="getHotels(currentPage - 1)" *ngIf="pagination.previousPage">
+            <i class="fas fa-angle-left"></i>
+            Página Anterior
         </button>
-      </li>
-      <li>
-        <button class="button-page" (click)="getHotels(currentPage - 1)" *ngIf="pagination.previousPage">
-          <i class="fas fa-angle-left"></i>
-          Página Anterior
-      </button>
-      </li>
-      <li>
-        <button class="button-page" (click)="getHotels(currentPage + 1)" *ngIf="pagination.nextPage">
-          Próxima Página
-          <i class="fas fa-angle-right"></i>
-        </button>
-      </li>
-      <li>
-        <button class="button-page" (click)="getHotels(pagination.count)" *ngIf="pagination.nextPage">
-          Última Página
-          <i class="fas fa-angle-double-right"></i>
-        </button>
-      </li>
-      <li>
-        <button class="button-page" (click)="backToTop()">
-          Voltar ao Topo
-          <i class="fas fa-angle-up"></i>
-        </button>
-      </li>
-    </ul>
+        </li>
+        <li>
+          <button class="button-page" (click)="getHotels(currentPage + 1)" *ngIf="pagination.nextPage">
+            Próxima Página
+            <i class="fas fa-angle-right"></i>
+          </button>
+        </li>
+        <li>
+          <button class="button-page" (click)="getHotels(pagination.count)" *ngIf="pagination.nextPage">
+            Última Página
+            <i class="fas fa-angle-double-right"></i>
+          </button>
+        </li>
+        <li>
+          <button class="button-page" (click)="backToTop()">
+            Voltar ao Topo
+            <i class="fas fa-angle-up"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

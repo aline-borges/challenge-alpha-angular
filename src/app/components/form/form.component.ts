@@ -16,6 +16,8 @@ export class FormComponent implements OnInit {
   stars: string
   pagination: any
   currentPage: number
+  quantity: string
+  place: string
 
   constructor(private hurbService: HurbService, private titleService: Title){
     this.currentPage = 1;
@@ -30,15 +32,89 @@ export class FormComponent implements OnInit {
       this.hotels = data.results;
       this.pagination = data.pagination;
       console.log(this.hotels);
+      this.quantity = data.meta.count;
+      this.place = data.meta.query;
 
       this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
     })
     this.currentPage = page;
+    this.quantity;
+    this.place;
 
     document.getElementById('home-page').style.display = 'none';
     document.getElementById('hotel-page').style.display = 'flex';
 
     window.scrollTo(0, 0);
+  }
+
+  changeBackgroundImage() {
+
+    const fernandoDeNoronha = {
+      name: 'Fernando De Noronha - PE',
+      url: '../../../assets/images/fernando-de-noronha.png',
+    };
+
+    const portoSeguro = {
+      name: 'Porto Seguro - BA',
+      url: '../../../assets/images/porto-seguro.png',
+    };
+
+    const arraialDoCabo = {
+      name: 'Arraial Do Cabo - RJ',
+      url: '../../../assets/images/arraial-do-cabo.png',
+    };
+
+    const vancouver = {
+      name: 'Vancouver - Canada',
+      url: '../../../assets/images/vancouver.png',
+    };
+
+    const santorini = {
+      name: 'Santorini - Grecia',
+      url: '../../../assets/images/santorini.png',
+    };
+
+    const bali = {
+      name: 'Bali - Indonesia',
+      url: '../../../assets/images/bali.png',
+    };
+
+    const kyoto = {
+      name: 'Kioto - Japão',
+      url: '../../../assets/images/kyoto.png',
+    };
+
+    const disney = {
+      name: 'Disney',
+      url: '../../../assets/images/disney.png',
+    };
+
+    const bonito = {
+      name: 'Bonito - MS',
+      url: '../../../assets/images/bonito.jpg',
+    };
+
+    const images = [fernandoDeNoronha, portoSeguro, arraialDoCabo, 
+                    vancouver, santorini, bali,
+                    kyoto, disney, bonito];
+
+    const randomNumber = Math.floor(Math.random() * images.length);
+    const bgImg = `url( ${images[randomNumber].url})`;
+    const bgImgName = images[randomNumber].name;
+    
+    const home = document.getElementById('home-page');
+    const name = document.getElementById('place-name');
+    
+    return home.style.backgroundImage = bgImg, name.innerHTML = bgImgName;
+  }
+
+  sendLocationToInput() {
+    const name = document.getElementById('place-name').innerHTML;
+    let input = document.getElementById('searchInput');
+
+    console.log(typeof input.value)
+
+    return input.value = name.toString();
   }
 
   backToTop() {
@@ -71,5 +147,4 @@ export class FormComponent implements OnInit {
 
    return this.items
   }
-
-}
+ }
