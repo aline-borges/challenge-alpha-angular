@@ -34,6 +34,9 @@ export class FormComponent implements OnInit {
       this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
     })
     this.currentPage = page;
+
+    document.getElementById('home-page').style.display = 'none';
+    document.getElementById('hotel-page').style.display = 'flex';
   }
 
   showStars(rating) {
@@ -50,7 +53,7 @@ export class FormComponent implements OnInit {
     this.items = [];
 
     if(amenities.length >= 3) {
-      for(let i=0; i<3; i++){
+      for(let i=0; i<2; i++){
         this.items.push(amenities[i]);
       }
     }
@@ -59,6 +62,8 @@ export class FormComponent implements OnInit {
         this.items.push(amenities[i]);
       }
     }
+
+   return this.items
   }
 
 }

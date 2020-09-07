@@ -31,50 +31,76 @@
 </div>
 
 <div class="container-hotel" id="hotel-page">
-  <app-header></app-header>
-  <ul class="hotel-cards">
-    <li class="hotel-item" *ngFor="let hotel of hotels">
-      <p class="hotel-tags" *ngIf=" hotel.tags == '' ? false : true">
-        {{ hotel.tags }}
-        <i class="fas fa-fire-alt"></i>
-      </p>
-      <img class="hotel-photo" src="{{ hotel.image }}" alt="{{ hotel.name }}" >
-      <div class="hotel-information">
-        <p class="hotel-name">{{ hotel.name }}</p>
-        <p class="hotel-location">
-          <i class="fas fa-map-marker"></i>
-          {{ hotel.address.city }}, {{ hotel.address.state }}
-        </p>
-        <p class="hotel-rating">
-          <i *ngFor="let star of showStars(hotel.stars)" class="fas fa-star"></i>
-        </p>
-        <ul class="hotel-amenities">
-          <li class="amenities-item" *ngFor="let amenity of showAmenities(hotel.featuredItem.amenities)">
-            <p class="amenity-title" *ngIf=" hotel.featuredItem.amenities == '' ? false : true">
-              {{ amenity }}
-              <i class="fas fa-check-circle"></i>
+  <app-header></app-header> 
+  <div class="hotel-list">
+    <ul class="hotel-cards">
+      <li class="hotel-item" *ngFor="let hotel of hotels">
+        <img class="hotel-photo" src="{{ hotel.image }}" alt="{{ hotel.name }}" >
+        <div class="hotel-information">
+          <div class="header-information">
+            <p class="hotel-name">{{ hotel.name }}</p>
+            <p class="hotel-rating">
+              <i *ngFor="let star of showStars(hotel.stars)" class="fas fa-star"></i>
             </p>
-          </li>
-        </ul>
-        <div class="footer-information">
-          <p class="hotel-free-cancelation" *ngIf=" hotel.tags == '' ? false : true">
-            {{ hotel.hu_free_cancellation === true ? 'Cancelamento Grátis' : ''}}
-            <i class="fas fa-info-circle"></i>
+          </div>
+          
+          <p class="hotel-location">
+            <i class="fas fa-map-marker"></i>
+            {{ hotel.address.city }}, {{ hotel.address.state }}
           </p>
-          <div class="hotel-price-information">
-            <p>Diárias a partir de <span class="old-price">{{ hotel.price.old_price > hotel.price.amountPerDay ? hotel.price.old_price : '' }}</span></p>
-            <p><span class="new-price">{{ hotel.price.amountPerDay.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</span> + Taxas</p>
-            <button class="button" id="hotel-button">Visualizar Hotel</button>
+          <ul class="hotel-amenities">
+            <li class="amenities-item" *ngFor="let amenity of showAmenities(hotel.featuredItem.amenities)">
+              <p class="amenity-title" *ngIf=" hotel.featuredItem.amenities == '' ? false : true">
+                {{ amenity }}
+                <i class="fas fa-check-circle"></i>
+              </p>
+            </li>
+          </ul>
+          <div class="footer-information">
+            <div class="tags">
+              <p class="hotel-tags" *ngIf=" hotel.tags == 'mais vendidos' ? true : false">
+                {{ hotel.tags }}
+                <i class="fas fa-fire-alt"></i>
+              </p>
+              <p class="hotel-free-cancelation" *ngIf=" hotel.tags == '' ? false : true">
+                {{ hotel.hu_free_cancellation === true ? 'Cancelamento Grátis' : ''}}
+                <i class="fas fa-info-circle"></i>
+              </p>
+            </div>
+            <div class="hotel-price-information">
+              <p>Diárias a partir de <span class="old-price">{{ hotel.price.old_price > hotel.price.amountPerDay ? hotel.price.old_price : '' }}</span></p>
+              <p><span class="new-price"><span class="currency">R$</span>{{ hotel.price.amountPerDay.toFixed(0) }}</span> + Taxas</p>
+              <button class="button" id="hotel-button">Visualizar Hotel</button>
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-    <ul class="buttons-page" *ngIf="pagination">
-      <li><button class="button-page" (click)="getHotels(1)" *ngIf="pagination.previousPage">Primeira Página</button></li>
-      <li><button class="button-page" (click)="getHotels(currentPage - 1)" *ngIf="pagination.previousPage">Página Anterior</button></li>
-      <li><button class="button-page" (click)="getHotels(currentPage + 1)" *ngIf="pagination.nextPage">Próxima Página</button></li>
-      <li><button class="button-page" (click)="getHotels(pagination.count)" *ngIf="pagination.nextPage">Última Página</button></li>
-      <li><a href="" class="button-page">Voltar Ao Topo</a></li>
+      </li>
+      <ul class="buttons-page" *ngIf="pagination">
+        <li>
+          <button class="button-page" (click)="getHotels(1)" *ngIf="pagination.previousPage">
+            <i class="fas fa-angle-double-left"></i>
+            Primeira Página
+          </button>
+        </li>
+        <li>
+          <button class="button-page" (click)="getHotels(currentPage - 1)" *ngIf="pagination.previousPage">
+            <i class="fas fa-angle-left"></i>
+            Página Anterior
+        </button>
+        </li>
+        <li>
+          <button class="button-page" (click)="getHotels(currentPage + 1)" *ngIf="pagination.nextPage">
+            Próxima Página
+            <i class="fas fa-angle-right"></i>
+          </button>
+        </li>
+        <li>
+          <button class="button-page" (click)="getHotels(pagination.count)" *ngIf="pagination.nextPage">
+            Última Página
+            <i class="fas fa-angle-double-right"></i>
+          </button>
+        </li>
+      </ul>
     </ul>
-  </ul>
+  </div>
 </div>
