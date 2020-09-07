@@ -3,6 +3,34 @@
 $blue: #055AFE;
 $darkBlue: #0547C7;
 $white: #FEFEFE;
+$red: #F13845;
+$pink: #E6207E;
+$lightPink: #E6359E;
+$green: #4CAF50;
+$orange: #FF6D00;
+$grey: #333333;
+$lightGrey: #656565;
+$extraLightGrey: #757575;
+$black: #000000;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-image: url('../../../assets/images/fernando-de-noronha.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+}
+
+.container-header {
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  min-height: 100vh;
+}
 
 .page-content {
   color: $white;
@@ -86,4 +114,130 @@ $white: #FEFEFE;
   &:hover {
     color: #D67B69;
   }
+}
+
+/*  HOTEL LIST & HOTEL CARD */
+
+.buttons-page{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.button-page {
+  margin-right: 10px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  padding: 12px 40px;
+  min-width: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  outline: none;
+  background: transparent;
+  color: $blue;
+  cursor: pointer;
+}
+
+
+.button#hotel-button {
+  min-width: 150px;
+}
+
+.hotel-cards {
+  background: #81B2E3;
+  margin: 25px 0 0 25px;
+}
+
+.hotel-item {
+  background: $white;
+  padding: 5px 0;
+}
+
+.hotel-information {
+
+}
+
+.hotel-photo {
+  width: 500px;
+  border-radius: 15px 15px 0 0;
+}
+
+.hotel-location {
+  color: #717171;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.hotel-name {
+  color: #302E2E;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.hotel-amenities {
+
+}
+
+.amenities-item {
+
+}
+
+.amenity-title {
+
+}
+
+.hotel-free-cancelation {
+  padding: 16px 24px;
+  background: #1DB8AD;
+  color: $white;
+  font-weight: 700;
+  font-size: 12px;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.hotel-tags {
+  padding: 16px 24px;
+  background: $red;
+  color: $white;
+  font-weight: 700;
+  font-size: 12px;
+  width: 210px;
+  border-radius: 5px;
+}
+
+.hotel-price-information {
+
+}
+
+.footer-information {
+
+}
+
+.new-price {
+
+}
+
+.header-information {
+
+}
+
+.fa-star {
+  color: #F9ED81;
+  margin-right: 15px;
+  font-size: 24px;
+}
+
+.fa-fire-alt,
+.fa-check,
+.fa-info-circle {
+  margin-left: 10px;
+}
+
+
+.fa-map-marker {
+  font-size: 12px;
+  color: #717171;
 }
