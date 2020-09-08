@@ -36,8 +36,12 @@ $black: #000000;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: $white;
+  background: #ffffff;
   display: none;
+}
+
+#loading {
+  width: 600px;
 }
 
 .header-hotel-bar {

@@ -106,6 +106,7 @@
       </ul>   
     </div>
     <div class="hotel-list">
+      <img *ngIf="!hotels" id="loading" src="../../../assets/images/loading.gif">
       <ul class="hotel-cards">
         <li class="hotel-item" *ngFor="let hotel of hotels">
           <img class="hotel-photo" src="{{ hotel.image }}" alt="{{ hotel.name }}" >
