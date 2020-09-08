@@ -13,6 +13,7 @@ export class FormComponent implements OnInit {
   hotels: Array<any>
   types: Array<any>
   location: string
+  name: string
   stars: string
   pagination: any
   currentPage: number
@@ -24,8 +25,12 @@ export class FormComponent implements OnInit {
     this.currentPage = 1;
   }
 
-  getLocation(evento: KeyboardEvent){
-    this.location = (<HTMLInputElement>evento.target).value;
+  getLocation(evento: KeyboardEvent, value: null){
+    if(value !== null) {
+      this.location = value;
+    }
+
+    this.location = document.getElementById('searchInput').value;
   }
 
   getHotels(page = 1) {
@@ -83,37 +88,37 @@ export class FormComponent implements OnInit {
   changeBackgroundImage() {
 
     const fernandoDeNoronha = {
-      name: 'Fernando De Noronha - PE',
+      name: 'Fernando De Noronha',
       url: '../../../assets/images/fernando-de-noronha.png',
     };
 
     const portoSeguro = {
-      name: 'Porto Seguro - BA',
+      name: 'Porto Seguro',
       url: '../../../assets/images/porto-seguro.png',
     };
 
     const arraialDoCabo = {
-      name: 'Arraial Do Cabo - RJ',
+      name: 'Arraial Do Cabo',
       url: '../../../assets/images/arraial-do-cabo.png',
     };
 
     const vancouver = {
-      name: 'Vancouver - Canada',
+      name: 'Vancouver',
       url: '../../../assets/images/vancouver.png',
     };
 
     const santorini = {
-      name: 'Santorini - Grecia',
+      name: 'Santorini',
       url: '../../../assets/images/santorini.png',
     };
 
     const bali = {
-      name: 'Bali - Indonesia',
+      name: 'Bali',
       url: '../../../assets/images/bali.png',
     };
 
     const kyoto = {
-      name: 'Kioto - Japão',
+      name: 'Kioto',
       url: '../../../assets/images/kyoto.png',
     };
 
@@ -123,7 +128,7 @@ export class FormComponent implements OnInit {
     };
 
     const bonito = {
-      name: 'Bonito - MS',
+      name: 'Bonito',
       url: '../../../assets/images/bonito.jpg',
     };
 
@@ -136,18 +141,17 @@ export class FormComponent implements OnInit {
     const bgImgName = images[randomNumber].name;
     
     const home = document.getElementById('home-page');
-    const name = document.getElementById('place-name');
+    this.name = document.getElementById('place-name').innerHTML;
     
-    return home.style.backgroundImage = bgImg, name.innerHTML = bgImgName;
+    return home.style.backgroundImage = bgImg, this.name = bgImgName;
   }
 
   sendLocationToInput() {
-    const name = document.getElementById('place-name').innerHTML;
+    const name = document.getElementById('place-name').value;
     let input = document.getElementById('searchInput');
+    input.value = name;
 
-    console.log(typeof input.value)
-
-    return input.value = name.toString();
+    return this.getLocation(null, name);
   }
 
   backToTop() {

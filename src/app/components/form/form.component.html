@@ -1,4 +1,4 @@
-<div class="container" id="home-page" (load)="changeBackgroundImage()">
+<div class="container" id="home-page">
   <app-header></app-header>
   <div class="page-content">
     <div class="search-content">
@@ -11,7 +11,7 @@
           <i class="fas fa-map-marker-alt"></i>
           <input 
           id="searchInput"
-          (keyup)="getLocation($event)"
+          (change)="getLocation($event)"
           (keyup.enter)="getHotels()"
           class="search-input" 
           placeholder="Vai pra onde?"
@@ -23,12 +23,10 @@
           Pesquisar
           <i class="fas fa-search"></i>
         </button>
-
-        <button class="button" (click)="changeBackgroundImage()">Mudar</button>
       </div>
     </div>
     <footer>
-      <button class="background-place" (click)="sendLocationToInput()" id="place-name"></button>
+      <button class="background-place" value="{{ this.name }}" (click)="sendLocationToInput()" id="place-name">{{ this.name }}</button>
     </footer>
   </div>
 </div>
