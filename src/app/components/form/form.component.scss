@@ -58,6 +58,8 @@ $black: #000000;
 }
 
 .ordenation-result {
+  font-family: 'Montserrat', sans-serif;
+  border: none;
   font-size: 14px;
   font-weight: 500;
   color: $lightGrey;
@@ -414,6 +416,13 @@ $black: #000000;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+}
+
+.old-price {
+  color: $red;
+  text-decoration: line-through;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .new-price {

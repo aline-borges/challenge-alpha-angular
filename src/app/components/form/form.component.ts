@@ -14,7 +14,7 @@ export class FormComponent implements OnInit {
   types: Array<any>
   location: string
   name: string
-  stars: string
+  stars: Array<any>
   pagination: any
   currentPage: number
   quantity: string
@@ -40,10 +40,10 @@ export class FormComponent implements OnInit {
       this.quantity = data.meta.count;
       this.place = data.meta.query;
       this.price = data.results.price;
-
-
+      this.stars = data.results.stars;
+      
       console.log(this.hotels);
-      console.log(this.price);
+      console.log(this.stars);
 
       this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
     })
@@ -185,8 +185,15 @@ export class FormComponent implements OnInit {
    return this.items
   }
 
+  rangeValue(){
+    const val = document.getElementById('range').value;
+    
+    document.getElementById('rangeValue').value = `Valor até: R$ ${val}`;
+  }
+
   ngOnInit() {
     this.changeBackgroundImage();
+    this.rangeValue();
   }
 
  }

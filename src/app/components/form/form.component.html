@@ -44,8 +44,8 @@
   <div class="body-hotel">
     <div class="ordenation">
       <div class="slider">
-        <p class="ordenation-result">Valor até:</p>
-        <input type="range" min="1" max="100" value="50"> 
+        <input type="text" class="ordenation-result" id="rangeValue">
+        <input type="range" id="range" min="0" max="1113" value="1113" (change)="rangeValue()"> 
       </div>
       <ul class="ordenation-stars">
         <li class="ordenation-star-item">
@@ -131,11 +131,11 @@
             </ul>
             <div class="footer-information">
               <div class="tags">
-                <p class="hotel-tags" *ngIf=" hotel.tags == 'mais vendidos' ? true : false">
+                <p class="hotel-tags" *ngIf=" hotel.tags.length === 0 ? false : true">
                   {{ hotel.tags }}
                   <i class="fas fa-fire-alt"></i>
                 </p>
-                <p class="hotel-free-cancelation" *ngIf=" hotel.tags == '' ? false : true">
+                <p class="hotel-free-cancelation" *ngIf=" hotel.hu_free_cancellation === false ? false : true">
                   {{ hotel.hu_free_cancellation === true ? 'Cancelamento Grátis' : ''}}
                   <i class="fas fa-info-circle"></i>
                 </p>
