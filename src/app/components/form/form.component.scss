@@ -42,6 +42,7 @@ $black: #000000;
 
 #loading {
   width: 600px;
+  margin: 15%;
 }
 
 .header-hotel-bar {
@@ -72,6 +73,7 @@ $black: #000000;
 
 .slider {
   display: flex; 
+  flex-direction: column;
   margin: 50px 0 50px 50px;
 }
 

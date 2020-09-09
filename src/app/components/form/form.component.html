@@ -32,25 +32,25 @@
 </div>
 
 <div class="container-hotel" id="hotel-page">
-  <div class="header-hotel-bar">
+  <div *ngIf="hotels" class="header-hotel-bar">
     <p class="hotels-result"><span class="quantity-result">{{ this.quantity }}</span> Hotéis para <span class="place-result">{{ this.place }}</span></p>
     <p class="ordenation-result">Ordenar por:</p>
     <select class="ordenation-options" id="selectOrder" (change)="orderBy()">
-      <option value="1">Mais Relevância</option>
-      <option value="2">Menor Preço</option>
-      <option value="3">Maior Preço</option>
+      <option value="moreRelevance">Mais Relevância</option>
+      <option value="lowPrice">Menor Preço</option>
+      <option value="highPrice">Maior Preço</option>
     </select>  
   </div>
   <div class="body-hotel">
-    <div class="ordenation">
+    <div *ngIf="hotels" class="ordenation">
       <div class="slider">
         <input type="text" class="ordenation-result" id="rangeValue">
-        <input type="range" id="range" min="0" max="1113" value="1113" (change)="rangeValue()"> 
+        <input type="range" id="range" [min]="minPrice" [max]="maxPrice" [value]="maxPrice" (change)="rangeValue()"> 
       </div>
       <ul class="ordenation-stars">
         <li class="ordenation-star-item">
           <label class="checkbox path">
-            <input type="checkbox" id="five-stars">
+            <input id="five-stars" type="checkbox">
             <svg viewBox="0 0 21 21">
                 <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
             </svg>
@@ -133,7 +133,7 @@
             <div class="footer-information">
               <div class="tags">
                 <p class="hotel-tags" *ngIf=" hotel.tags.length === 0 ? false : true">
-                  {{ hotel.tags }}
+                  {{ hotel.tags[0] }}
                   <i class="fas fa-fire-alt"></i>
                 </p>
                 <p class="hotel-free-cancelation" *ngIf=" hotel.hu_free_cancellation === false ? false : true">

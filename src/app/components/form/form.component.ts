@@ -20,30 +20,43 @@ export class FormComponent implements OnInit {
   quantity: string
   place: string
   price: Array<any>
+  minPrice: string
+  maxPrice: string
+  amenities: Array<any>
+  rating: Array<any>
 
   constructor(private hurbService: HurbService, private titleService: Title){
     this.currentPage = 1;
   }
+  
+  getLocation(evento: KeyboardEvent, value: string){
+    console.log(typeof value);
+    console.log(value)
 
-  getLocation(evento: KeyboardEvent, value: null){
     if(value !== null) {
       this.location = value;
     }
 
-    this.location = document.getElementById('searchInput').value;
+    this.location = (<HTMLInputElement>document.getElementById('searchInput')).value;
   }
 
-  getHotels(page = 1) {
-    this.hurbService.getData(this.location, 'hotel', page).subscribe((data) => {
+  getHotels(page = 1, order: string) {
+    if(order === undefined) {
+      order = '&sort=score' ;
+    }
+
+    this.hurbService.getData(this.location, 'hotel', page, order).subscribe((data) => {
       this.hotels = data.results;
       this.pagination = data.pagination;
       this.quantity = data.meta.count;
       this.place = data.meta.query;
       this.price = data.results.price;
       this.stars = data.results.stars;
+      this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
+      this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
       
       console.log(this.hotels);
-      console.log(this.stars);
+      console.log(this.minPrice);
 
       this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
     })
@@ -59,30 +72,24 @@ export class FormComponent implements OnInit {
   }
 
   orderBy(){
-    const selectBox = document.getElementById('selectOrder');
-    const selectOptions = selectBox.options[selectedIndex].value;
+    let selectedIndex = (<HTMLInputElement>document.getElementById("selectOrder")).selectedIndex;
 
-    if(value === moreRelevance) {
-      this.data.results.stars == '5';
+    if(selectedIndex === 0) {
+      return this.getHotels(1,'&sort=score&sortOrder=DESC');
     }
 
-    if(value === moreRelevance) {
-      this.data.results.stars == '5';
+    if(selectedIndex === 1) {
+      return this.getHotels(1,'&sort=price&sortOrder=ASC');
     }
+
+    if(selectedIndex === 2) {
+      return this.getHotels(1,'&sort=price&sortOrder=DESC');
+    }
+
   }
 
   getHotelsByStars() {
-    const fiveStars = document.getElementById('five-stars');
-    const fourStars = document.getElementById('four-stars');
-    const threeStars = document.getElementById('three-stars');
-    const twoStars = document.getElementById('two-stars');
-    const oneStar = document.getElementById('one-stars');
 
-    if(fiveStars.checked) { return getHotels(this.hotels.results.stars = '5') }
-    if(fourStars.checked) { return this.hotels.results.stars = '4'}
-    if(threeStars.checked) { return this.hotels.results.stars = '3'}
-    if(twoStars.checked) { return this.hotels.results.stars = '2'}
-    if(oneStar.checked) { return this.hotels.results.stars = '1'}
   }
 
   changeBackgroundImage() {
@@ -147,8 +154,8 @@ export class FormComponent implements OnInit {
   }
 
   sendLocationToInput() {
-    const name = document.getElementById('place-name').value;
-    let input = document.getElementById('searchInput');
+    const name = (<HTMLInputElement>document.getElementById('place-name')).value;
+    let input = (<HTMLInputElement>document.getElementById('searchInput'));
     input.value = name;
 
     return this.getLocation(null, name);
@@ -159,36 +166,36 @@ export class FormComponent implements OnInit {
   }
 
   showStars(rating) {
-    this.items = [];
+    this.rating = [];
 
     for(let i=0; i<rating; i++){
-      this.items.push(i);
+      this.rating.push(i);
     }
 
-    return this.items;
+    return this.rating;
   }
 
   showAmenities(amenities) {
-    this.items = [];
+    this.amenities = [];
 
     if(amenities.length >= 3) {
       for(let i=0; i<2; i++){
-        this.items.push(amenities[i]);
+        this.amenities.push(amenities[i]);
       }
     }
     else {
       for(let i=0; i<amenities.length; i++){
-        this.items.push(amenities[i]);
+        this.amenities.push(amenities[i]);
       }
     }
 
-   return this.items
+   return this.amenities
   }
 
   rangeValue(){
-    const val = document.getElementById('range').value;
+    const val = (<HTMLInputElement>document.getElementById('range')).value;
     
-    document.getElementById('rangeValue').value = `Valor até: R$ ${val}`;
+    (<HTMLInputElement>document.getElementById('rangeValue')).value = `Valor até: R$ ${val}`;
   }
 
   ngOnInit() {

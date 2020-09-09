@@ -9,9 +9,9 @@ import { Observable } from 'rxjs';
 export class HurbService {
   constructor(private http: HttpClient) {}
 
-  getData(location, filter, page):Observable<any> {
+  getData(location, filter, page, order):Observable<any> {
     const type = filter === 'hotel' ? 'hotel' : 'package';
-    const url = `https://www.hurb.com/search/api?q=${location}&filters=is_${type}|1&page=${page}`;
+    const url = `https://www.hurb.com/search/api?q=${location}&filters=is_${type}|1&page=${page}${order}`;
   
     return this.http.get<any>(url);
   }
