@@ -45,7 +45,7 @@
     <div *ngIf="hotels" class="ordenation">
       <div class="slider">
         <input type="text" class="ordenation-result" id="rangeValue">
-        <input type="range" id="range" [min]="minPrice" [max]="maxPrice" [value]="maxPrice" (change)="rangeValue()"> 
+        <input type="range" id="range" [min]="minPrice" [max]="maxPrice" [value]="5000" (click)="limitedByPrice()" (change)="rangeValue()"> 
       </div>
       <ul class="ordenation-stars">
         <li class="ordenation-star-item">

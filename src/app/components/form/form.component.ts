@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { HurbService } from '../../service/hurb.service';
@@ -24,6 +25,9 @@ export class FormComponent implements OnInit {
   maxPrice: string
   amenities: Array<any>
   rating: Array<any>
+  select: string
+  valueSlider: string
+  value: string
 
   constructor(private hurbService: HurbService, private titleService: Title){
     this.currentPage = 1;
@@ -40,12 +44,12 @@ export class FormComponent implements OnInit {
     this.location = (<HTMLInputElement>document.getElementById('searchInput')).value;
   }
 
-  getHotels(page = 1, order: string) {
-    if(order === undefined) {
+  getHotels(page = 1, order: string, limited: string) {
+    if((order === undefined) || (order === null)) {
       order = '&sort=score' ;
     }
 
-    this.hurbService.getData(this.location, 'hotel', page, order).subscribe((data) => {
+    this.hurbService.getData(this.location, 'hotel', page, order, limited).subscribe((data) => {
       this.hotels = data.results;
       this.pagination = data.pagination;
       this.quantity = data.meta.count;
@@ -72,20 +76,26 @@ export class FormComponent implements OnInit {
   }
 
   orderBy(){
-    let selectedIndex = (<HTMLInputElement>document.getElementById("selectOrder")).selectedIndex;
+    this.select = (<HTMLInputElement>document.getElementById("selectOrder")).value;
 
-    if(selectedIndex === 0) {
-      return this.getHotels(1,'&sort=score&sortOrder=DESC');
+    if(this.select === 'moreRelevance') {
+      return this.getHotels(1,'&sort=score&sortOrder=DESC',null);
     }
 
-    if(selectedIndex === 1) {
-      return this.getHotels(1,'&sort=price&sortOrder=ASC');
+    if(this.select  === 'lowPrice') {
+      return this.getHotels(1,'&sort=price&sortOrder=ASC',null);
     }
 
-    if(selectedIndex === 2) {
-      return this.getHotels(1,'&sort=price&sortOrder=DESC');
+    if(this.select  === 'highPrice') {
+      return this.getHotels(1,'&sort=price&sortOrder=DESC',null);
     }
 
+  }
+
+  limitedByPrice(){
+    this.valueSlider = (<HTMLInputElement>document.getElementById('range')).value;
+
+    return this.getHotels(1,null,`1,,price_max_${this.valueSlider}00|1`);
   }
 
   getHotelsByStars() {
@@ -193,14 +203,13 @@ export class FormComponent implements OnInit {
   }
 
   rangeValue(){
-    const val = (<HTMLInputElement>document.getElementById('range')).value;
+     this.value = (<HTMLInputElement>document.getElementById('range')).value;
     
-    (<HTMLInputElement>document.getElementById('rangeValue')).value = `Valor até: R$ ${val}`;
+    (<HTMLInputElement>document.getElementById('rangeValue')).value = `Valor até: R$ ${this.value}`;
   }
 
   ngOnInit() {
     this.changeBackgroundImage();
-    this.rangeValue();
   }
 
  }
