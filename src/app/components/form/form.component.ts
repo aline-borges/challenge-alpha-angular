@@ -104,9 +104,14 @@ export class FormComponent implements OnInit {
 
   changeBackgroundImage() {
 
+    const buzios = {
+      name: 'Buzios',
+      url: '../../../assets/images/buzios.png',
+    }
+
     const fernandoDeNoronha = {
       name: 'Fernando De Noronha',
-      url: '../../../assets/images/fernando-de-noronha.png',
+      url: '../../../assets/images/fernando-de-noronha.jpg',
     };
 
     const portoSeguro = {
@@ -114,9 +119,9 @@ export class FormComponent implements OnInit {
       url: '../../../assets/images/porto-seguro.png',
     };
 
-    const arraialDoCabo = {
-      name: 'Arraial Do Cabo',
-      url: '../../../assets/images/arraial-do-cabo.png',
+    const milao = {
+      name: 'Milão',
+      url: '../../../assets/images/milao.png',
     };
 
     const vancouver = {
@@ -126,7 +131,7 @@ export class FormComponent implements OnInit {
 
     const santorini = {
       name: 'Santorini',
-      url: '../../../assets/images/santorini.png',
+      url: '../../../assets/images/santorini.jpg',
     };
 
     const bali = {
@@ -144,14 +149,14 @@ export class FormComponent implements OnInit {
       url: '../../../assets/images/disney.png',
     };
 
-    const bonito = {
-      name: 'Bonito',
-      url: '../../../assets/images/bonito.jpg',
+    const Jericoacoara = {
+      name: 'Jericoacoara',
+      url: '../../../assets/images/jericoacoara.jpg',
     };
 
-    const images = [fernandoDeNoronha, portoSeguro, arraialDoCabo, 
+    const images = [buzios, fernandoDeNoronha, portoSeguro, milao, 
                     vancouver, santorini, bali,
-                    kyoto, disney, bonito];
+                    kyoto, disney, Jericoacoara];
 
     const randomNumber = Math.floor(Math.random() * images.length);
     const bgImg = `url( ${images[randomNumber].url})`;
