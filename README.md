@@ -1,4 +1,4 @@
-[![banner-principal](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen.png?raw=true)]
+![banner-principal](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen.png?raw=true)
 
 # Hurb Web Site
 
@@ -48,4 +48,4 @@ Execute ng test para executar os testes unitários via Karma.
 Execute ng e2e para executar os testes de ponta a ponta através do Protractor.
 
 ## Mais ajuda
-Para obter mais ajuda sobre a CLI Angular use a ajuda da CLI ou vá verificar o LEIAME da CLI Angular.
+Para obter mais ajuda sobre a CLI Angular use a ajuda da CLI ou vá verificar o README da CLI Angular.
