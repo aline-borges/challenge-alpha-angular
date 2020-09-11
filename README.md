@@ -23,6 +23,8 @@ Criar um site moderno, com uma boa usabilidade que consuma o JSON exposto pela A
 #### Lista de Elementos do Site
 #
 
+![banner-principal](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-home.png?raw=true)
+
 | Tela Inicial  |
 | ------ |
 | Header: Menu com a logo a opção de página inicial, busca por hoteís e busca por pacotes. | 
