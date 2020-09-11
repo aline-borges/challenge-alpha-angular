@@ -27,12 +27,20 @@ $tule: #0f0f0f60;
   font-weight: 700;
   font-size: 24px;
   margin-left: 10px;
+
+  @media screen and (max-width: 360px) { 
+    display: none;
+  } 
 }
 
 .menu-list {
   display: flex;
   align-items: center;
   margin-right: 25px;
+
+  @media screen and (max-width: 360px) { 
+    margin: 0;
+  } 
 }
 
 .menu-item {

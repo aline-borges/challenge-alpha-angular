@@ -58,6 +58,10 @@ $black: #000000;
   margin: 40px 0 0 40px;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 360px) { 
+    margin-top: 50px;
+  } 
 }
 
 .header-hotel-bar {
@@ -242,6 +246,11 @@ $black: #000000;
 .page-title {
   font-size: 36px;
   width: 600px;
+
+  @media screen and (max-width: 360px) { 
+    font-size: 30px;
+    width: 300px;
+  } 
 }
 
 .background-place {
@@ -250,11 +259,14 @@ $black: #000000;
   padding: 8px 16px;
   background: transparent;
   font-family: 'Montserrat', sans-serif;
-  margin: 200px 0 0 40px;
+  margin: 200px 24px 0 40px;
   font-weight: 700;
-  margin-right: 24px;
   cursor: pointer;
   color: $ice;
+
+  @media screen and (max-width: 360px) { 
+    margin: 80px 24px 0 60px;
+  } 
 
   &:hover {
     color: $white;
@@ -271,6 +283,7 @@ $black: #000000;
 }
 
 .header-form {
+  display: flex;
   border: 2px solid $white;
   padding: 20px 40px;
   border-radius: 4px 0 0 4px;
@@ -286,6 +299,10 @@ $black: #000000;
   background: transparent;
   color: $white;
   outline: none;
+
+  @media screen and (max-width: 360px) { 
+    font-size: 18px;
+  } 
 
   &::placeholder {
     color: $white;
@@ -307,6 +324,12 @@ $black: #000000;
   background: $blue;
   margin: auto;
   cursor: pointer;
+
+  @media screen and (max-width: 360px) { 
+    width: 250px;
+    margin: 0 0 0 16px;
+    font-size: 16px;
+  } 
 
   &:hover {
     background: $darkBlue;
@@ -481,6 +504,10 @@ $black: #000000;
 .fa-map-marker-alt {
   font-size: 25px;
   margin-right: 25px;
+
+  @media screen and (max-width: 360px) { 
+    font-size: 18px;
+  } 
 }
 
 .fa-star {
