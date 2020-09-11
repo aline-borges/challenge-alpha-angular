@@ -1,27 +1,51 @@
-# ChallengeAlphaAngular
+[![banner-principal](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen.png?raw=true)]
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
+# Hurb Web Site
 
-## Development server
+[![Angular since](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/angular-pill.png?raw=true)]() [![Typescript since](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/typescript-pill.png?raw=true)]() [![Javascript since](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/javascript-pill.png?raw=true)]() [![Sass since](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/sass-pill.png?raw=true)]()
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+##### 
 
-## Code scaffolding
+### Desafio Original
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Criar um app que consuma o JSON exposto pela API de busca e apresente as informações em uma listagem sendo requisito mínimo do desafio. 
 
-## Build
+### Meu Desafio
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Criar um site moderno, com uma boa usabilidade que consuma o JSON exposto pela API de busca da Hurb.
 
-## Running unit tests
+#### Lista de Elementos do Site
+#
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+| Tela Inicial  |
+| ------ |
+| Header: Menu com a logo a opção de página inicial, busca por hoteís e busca por pacotes. | 
+| Form: Parte de formulário do site onde o usuário pode digitar diretamente o local que deseja realizar a pesquisa. | 
+| Footer: Espaço que mostra o local de onde é a imagem do background, posssibilitando o usuário a pesquisar de forma prática. |
 
-## Running end-to-end tests
+| Tela de Hoteís/Pacotes  |
+| ------ |
+| Header: Menu com a logo a opção de página inicial, busca por hoteís e busca por pacotes. | 
+| Form: Parte de formulário do site onde o usuário pode digitar diretamente o local que deseja realizar a pesquisa. | 
+| Quantidade de Hoteís: Mostra o número de hóteis/pacotes que retornam da busca |
+| Ordenação: Mostra o número de hóteis/pacotes ordenados por relevância, menor preço e maior preço |
+| Limitação: Mostra o número de hóteis/pacotes limitados por preço ou por estrelas |
+| Card do Hotél: Mostra a foto, o nome, a localização, o número de estrelas, o valor da diária, tags e botão de visualizar o hotel|
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Desenvolvimento no Servidor
+Para rodar esse projeto na sua maquina, após clonar o repositório, digite ng serve e navegue para o link  http://localhost:4200/. Pode digitar ng serve --open e a aplicação abre automaticamente. A aplicação faz o reload automático a cada mudança realizada no código. 
 
-## Further help
+## Criar um componente
+Digite ng generate component [nome do componente] para criar um novo componente. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Criar o projeto
+Executar e construir para construir o projeto digite ng build. Os artefatos de construção serão armazenados no diretório dist/. Use a flag --prod para uma construção de produção.
+
+## Testes de unidade em execução
+Execute ng test para executar os testes unitários via Karma.
+
+## Executar os testes de ponta a ponta
+Execute ng e2e para executar os testes de ponta a ponta através do Protractor.
+
+## Mais ajuda
+Para obter mais ajuda sobre a CLI Angular use a ajuda da CLI ou vá verificar o LEIAME da CLI Angular.
