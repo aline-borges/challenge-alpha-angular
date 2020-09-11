@@ -34,9 +34,6 @@ export class FormComponent implements OnInit {
   }
   
   getLocation(evento: KeyboardEvent, value: string){
-    console.log(typeof value);
-    console.log(value)
-
     if(value !== null) {
       this.location = value;
     }
