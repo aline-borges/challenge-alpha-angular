@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  hotelOptionMenu(){
+    const hotelOption = (<HTMLInputElement>document.getElementById('hotelOption'));
+    
+    return this.getHotels('hotel');
+  }
+
+  packageOptionMenu(){
+    const packageOption = (<HTMLInputElement>document.getElementById('packageOption'));
+    
+    return this.getHotels('package');
+  }
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }
