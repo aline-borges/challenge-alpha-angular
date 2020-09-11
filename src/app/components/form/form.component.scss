@@ -10,8 +10,6 @@ $ice: #fefefeb6;
 $red: #F13845;
 $pink: #E6207E;
 $lightPink: #E6359E;
-$green: #4CAF50;
-$orange: #FF6D00;
 $yellow: #FFC000;
 $darkGrey: #302E2E;
 $darkShadow: #9aa0b90d;
@@ -58,8 +56,9 @@ $black: #000000;
   margin: 40px 0 0 40px;
   display: flex;
   flex-direction: column;
+  position: relative;
 
-  @media screen and (max-width: 360px) { 
+  @media screen and (max-width: 414px) { 
     margin-top: 50px;
   } 
 }
@@ -69,10 +68,21 @@ $black: #000000;
   justify-content: space-between;
   align-items: center;
   margin: 25px 0 0 50px;
+
+  @media screen and (max-width: 414px) { 
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0;
+  } 
 }
 
 .body-hotel {
   display: flex;
+
+  @media screen and (max-width: 414px) { 
+    flex-direction: column;
+    justify-content: center;
+  } 
 }
 
 .hotel-price-information {
@@ -84,18 +94,33 @@ $black: #000000;
   font-size: 12px;
   font-weight: 700;
   margin: 25px 25px 0 0;
+
+  @media screen and (max-width: 414px) { 
+    margin: 25px 0;
+  } 
 }
 
 .footer-information {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+
+  @media screen and (max-width: 414px) { 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } 
 }
 
 .hotels-result {
   font-size: 24px;
   color: $lightGrey;
   margin-right: 150px;
+
+  @media screen and (max-width: 414px) { 
+    font-size: 20px;
+    margin: auto; 
+  } 
 }
 
 /* ORDENATION */
@@ -108,6 +133,10 @@ $black: #000000;
   color: $lightGrey;
   margin-right: 10px;
   outline: none;
+
+  @media screen and (max-width: 414px) { 
+    display: none;
+  } 
 }
 
 .slider {
@@ -130,6 +159,10 @@ $black: #000000;
 .ordenation {
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 414px) { 
+    display: none;
+  } 
 }
 
 .checkbox {
@@ -230,6 +263,11 @@ $black: #000000;
     background-repeat: no-repeat, repeat;
     background-position: right .7em top 50%, 0 0;
     background-size: .65em auto, 100%;
+
+    @media screen and (max-width: 414px
+) { 
+      display: none;
+    } 
 }
 
 .quantity-result {
@@ -247,7 +285,7 @@ $black: #000000;
   font-size: 36px;
   width: 600px;
 
-  @media screen and (max-width: 360px) { 
+  @media screen and (max-width: 414px) { 
     font-size: 30px;
     width: 300px;
   } 
@@ -264,7 +302,7 @@ $black: #000000;
   cursor: pointer;
   color: $ice;
 
-  @media screen and (max-width: 360px) { 
+  @media screen and (max-width: 414px) { 
     margin: 80px 24px 0 60px;
   } 
 
@@ -283,24 +321,30 @@ $black: #000000;
 }
 
 .header-form {
+  display: -ms-flexbox; /* IE10 */
   display: flex;
-  border: 2px solid $white;
-  padding: 20px 40px;
-  border-radius: 4px 0 0 4px;
-  margin: 15px 40px 40px 0;
+  width: 100%;
+  border: none;
+  background: transparent;
 }
 
 .search-input {
+  display: flex;
+  border: 2px solid $white;
+  border-left: none;
+  padding: 20px 40px 20px 0;
+  border-radius: 0 4px 4px 0;
+  width: 100%;
+  margin: 15px 40px 40px 0;
+  overflow: hidden;
   font-family: 'Montserrat', sans-serif;
-  border: none;
-  min-width: 600px;
   font-size: 24px;
   font-weight: 700;
   background: transparent;
   color: $white;
   outline: none;
 
-  @media screen and (max-width: 360px) { 
+  @media screen and (max-width: 414px) { 
     font-size: 18px;
   } 
 
@@ -311,7 +355,8 @@ $black: #000000;
 
 /* BUTTONS */
 
-.button {
+.button,
+#filter-button {
   font-family: 'Montserrat', sans-serif;
   border: none;
   border-radius: 4px;
@@ -325,7 +370,7 @@ $black: #000000;
   margin: auto;
   cursor: pointer;
 
-  @media screen and (max-width: 360px) { 
+  @media screen and (max-width: 414px) { 
     width: 250px;
     margin: 0 0 0 16px;
     font-size: 16px;
@@ -341,11 +386,41 @@ $black: #000000;
   font-size: 12px;
 }
 
+#filter-button {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 8px 60px;
+  margin: 15px auto 0;
+  background: transparent;
+  color: $darkBlue;
+  border: 2px solid $darkBlue;
+  text-align: center;
+  display: none;
+
+  &:hover {
+    background: $darkBlue;
+    color: $white;
+  }
+
+  @media screen and (max-width: 414px) { 
+    display: flex;
+  } 
+
+}
+
 .buttons-page{
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 5px 0 25px 0;
+
+  @media screen and (max-width: 414px) { 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  } 
 }
 
 .button-page {
@@ -364,6 +439,11 @@ $black: #000000;
   &:hover {
     background: $pink;
   }
+
+  @media screen and (max-width: 414px) { 
+    margin-bottom: 5px;
+    margin-right: 0;
+  } 
 }
 
 /*  HOTEL LIST & HOTEL CARD */
@@ -375,6 +455,10 @@ $black: #000000;
   grid-gap: 50px;
   margin: 30px 0 0 50px;
   width: fit-content;
+
+  @media screen and (max-width: 414px) { 
+    margin-left: auto;
+  } 
 }
 
 .hotel-list {
@@ -382,6 +466,19 @@ $black: #000000;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 414px) { 
+    justify-content: flex-start;
+    align-items: flex-start;
+  } 
+}
+
+.hotel-rating {
+  
+
+  @media screen and (max-width: 414px) { 
+    margin-left: 35px;
+  } 
 }
 
 .hotel-item {
@@ -390,10 +487,22 @@ $black: #000000;
   border-radius: 15px;
   box-shadow: 0 5px 10px $darkShadow, 0 15px 40px $lightShadow;
   width: 600px;
+
+  @media screen and (max-width: 414px) { 
+    margin: 10px 5px;
+    padding-right: 20px;
+    width: 300px;
+  } 
 }
 
 .hotel-information {
   padding: 15px;
+
+  @media screen and (max-width: 414px) { 
+    text-align: center;
+    padding: 15px 0;
+    margin: 0;
+  } 
 }
 
 .hotel-location {
@@ -409,10 +518,20 @@ $black: #000000;
   font-weight: 700;
   margin-left: 25px;
   width: 350px;
+
+  @media screen and (max-width: 414px) { 
+    margin: 25px 0 10px;
+    width: fit-content;
+  } 
 }
 
 .hotel-amenities {
   display: flex;
+
+  @media screen and (max-width: 414px) { 
+    text-align: center;
+    justify-content: center;
+  } 
 }
 
 .amenities-item {
@@ -433,6 +552,11 @@ $black: #000000;
   font-size: 10px;
   width: fit-content;
   border-radius: 5px;
+
+  @media screen and (max-width: 414px) { 
+    padding: 5px;
+    height: 23px;
+  } 
 }
 
 .hotel-tags {
@@ -443,15 +567,22 @@ $black: #000000;
   font-size: 10px;
   width: fit-content;
   border-radius: 5px;
-  margin-right: 10px;
+  margin-bottom: 10px;
+
+  @media screen and (max-width: 414px) { 
+    padding: 5px;
+    margin-right: 5px;
+  } 
 }
 
 .tags {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
+  flex-direction: column;
   margin-left: 25px;
+
+  @media screen and (max-width: 414px) { 
+    margin-top: 15px;
+  } 
 }
 
 .old-price {
@@ -479,17 +610,22 @@ $black: #000000;
   justify-content: space-between;
   align-items: center;
   margin: 15px 0 15px 0;
+
+  @media screen and (max-width: 414px) { 
+    flex-direction: column-reverse;
+    margin: 10px 0 2px;
+  } 
 }
 
 /* IMAGES */
 
 #loading {
   width: 600px;
-  margin: 15%;
+  margin: 100px;
 
-  @media screen and (max-width: 360px) { 
+  @media screen and (max-width: 414px) { 
     width: 400px;
-    margin: 30%;
+    margin: 220px;
   } 
 }
 
@@ -497,21 +633,35 @@ $black: #000000;
   width: 600px;
   height: 300px;
   border-radius: 15px 15px 0 0;
+
+  @media screen and (max-width: 414px) { 
+    width: 300px;
+    height: 200px;
+  } 
+  
 }
 
 /* FONT AWESOME ICONS */
 
-.fa-search {
+.fa-search,
+.fa-filter {
   font-size: 15px;
   margin-left: 25px;
 }
 
 .fa-map-marker-alt {
   font-size: 25px;
-  margin-right: 25px;
+  text-align: center;
+  border: 2px solid $white;
+  border-radius: 4px 0 0 4px;
+  border-right: none;
+  margin-top: 15px;
+  padding: 20px 22px 22px 35px;
+  height: 73px;
 
-  @media screen and (max-width: 360px) { 
+  @media screen and (max-width: 414px) { 
     font-size: 18px;
+    height: 66px;
   } 
 }
 

@@ -7,7 +7,7 @@
       </h1>
   
       <div class="search-form">
-        <div class="header-form">
+        <div class="header-form ">
           <i class="fas fa-map-marker-alt"></i>
           <input 
           id="searchInput"
@@ -37,6 +37,10 @@
 <div class="container-hotel" id="hotel-page">
   <div *ngIf="hotels" class="header-hotel-bar">
     <p class="hotels-result"><span class="quantity-result">{{ this.quantity }}</span> Hotéis para <span class="place-result">{{ this.place }}</span></p>
+    <button id="filter-button">
+      Filtrar
+      <i class="fas fa-filter"></i>
+    </button>
     <p class="ordenation-result">Ordenar por:</p>
     <select class="ordenation-options" id="selectOrder" (change)="orderBy()">
       <option value="moreRelevance">Mais Relevância</option>
