@@ -37,7 +37,7 @@
 <div class="container-hotel" id="hotel-page">
   <div *ngIf="hotels" class="header-hotel-bar">
     <p class="hotels-result"><span class="quantity-result">{{ this.quantity }}</span> Hotéis para <span class="place-result">{{ this.place }}</span></p>
-    <button id="filter-button">
+    <button id="filter-button" (click)="showFilters()">
       Filtrar
       <i class="fas fa-filter"></i>
     </button>
@@ -49,12 +49,12 @@
     </select>  
   </div>
   <div class="body-hotel">
-    <div *ngIf="hotels" class="ordenation">
-      <div class="slider">
+    <div *ngIf="hotels" class="ordenation" id="ordenation">
+      <div class="slider" id="slider">
         <input type="text" class="ordenation-result" id="rangeValue">
         <input type="range" id="range" [min]="minPrice" [max]="15000" [value]="200" (click)="limitedByPrice()" (change)="rangeValue()"> 
       </div>
-      <ul class="ordenation-stars">
+      <ul class="ordenation-stars" id="ordenation-stars">
         <li class="ordenation-star-item">
           <label class="checkbox path">
             <input id="five-stars" type="checkbox">

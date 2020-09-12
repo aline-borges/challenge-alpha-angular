@@ -72,6 +72,18 @@ export class FormComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
+  showFilters() {
+    const filterButton = (<HTMLInputElement>document.getElementById('filter-button'));
+    const ordenation = (<HTMLInputElement>document.getElementById('ordenation'));
+    const highLowPrice = (<HTMLInputElement>document.getElementById('selectOrder'));
+
+    ordenation.style.display === 'none' ? ordenation.style.display = 'flex' :
+    ordenation.style.display = 'none';
+
+    highLowPrice.style.display === 'none' ? highLowPrice.style.display = 'flex' :
+    highLowPrice.style.display = 'none';
+  }
+
   orderBy(){
     this.select = (<HTMLInputElement>document.getElementById("selectOrder")).value;
 
