@@ -35,18 +35,38 @@
 </div>
 
 <div class="container-hotel" id="hotel-page">
+  <app-header></app-header>
+  <div class="search-form">
+    <div class="header-form ">
+      <i class="fas fa-map-marker-alt"></i>
+      <input 
+      (change)="getLocation($event)"
+      (keyup.enter)="getHotels()"
+      class="search-input" 
+      placeholder="Vai pra onde?"
+      #campoInput
+      >
+    </div>
+
+    <button class="button" (click)="getHotels()">
+      Pesquisar
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
   <div *ngIf="hotels" class="header-hotel-bar">
     <p class="hotels-result"><span class="quantity-result">{{ this.quantity }}</span> Hotéis para <span class="place-result">{{ this.place }}</span></p>
     <button id="filter-button" (click)="showFilters()">
       Filtrar
       <i class="fas fa-filter"></i>
     </button>
-    <p class="ordenation-result">Ordenar por:</p>
-    <select class="ordenation-options" id="selectOrder" (change)="orderBy()">
-      <option value="moreRelevance">Mais Relevância</option>
-      <option value="lowPrice">Menor Preço</option>
-      <option value="highPrice">Maior Preço</option>
-    </select>  
+    <div class="ordenation-aside">
+      <p class="ordenation-result">Ordenar por:</p>
+      <select class="ordenation-options" id="selectOrder" (change)="orderBy()">
+        <option value="moreRelevance">Mais Relevância</option>
+        <option value="lowPrice">Menor Preço</option>
+        <option value="highPrice">Maior Preço</option>
+      </select>  
+    </div>
   </div>
   <div class="body-hotel">
     <div *ngIf="hotels" class="ordenation" id="ordenation">
@@ -157,38 +177,38 @@
           </div>
         </li>
       </ul>
-      <ul class="buttons-page" *ngIf="pagination">
-        <li>
-          <button class="button-page" (click)="getHotels(1)" *ngIf="pagination.previousPage">
-            <i class="fas fa-angle-double-left"></i>
-            Primeira Página
-          </button>
-        </li>
-        <li>
-          <button class="button-page" (click)="getHotels(currentPage - 1)" *ngIf="pagination.previousPage">
-            <i class="fas fa-angle-left"></i>
-            Página Anterior
-        </button>
-        </li>
-        <li>
-          <button class="button-page" (click)="getHotels(currentPage + 1)" *ngIf="pagination.nextPage">
-            Próxima Página
-            <i class="fas fa-angle-right"></i>
-          </button>
-        </li>
-        <li>
-          <button class="button-page" (click)="getHotels(pagination.count)" *ngIf="pagination.nextPage">
-            Última Página
-            <i class="fas fa-angle-double-right"></i>
-          </button>
-        </li>
-        <li>
-          <button class="button-page" (click)="backToTop()">
-            Voltar ao Topo
-            <i class="fas fa-angle-up"></i>
-          </button>
-        </li>
-      </ul>
     </div>
   </div>
+  <ul class="buttons-page" *ngIf="hotels">
+    <li>
+      <button class="button-page" (click)="getHotels(1)" *ngIf="pagination.previousPage">
+        <i class="fas fa-angle-double-left"></i>
+        Primeira Página
+      </button>
+    </li>
+    <li>
+      <button class="button-page" (click)="getHotels(currentPage - 1)" *ngIf="pagination.previousPage">
+        <i class="fas fa-angle-left"></i>
+        Página Anterior
+    </button>
+    </li>
+    <li>
+      <button class="button-page" (click)="getHotels(currentPage + 1)" *ngIf="pagination.nextPage">
+        Próxima Página
+        <i class="fas fa-angle-right"></i>
+      </button>
+    </li>
+    <li>
+      <button class="button-page" (click)="getHotels(pagination.count)" *ngIf="pagination.nextPage">
+        Última Página
+        <i class="fas fa-angle-double-right"></i>
+      </button>
+    </li>
+    <li>
+      <button class="button-page" (click)="backToTop()">
+        Voltar ao Topo
+        <i class="fas fa-angle-up"></i>
+      </button>
+    </li>
+  </ul>
 </div>

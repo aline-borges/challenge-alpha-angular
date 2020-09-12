@@ -38,7 +38,7 @@ export class FormComponent implements OnInit {
       this.location = value;
     }
 
-    this.location = (<HTMLInputElement>document.getElementById('searchInput')).value;
+    this.location = (<HTMLInputElement>document.querySelector('.search-input')).value;
   }
 
   getHotels(page = 1, order: string, limited: string) {
@@ -179,7 +179,7 @@ export class FormComponent implements OnInit {
 
   sendLocationToInput() {
     const name = (<HTMLInputElement>document.getElementById('place-name')).value;
-    let input = (<HTMLInputElement>document.getElementById('searchInput'));
+    let input = (<HTMLInputElement>document.querySelector('.search-input'));
     input.value = name;
 
     return this.getLocation(null, name);
