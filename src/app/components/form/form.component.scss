@@ -156,7 +156,7 @@ $black: #000000;
 .body-hotel {
   display: flex;
 
-  @media screen and (max-width: 414px) { 
+  @media screen and (max-width: 831px) { 
     flex-direction: column;
     justify-content: center;
   } 
@@ -613,7 +613,7 @@ $black: #000000;
   background: $lightPink;
   color: $white;
   text-align: center;
-  margin-top: 15px;
+  margin: 15px auto 0 auto;
   
   &:hover {
     background: $pink;
@@ -624,7 +624,7 @@ $black: #000000;
 #show-search-button {
   display: none;
 
-  @media screen and (max-width: 414px) { 
+  @media screen and (max-width: 831px) { 
     display: flex;
   } 
 

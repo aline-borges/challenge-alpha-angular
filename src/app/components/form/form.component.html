@@ -63,12 +63,11 @@
         <option value="highPrice">Maior Preço</option>
       </select>  
     </div>
-    <button id="filter-button">
-      Filtrar
-      <i class="fas fa-filter" (click)="showFilters()"></i>
-    </button>
-    
   </div>
+  <button id="filter-button" (click)="showFilters()">
+    Filtrar
+    <i class="fas fa-filter"></i>
+  </button>
   <div class="body-hotel">
     <div *ngIf="hotels" class="ordenation" id="ordenation">
       <div class="slider" id="slider">
@@ -172,7 +171,7 @@
               <div class="hotel-price-information">
                 <p>Diárias a partir de <span class="old-price">{{ hotel.price.old_price > hotel.price.amountPerDay ? hotel.price.old_price : '' }}</span></p>
                 <p><span class="new-price"><span class="currency">R$</span>{{ hotel.price.amountPerDay.toFixed(0) }}</span> + Taxas</p>
-                <button class="button" id="hotel-button">Visualizar Hotel</button>
+                <button class="button" id="hotel-button"><a href="{{hotel.url}}">Visualizar Hotel</a></button>
               </div>
             </div>
           </div>
