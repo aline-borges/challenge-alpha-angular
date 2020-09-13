@@ -34,14 +34,6 @@ export class FormComponent implements OnInit {
   constructor(private hurbService: HurbService, private titleService: Title){
     this.currentPage = 1;
   }
-
-  autoCompleteLocation(){
-    var input = (<HTMLInputElement>document.querySelector('.search-input'));
-    var options = {
-        componentRestrictions: {country: 'au'}
-    };
-    var autocomplete = new google.maps.places.Autocomplete(input, options);
-  }
   
   getLocation(evento: KeyboardEvent, value: string){
     if(value !== null) {
@@ -98,15 +90,15 @@ export class FormComponent implements OnInit {
     this.select = (<HTMLInputElement>document.getElementById("selectOrder")).value;
 
     if(this.select === 'moreRelevance') {
-      return this.getHotels(1,'&sort=score&sortOrder=DESC',null);
+      return this.getHotels(1,'&sort=score&sortOrder=DESC',null, null);
     }
 
     if(this.select  === 'lowPrice') {
-      return this.getHotels(1,'&sort=price&sortOrder=ASC',null);
+      return this.getHotels(1,'&sort=price&sortOrder=ASC',null, null);
     }
 
     if(this.select  === 'highPrice') {
-      return this.getHotels(1,'&sort=price&sortOrder=DESC',null);
+      return this.getHotels(1,'&sort=price&sortOrder=DESC',null, null);
     }
 
   }
@@ -114,7 +106,7 @@ export class FormComponent implements OnInit {
   limitedByPrice(){
     this.valueSlider = (<HTMLInputElement>document.getElementById('range')).value;
 
-    return this.getHotels(1,null,`1,,price_max_${this.valueSlider}00|1`);
+    return this.getHotels(1,null,`1,,price_max_${this.valueSlider}00|1`, null);
   }
 
   getHotelsByStars() {
