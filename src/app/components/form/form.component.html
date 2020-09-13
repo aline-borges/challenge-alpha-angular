@@ -67,13 +67,13 @@
   <div class="body-hotel">
     <div *ngIf="hotels" class="ordenation" id="ordenation">
       <div class="slider" id="slider">
-        <input type="text" class="ordenation-result" id="rangeValue">
-        <input type="range" id="range" [min]="minPrice" [max]="15000" [value]="200" (click)="limitedByPrice()" (change)="rangeValue()"> 
+        <p class="rangeText">Valor até: R$ {{ this.value ? this.value : '1500' }}</p>
+        <input type="range" id="range" [min]="minPrice" [max]="1500" [value]="1500" (click)="limitedByPrice()" (change)="rangeValue()"> 
       </div>
       <ul class="ordenation-stars" id="ordenation-stars">
         <li class="ordenation-star-item">
           <label class="checkbox path">
-            <input id="five-stars" type="checkbox">
+            <input id="five-stars" type="checkbox" value="stars_5|2" (click)="getHotelsByStars()">
             <svg viewBox="0 0 21 21">
                 <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
             </svg>
@@ -86,7 +86,7 @@
         </li>
         <li class="ordenation-star-item">
           <label class="checkbox path">
-            <input type="checkbox" id="four-stars">
+            <input type="checkbox" id="four-stars" value="stars_4|2" (click)="getHotelsByStars()">
             <svg viewBox="0 0 21 21">
                 <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
             </svg>
@@ -98,7 +98,7 @@
         </li>
         <li class="ordenation-star-item">
           <label class="checkbox path">
-            <input type="checkbox" id="three-stars">
+            <input type="checkbox" id="three-stars" value="stars_3|2" (click)="getHotelsByStars()">
             <svg viewBox="0 0 21 21">
                 <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
             </svg>
@@ -109,7 +109,7 @@
         </li>
         <li class="ordenation-star-item">
           <label class="checkbox path">
-            <input type="checkbox" id="two-stars">
+            <input type="checkbox" id="two-stars" value="stars_2|2" (click)="getHotelsByStars()">
             <svg viewBox="0 0 21 21">
                 <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
             </svg>
@@ -119,7 +119,7 @@
         </li>
         <li class="ordenation-star-item">
           <label class="checkbox path">
-            <input type="checkbox" id="one-stars">
+            <input type="checkbox" id="one-star" value="stars_1|2" (click)="getHotelsByStars()">
             <svg viewBox="0 0 21 21">
                 <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
             </svg>

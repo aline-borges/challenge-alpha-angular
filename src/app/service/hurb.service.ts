@@ -6,20 +6,27 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-export class HurbService {
+export class HurbService { 
+
+  stars: Array<any>
+
   constructor(private http: HttpClient) {}
 
-  getData(location, filter, page, order, limited):Observable<any> {
+  getData(location, filter, page, order, limited, quantityStars):Observable<any> {
     if((order === undefined) || (order === null)) {
-      order = '' ;
+      order = '&sort=score';
     }
 
     if((limited === undefined) || (limited === null)) {
       limited = '';
     }
 
+    if((quantityStars === undefined) || (quantityStars === null)) {
+      quantityStars = '';
+    }
+
     const type = filter === 'hotel' ? 'hotel' : 'package';
-    const url = `https://www.hurb.com/search/api?q=${location}&filters=is_${type}|${limited}1&page=${page}${order}`;
+    const url = `https://www.hurb.com/search/api?q=${location}&filters=is_${type}|1,${quantityStars}${limited}&page=${page}${order}`;
   
     return this.http.get<any>(url);
   }

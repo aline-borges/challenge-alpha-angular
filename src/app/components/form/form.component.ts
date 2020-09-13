@@ -51,12 +51,9 @@ export class FormComponent implements OnInit {
     this.location = (<HTMLInputElement>document.querySelector('.search-input')).value;
   }
 
-  getHotels(page = 1, order: string, limited: string) {
-    if((order === undefined) || (order === null)) {
-      order = '&sort=score' ;
-    }
+  getHotels(page = 1, order: string, limited: string, quantityStars: Array<any> ) {
 
-    this.hurbService.getData(this.location, 'hotel', page, order, limited).subscribe((data) => {
+    this.hurbService.getData(this.location, 'hotel', page, order, limited, quantityStars).subscribe((data) => {
       this.hotels = data.results;
       this.pagination = data.pagination;
       this.quantity = data.meta.count;
@@ -65,9 +62,6 @@ export class FormComponent implements OnInit {
       this.stars = data.results.stars;
       this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
       this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
-      
-      console.log(this.hotels);
-      console.log(this.minPrice);
 
       this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
     })
@@ -125,7 +119,23 @@ export class FormComponent implements OnInit {
   }
 
   getHotelsByStars() {
+    const fiveStars = (<HTMLInputElement>document.getElementById('five-stars'));
+    const fourStars = (<HTMLInputElement>document.getElementById('four-stars'));
+    const threeStars = (<HTMLInputElement>document.getElementById('three-stars'));
+    const twoStars = (<HTMLInputElement>document.getElementById('two-stars'));
+    const oneStar = (<HTMLInputElement>document.getElementById('one-star'));
+    const stars = [fiveStars, fourStars, threeStars, twoStars, oneStar];
+    const starsValue = []
 
+    const isChecked = (star) => {
+      if(star.checked === true) {
+        starsValue.push(star.value);
+      }
+    }
+
+    const newArray = stars.filter(isChecked);
+
+    return this.getHotels(1, null, null, starsValue);
   }
 
   changeBackgroundImage() {
@@ -235,8 +245,6 @@ export class FormComponent implements OnInit {
 
   rangeValue(){
      this.value = (<HTMLInputElement>document.getElementById('range')).value;
-    
-    (<HTMLInputElement>document.getElementById('rangeValue')).value = `Valor até: R$ ${this.value}`;
   }
 
   ngOnInit() {
