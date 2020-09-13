@@ -376,7 +376,9 @@ $black: #000000;
     background-size: .65em auto, 100%;
 
     @media screen and (max-width: 414px) { 
-      margin: 0;
+      margin: 10px 0 0 26px;
+      line-height: 1.8;
+      width: 300px;
     } 
 }
 
@@ -557,7 +559,8 @@ $black: #000000;
 
 /* BUTTONS */
 
-.button {
+.button,
+#filter-button {
   font-family: 'Montserrat', sans-serif;
   border: none;
   border-radius: 4px;
@@ -601,6 +604,20 @@ $black: #000000;
   width: fit-content;
   font-size: 12px;
   margin: auto;
+}
+
+#filter-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $lightPink;
+  color: $white;
+  text-align: center;
+  margin-top: 15px;
+  
+  &:hover {
+    background: $pink;
+  }
 }
 
 #filter-button,
@@ -929,8 +946,7 @@ $black: #000000;
 
 /* FONT AWESOME ICONS */
 
-.fa-search,
-.fa-filter {
+.fa-search {
   font-size: 15px;
   margin-left: 25px;
 }
@@ -941,17 +957,14 @@ $black: #000000;
   } 
 }
 
-.fa-filter {
-  font-size: 20px;
-}
-
 .fa-plus {
   font-size: 25px;
 }
 
-.fa-plus,
 .fa-filter {
-  color: $darkGrey;
+  color: $white;
+  font-size: 12px;
+  margin-left: 15px;
 }
 
 .fa-map-marker-alt {

@@ -88,7 +88,6 @@ export class FormComponent implements OnInit {
   }
 
   showFilters() {
-    const filterButton = (<HTMLInputElement>document.getElementById('filter-button'));
     const ordenation = (<HTMLInputElement>document.getElementById('ordenation'));
 
     ordenation.style.display === 'none' ? ordenation.style.display = 'flex' :

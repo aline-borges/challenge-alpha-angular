@@ -56,13 +56,18 @@
   <div *ngIf="hotels" class="header-hotel-bar">
     <p class="hotels-result"><span class="quantity-result">{{ this.quantity }}</span> Hotéis para <span class="place-result">{{ this.place }}</span></p>
     <div class="ordenation-aside">
-      <p class="ordenation-result">Ordenar por:</p>
       <select class="ordenation-options" id="selectOrder" (change)="orderBy()">
+        <option disabled="disabled">Ordenar por:</option>
         <option value="moreRelevance">Mais Relevância</option>
         <option value="lowPrice">Menor Preço</option>
         <option value="highPrice">Maior Preço</option>
       </select>  
     </div>
+    <button id="filter-button">
+      Filtrar
+      <i class="fas fa-filter" (click)="showFilters()"></i>
+    </button>
+    
   </div>
   <div class="body-hotel">
     <div *ngIf="hotels" class="ordenation" id="ordenation">
