@@ -36,7 +36,7 @@
 
 <div class="container-hotel" id="hotel-page">
   <app-header></app-header>
-  <div class="search-form">
+  <div id="form-hotel-page" class="search-form">
     <div class="header-form ">
       <i class="fas fa-map-marker-alt"></i>
       <input 
@@ -55,10 +55,6 @@
   </div>
   <div *ngIf="hotels" class="header-hotel-bar">
     <p class="hotels-result"><span class="quantity-result">{{ this.quantity }}</span> Hotéis para <span class="place-result">{{ this.place }}</span></p>
-    <button id="filter-button" (click)="showFilters()">
-      Filtrar
-      <i class="fas fa-filter"></i>
-    </button>
     <div class="ordenation-aside">
       <p class="ordenation-result">Ordenar por:</p>
       <select class="ordenation-options" id="selectOrder" (change)="orderBy()">

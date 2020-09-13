@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { HurbService } from '../../service/hurb.service';
+import { HeaderComponent } from './../header/header.component';
+
 
 @Component({
   selector: 'app-form',
@@ -31,6 +33,14 @@ export class FormComponent implements OnInit {
 
   constructor(private hurbService: HurbService, private titleService: Title){
     this.currentPage = 1;
+  }
+
+  autoCompleteLocation(){
+    var input = (<HTMLInputElement>document.querySelector('.search-input'));
+    var options = {
+        componentRestrictions: {country: 'au'}
+    };
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
   }
   
   getLocation(evento: KeyboardEvent, value: string){
@@ -72,16 +82,23 @@ export class FormComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
+  changeHotelPackageFilter(){
+  } 
+
+  showForm() {
+    const showSearch = (<HTMLInputElement>document.getElementById('show-search-button'));
+    const formHotel = (<HTMLInputElement>document.getElementById('form-hotel-page'));
+
+    formHotel.style.display === 'none' ? formHotel.style.display = 'flex' : formHotel.style.display = 'none';
+
+  }
+
   showFilters() {
     const filterButton = (<HTMLInputElement>document.getElementById('filter-button'));
     const ordenation = (<HTMLInputElement>document.getElementById('ordenation'));
-    const highLowPrice = (<HTMLInputElement>document.getElementById('selectOrder'));
 
     ordenation.style.display === 'none' ? ordenation.style.display = 'flex' :
     ordenation.style.display = 'none';
-
-    highLowPrice.style.display === 'none' ? highLowPrice.style.display = 'flex' :
-    highLowPrice.style.display = 'none';
   }
 
   orderBy(){
