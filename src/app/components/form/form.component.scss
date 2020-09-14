@@ -520,7 +520,9 @@ $black: #000000;
   display: flex;
   border: 2px solid $white;
   border-left: none;
-  padding: 20px 40px 20px 10px;
+  border-right: none;
+  border-top: none;
+  padding: 20px 40px 10px 10px;
   border-radius: 0 4px 4px 0;
   width: 100%;
   margin: 15px 40px 40px 0;
@@ -970,14 +972,14 @@ $black: #000000;
 .fa-map-marker-alt {
   font-size: 25px;
   text-align: center;
-  border: 2px solid $white;
-  border-right: none;
+  border: none;
   border-radius: 4px 0 0 4px;
   margin-top: 15px;
   padding: 22px 20px 22px 20px;
   height: fit-content;
   background: transparent;
   color: $white;
+
 
   @media screen and (min-width: 732px) and (max-width: 823px) { 
     font-size: 18px;
@@ -1032,6 +1034,10 @@ $black: #000000;
   font-size: 12px;
   color: $grey;
   margin-left: 25px;
+
+  @media screen and (min-width: 411px) { 
+    margin-left: 0;
+  } 
 }
 
 .fa-angle-left,

@@ -54,7 +54,7 @@
     </button>
   </div>
   <div *ngIf="hotels" class="header-hotel-bar">
-    <p class="hotels-result"><span class="quantity-result">{{ this.quantity }}</span> Hotéis para <span class="place-result">{{ this.place }}</span></p>
+    <p class="hotels-result"><span class="quantity-result">{{ this.quantity }}</span> {{ this.quantity == '1' ? 'hotel' : 'hotéis' }} para <span class="place-result">{{ this.place }}</span></p>
     <div class="ordenation-aside">
       <select class="ordenation-options" id="selectOrder" (change)="orderBy()">
         <option disabled="disabled">Ordenar por:</option>

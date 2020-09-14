@@ -9,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
+  hotel: string
+  package: string
+
   constructor() {}
 
+  selectedMenuOption() {
+    this.hotel = (<HTMLInputElement>document.getElementById('hotelOption'));
+    this.package = (<HTMLInputElement>document.getElementById('packageOption'));
+
+  }
+
   ngOnInit() {
+    this.selectedMenuOption();
   }
 
 }
