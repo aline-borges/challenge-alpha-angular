@@ -102,15 +102,15 @@ export class FormComponent implements OnInit {
     this.select = (<HTMLInputElement>document.getElementById("selectOrder")).value;
 
     if(this.select === 'moreRelevance') {
-      return this.getHotels(1,'&sort=score&sortOrder=DESC',null, null);
+      return this.getHotels(1, null,'&sort=score&sortOrder=DESC',null, null);
     }
 
     if(this.select  === 'lowPrice') {
-      return this.getHotels(1,'&sort=price&sortOrder=ASC',null, null);
+      return this.getHotels(1, null,'&sort=price&sortOrder=ASC',null, null);
     }
 
     if(this.select  === 'highPrice') {
-      return this.getHotels(1,'&sort=price&sortOrder=DESC',null, null);
+      return this.getHotels(1, null,'&sort=price&sortOrder=DESC',null, null);
     }
 
   }
@@ -118,7 +118,7 @@ export class FormComponent implements OnInit {
   limitedByPrice(){
     this.valueSlider = (<HTMLInputElement>document.getElementById('range')).value;
 
-    return this.getHotels(1,null,`1,,price_max_${this.valueSlider}00|1`, null);
+    return this.getHotels(1,null, null, `1,,price_max_${this.valueSlider}00|1`, null);
   }
 
   getHotelsByStars() {
@@ -138,7 +138,7 @@ export class FormComponent implements OnInit {
 
     const newArray = stars.filter(isChecked);
 
-    return this.getHotels(1, null, null, starsValue);
+    return this.getHotels(1,null, null, null, starsValue);
   }
 
   changeBackgroundImage() {

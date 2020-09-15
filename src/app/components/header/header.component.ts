@@ -9,10 +9,10 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
-  @Output sendTypeSearch = new EventEmitter();
+  @Output() sendTypeSearch = new EventEmitter();
 
-  hotel: string
-  package: string
+  hotel: any
+  package: any
   
   constructor() {}
 
@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
       this.hotel.classList.remove('underlinedMenuSelection');
       this.sendTypeSearch.emit('offer');
     });
+
   }
 
   ngOnInit() {
