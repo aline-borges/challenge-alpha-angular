@@ -25,8 +25,11 @@ export class HurbService {
       quantityStars = '';
     }
 
-    const type = filter === 'hotel' ? 'hotel' : 'package';
-    const url = `https://www.hurb.com/search/api?q=${location}&filters=is_${type}|1,${quantityStars}${limited}&page=${page}${order}`;
+    if((filter === undefined) || (filter === null)) {
+      filter = 'hotel';
+    }
+
+    const url = `https://www.hurb.com/search/api?q=${location}&filters=is_${filter}|1,${quantityStars}${limited}&page=${page}${order}`;
   
     return this.http.get<any>(url);
   }

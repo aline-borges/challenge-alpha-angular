@@ -60,13 +60,15 @@ $darkBlue: #0547C7;
 }
 
 .underlinedMenuSelection {
-  content: "";
-  position: absolute;
-  background: $white;
-  left: 0;
-  bottom: -10px;
-  width: 100%;
-  height: 3px;
-  transition: width .2s ease;
+  &:before {
+    content: "";
+    position: absolute;
+    background: $white;
+    left: 0;
+    bottom: -10px;
+    width: 100%;
+    height: 3px;
+    transition: width .2s ease;
+  }
 }
 

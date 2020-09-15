@@ -14,7 +14,6 @@ import { HeaderComponent } from './../header/header.component';
 export class FormComponent implements OnInit {
 
   hotels: Array<any>
-  types: Array<any>
   location: string
   name: string
   stars: Array<any>
@@ -30,6 +29,10 @@ export class FormComponent implements OnInit {
   select: string
   valueSlider: string
   value: string
+  typeSearchOption: string
+  packageImage: Array<any>
+  smallDescription: string
+  dados: Array<any>
 
   constructor(private hurbService: HurbService, private titleService: Title){
     this.currentPage = 1;
@@ -43,9 +46,12 @@ export class FormComponent implements OnInit {
     this.location = (<HTMLInputElement>document.querySelector('.search-input')).value;
   }
 
-  getHotels(page = 1, order: string, limited: string, quantityStars: Array<any> ) {
+  onSendTypeSearch(event) {
+    this.typeSearchOption = event;
+  }
 
-    this.hurbService.getData(this.location, 'hotel', page, order, limited, quantityStars).subscribe((data) => {
+  getHotels(page = 1, typeSearchOption, order: string, limited: string, quantityStars: Array<any>) {
+    this.hurbService.getData(this.location, this.typeSearchOption, page, order, limited, quantityStars).subscribe((data) => {
       this.hotels = data.results;
       this.pagination = data.pagination;
       this.quantity = data.meta.count;
@@ -55,12 +61,18 @@ export class FormComponent implements OnInit {
       this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
       this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
 
+      console.log(this.hotels);
+      console.log(this.hotels[0].name);
+
       this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
     })
+
 
     this.currentPage = page;
     this.quantity;
     this.place;
+
+    this.typeSearchOption === 'offer' ? document.getElementById('hotel-container').style.display = 'none' : document.getElementById('package-container').style.display = 'none';
 
     document.getElementById('home-page').style.display = 'none';
     document.getElementById('hotel-page').style.display = 'flex';
