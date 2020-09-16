@@ -4,7 +4,6 @@ import { Title } from '@angular/platform-browser';
 import { HurbService } from '../../service/hurb.service';
 import { HeaderComponent } from './../header/header.component';
 
-
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
