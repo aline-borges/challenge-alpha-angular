@@ -1,8 +1,16 @@
+/* BREAKPOINTS */
+
+@mixin for-phone-only {
+  @media (max-width: 340px) { @content; }
+}
+
 /* COLORS */
 
 $white: #FEFEFE;
 $tule: #0f0f0f60;
 $darkBlue: #0547C7;
+
+/* ONLY IN HOTEL PAGE */
 
 #hotel-page {
   .menu {
@@ -10,54 +18,59 @@ $darkBlue: #0547C7;
   }
 }
 
+/* CONTAINER */
+
 .menu {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: $tule;
-  padding: 20px 0;
+  padding: 2.0rem 0;
   color: $white;
 }
+
+/* lOGO + NAME */
 
 .app-name {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin-left: 40px;
+  margin-left: 4rem;
 }
 
 .logo {
-  width: 30px;
+  width: 3.0rem;
 }
 
 .site-name {
   font-weight: 700;
-  font-size: 24px;
-  margin-left: 10px;
+  font-size: 2.4rem;
+  margin-left: 1.0rem;
 
-  @media screen and (max-width: 320px) { 
+  @include for-phone-only {
     display: none;
   } 
 }
 
+/* MENU LIST OPTIONS */
+
 .menu-list {
   display: flex;
   align-items: center;
-  margin-right: 25px;
-
-  @media screen and (max-width: 414px) { 
-    margin: 0;
-  } 
+  margin-right: 2.5rem;
 }
 
 .menu-item {
   font-weight: 700;
-  font-size: 12px;
+  font-size: 1.2rem;
   text-transform: uppercase;
-  margin-right: 24px;
+  margin-right: 2.4rem;
   cursor: pointer;
   position: relative;
 }
+
+/* UNDERLINE DECORATOR*/
 
 .underlinedMenuSelection {
   &:before {
@@ -65,9 +78,9 @@ $darkBlue: #0547C7;
     position: absolute;
     background: $white;
     left: 0;
-    bottom: -10px;
+    bottom: -1.0rem;
     width: 100%;
-    height: 3px;
+    height: 0.3rem;
     transition: width .2s ease;
   }
 }

@@ -46,6 +46,12 @@ export class FormComponent implements OnInit {
     this.location = (<HTMLInputElement>document.querySelector('.search-input')).value;
   }
 
+  clearInput() {
+    const input = (<HTMLInputElement>document.querySelector('.search-input'));
+    
+    input.value=''
+  }
+
   onSendTypeSearch(event) {
     this.typeSearchOption = event;
   }
@@ -67,15 +73,14 @@ export class FormComponent implements OnInit {
       this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
     })
 
-
     this.currentPage = page;
     this.quantity;
     this.place;
 
     this.typeSearchOption === 'offer' ? document.getElementById('hotel-container').style.display = 'none' : document.getElementById('package-container').style.display = 'none';
 
-    document.getElementById('home-page').style.display = 'none';
-    document.getElementById('hotel-page').style.display = 'flex';
+    (<HTMLInputElement>document.getElementById('home-page')).style.display = 'none';
+    (<HTMLInputElement>document.getElementById('hotel-page')).style.display = 'flex';
 
     window.scrollTo(0, 0);
   }
@@ -88,7 +93,6 @@ export class FormComponent implements OnInit {
     const formHotel = (<HTMLInputElement>document.getElementById('form-hotel-page'));
 
     formHotel.style.display === 'none' ? formHotel.style.display = 'flex' : formHotel.style.display = 'none';
-
   }
 
   showFilters() {

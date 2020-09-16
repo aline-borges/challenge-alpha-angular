@@ -1,37 +1,35 @@
 <div class="container" id="home-page">
   <app-header (sendTypeSearch)="onSendTypeSearch($event)"></app-header>
-  <div class="page-content">
-    <div class="search-content">
-      <h1 class="page-title">
-        Os melhores hotéis, pacotes e experiências estão no Hurb.
-      </h1>
+  <main class="search-content">
+    <h1 class="page-title">
+      Os melhores hotéis, pacotes e experiências estão no Hurb.
+    </h1>
+
+    <div class="search-form">
+      <section class="header-form ">
+        <i class="fas fa-map-marker-alt"></i>
+        <input 
+        id="searchInput"
+        (change)="getLocation($event)"
+        (keyup.enter)="getHotels()"
+        class="search-input" 
+        placeholder="Vai pra onde?"
+        #campoInput
+        >
+      </section>
   
-      <div class="search-form">
-        <div class="header-form ">
-          <i class="fas fa-map-marker-alt"></i>
-          <input 
-          id="searchInput"
-          (change)="getLocation($event)"
-          (keyup.enter)="getHotels()"
-          class="search-input" 
-          placeholder="Vai pra onde?"
-          #campoInput
-          >
-        </div>
-    
-        <button class="button" (click)="getHotels()">
-          Pesquisar
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
+      <button class="button" (click)="getHotels()">
+        Pesquisar
+        <i class="fas fa-search"></i>
+      </button>
     </div>
-    <footer>
+    <aside>
       <button class="background-place" value="{{ this.name }}" (click)="sendLocationToInput()" id="place-name">
         Que tal conhecer {{ this.name }}?
         <i class="fas fa-mouse-pointer"></i>
       </button>
-    </footer>
-  </div>
+    </aside>
+  </main>
 </div>
 
 <div class="container-hotel" id="hotel-page">
@@ -45,6 +43,7 @@
       class="search-input" 
       placeholder="Vai pra onde?"
       #campoInput
+      (load)="clearInput()"
       >
     </div>
 
@@ -158,19 +157,24 @@
               </li>
             </ul>
             <div class="footer-information">
-              <div class="tags">
-                <p class="hotel-tags" *ngIf=" hotel.tags.length === 0 ? false : true">
+              <div class="tags-container">
+                <p class="hotel-tags specials-tags" *ngIf=" hotel.tags.length === 0 ? false : true">
                   {{ hotel.tags[0] }}
                   <i class="fas fa-fire-alt"></i>
                 </p>
-                <p class="hotel-free-cancelation" *ngIf=" hotel.hu_free_cancellation === false ? false : true">
+                <p class="hotel-tags hotel-free-cancelation" *ngIf=" hotel.hu_free_cancellation === false ? false : true">
                   {{ hotel.hu_free_cancellation === true ? 'Cancelamento Grátis' : ''}}
                   <i class="fas fa-info-circle"></i>
                 </p>
               </div>
               <div class="hotel-price-information">
                 <p>Diárias a partir de <span class="old-price">{{ hotel.price.old_price > hotel.price.amountPerDay ? hotel.price.old_price : '' }}</span></p>
-                <p><span class="new-price"><span class="currency">R$</span>{{ hotel.price.amountPerDay.toFixed(0) }}</span> + Taxas</p>
+                <p class="price-taxes-container">
+                  <span class="new-price price-container">
+                    <span class="currency">R$</span>
+                    {{ hotel.price.amountPerDay.toFixed(0) }}
+                  </span> + Taxas
+                </p>
                 <button class="button" id="hotel-button"><a target="_blank" href="{{hotel.url}}">Visualizar Hotel</a></button>
               </div>
             </div>
