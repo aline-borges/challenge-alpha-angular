@@ -204,6 +204,7 @@ $black: #000000;
   }
 
   @include for-phone-only {
+    align-items: center;
     margin-right: 2rem;
     padding: 0 2rem 0 0;
     display: none;
