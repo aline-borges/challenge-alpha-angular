@@ -23,7 +23,7 @@ Criar um site moderno, com uma boa usabilidade que consuma o JSON exposto pela A
 #### Lista de Elementos do Site
 #
 
-![banner-principal](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-home.png?raw=true)
+![home-page-screen](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-home.png?raw=true)
 
 | Tela Inicial  |
 | ------ |
@@ -31,13 +31,25 @@ Criar um site moderno, com uma boa usabilidade que consuma o JSON exposto pela A
 | Form: Parte de formulário do site onde o usuário pode digitar diretamente o local que deseja realizar a pesquisa. | 
 | Footer: Espaço que mostra o local de onde é a imagem do background, posssibilitando o usuário a pesquisar de forma prática. |
 
+![hotel-page-screen](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel.png?raw=true)
+
 | Tela de Hoteís/Pacotes  |
 | ------ |
 | Header: Menu com a logo a opção de página inicial, busca por hoteís e busca por pacotes. | 
 | Form: Parte de formulário do site onde o usuário pode digitar diretamente o local que deseja realizar a pesquisa. | 
 | Quantidade de Hoteís: Mostra o número de hóteis/pacotes que retornam da busca |
+
+![ordenation-byLowPrice](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel-order-by-low-price.png?raw=true)
+
 | Ordenação: Mostra o número de hóteis/pacotes ordenados por relevância, menor preço e maior preço |
-| Limitação: Mostra o número de hóteis/pacotes limitados por preço ou por estrelas |
+
+![ordenation-limitedByPrice](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel-limited-by-price.png?raw=true)
+
+| Limitação: Mostra o número de hóteis/pacotes limitados por preço. |
+
+![ordenation-limitedByStars](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel-order-by-stars.png?raw=true)
+
+| Limitação: Mostra o número de hóteis/pacotes limitados por estrelas. |
 | Card do Hotél: Mostra a foto, o nome, a localização, o número de estrelas, o valor da diária, tags e botão de visualizar o hotel|
 
 ## Desenvolvimento no Servidor
