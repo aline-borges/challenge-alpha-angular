@@ -9,7 +9,7 @@
       <section class="header-form ">
         <i class="fas fa-map-marker-alt"></i>
         <input 
-        id="searchInput"
+        id="input-home"
         (change)="getLocation($event)"
         (keyup.enter)="getHotels()"
         class="search-input" 
@@ -31,17 +31,17 @@
 </div>
 
 <div class="container-hotel" id="hotel-page">
-  <app-header (sendTypeSearch)="onSendTypeSearch($event)"></app-header>
+  <app-header (sendTypeSearchHotel)="onSendTypeSearchHotel($event)"></app-header>
   <div id="form-hotel-page" class="search-form">
     <div class="header-form ">
       <i class="fas fa-map-marker-alt"></i>
       <input 
-      (change)="getLocation($event)"
+      id="input-hotel"
+      (change)="getLocationHotelPage($event)"
       (keyup.enter)="getHotels()"
       class="search-input" 
       placeholder="Vai pra onde?"
       #campoInput
-      (load)="clearInput()"
       >
     </div>
 
@@ -191,7 +191,7 @@
     <div *ngIf="hotels" class="ordenation" id="ordenation">
       <div class="slider" id="slider">
         <p class="rangeText">Valor até: R$ {{ this.value ? this.value : '1500' }}</p>
-        <input type="range" id="range" [min]="minPrice" [max]="1500" [value]="1500" (click)="limitedByPrice()" (change)="rangeValue()"> 
+        <input type="range" id="range" [min]="minPrice" [max]="1500" [value]="this.value" (click)="limitedByPrice()" (change)="rangeValue()"> 
       </div>
     </div>
     <div class="hotel-list">

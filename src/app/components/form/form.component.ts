@@ -42,17 +42,23 @@ export class FormComponent implements OnInit {
       this.location = value;
     }
 
-    this.location = (<HTMLInputElement>document.querySelector('.search-input')).value;
+    this.location = (<HTMLInputElement>document.getElementById('input-home')).value;
   }
 
-  clearInput() {
-    const input = (<HTMLInputElement>document.querySelector('.search-input'));
-    
-    input.value=''
+  getLocationHotelPage(evento: KeyboardEvent, value: string) {
+    if(value !== null) {
+      this.location = value;
+    }
+
+    this.location = (<HTMLInputElement>document.getElementById('input-hotel')).value;
   }
 
   onSendTypeSearch(event) {
     this.typeSearchOption = event;
+  }
+
+  onSendTypeSearchHotel(event) {
+    this.typeSearchOptionHotel = event;
   }
 
   getHotels(page = 1, typeSearchOption, order: string, limited: string, quantityStars: Array<any>) {
