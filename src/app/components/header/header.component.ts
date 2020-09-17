@@ -10,6 +10,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Output() sendTypeSearch = new EventEmitter();
+  @Output() sendTypeSearchHotel = new EventEmitter();
 
   hotel: any
   package: any
@@ -24,12 +25,14 @@ export class HeaderComponent implements OnInit {
       this.hotel.classList.add('underlinedMenuSelection');
       this.package.classList.remove('underlinedMenuSelection');
       this.sendTypeSearch.emit('hotel');
+      this.sendTypeSearchHotel.emit('hotel');
     });
 
     this.package.addEventListener('click', () => {
       this.package.classList.add('underlinedMenuSelection');
       this.hotel.classList.remove('underlinedMenuSelection');
       this.sendTypeSearch.emit('offer');
+      this.sendTypeSearchHotel.emit('hotel');
     });
 
   }

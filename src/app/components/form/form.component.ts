@@ -29,6 +29,7 @@ export class FormComponent implements OnInit {
   valueSlider: string
   value: string
   typeSearchOption: string
+  typeSearchOptionHotel: string
   packageImage: Array<any>
   smallDescription: string
   dados: Array<any>

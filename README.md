@@ -50,7 +50,7 @@ Criar um site moderno, com uma boa usabilidade que consuma o JSON exposto pela A
 ![ordenation-limitedByStars](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel-order-by-stars.png?raw=true)
 
 | Limitação: Mostra o número de hóteis/pacotes limitados por estrelas. |
-| Card do Hotél: Mostra a foto, o nome, a localização, o número de estrelas, o valor da diária, tags e botão de visualizar o hotel|
+| Card do Hotel: Mostra a foto, o nome, a localização, o número de estrelas, o valor da diária, tags e botão de visualizar o hotel|
 
 ## Desenvolvimento no Servidor
 Para rodar esse projeto na sua maquina, após clonar o repositório, digite ng serve e navegue para o link  http://localhost:4200/. Pode digitar ng serve --open e a aplicação abre automaticamente. A aplicação faz o reload automático a cada mudança realizada no código. 
