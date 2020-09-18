@@ -1,0 +1,159 @@
+/* COLORS */
+
+$white: #FEFEFE;
+$ice: #fefefeb6;
+$superDarkBlue: #093282;
+$tuleDarkBlue: #093182b4;
+$darkBlue: #0547C7;
+
+/* BREAKPOINTS */
+
+@mixin for-phone-only {
+  @media (min-width: 320px) and (max-width: 431px) { @content; }
+}
+
+@mixin for-tablet-portrait-up {
+  @media (min-width: 768px) and (max-width: 1024px) { @content; }
+}
+
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
+// CONTAINERS
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  color: $white;
+}
+
+#hotel-page {
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background: $white;
+  overflow-x: hidden;
+  display: none;
+
+  .search-form {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 3.0rem;
+
+    @include for-phone-only {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      display: none;
+    }
+
+    .button {
+      margin: 0 5.0rem 2.5rem 0;
+
+      @include for-tablet-portrait-up {
+        width: 40rem;
+      }
+
+      @include for-phone-only {
+        margin: 0;
+      }
+    }
+  }
+
+  .search-input {
+    border-color: $superDarkBlue;
+    color: $superDarkBlue;
+
+    &::placeholder {
+      color: $tuleDarkBlue;
+    }
+  }
+
+  .fa-map-marker-alt {
+    border-color: $superDarkBlue;
+    color: $superDarkBlue;
+  }
+
+  app-header {
+    background: $darkBlue;
+  }
+}
+
+.search-content {
+  margin: 4.0rem 0 0 4.0rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  @include for-phone-only {
+    margin-left: 1rem;
+  }
+}
+
+// TEXTS 
+
+.page-title {
+  font-size: 3.6rem;
+  max-width: 60rem;
+  padding-right: 1rem;
+  
+  @include for-tablet-portrait-up {
+    font-size: 4rem;
+  }
+
+  @include for-phone-only {
+    font-size: 2.8rem;
+    padding: 0 5rem 0 1.5rem;
+  }
+}
+
+.background-place {
+  border: 0.2rem dotted $ice;
+  outline: none;
+  padding: 0.8rem 1.6rem;
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  margin: 20rem 2.4rem 0 5.0rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: $ice;
+  width: fit-content;
+  font-size: 1.2rem;
+
+  @include for-tablet-portrait-up {
+    font-size: 2rem;
+    padding: 1.5rem 3rem;
+  }
+
+  @include for-phone-only {
+    margin: 3rem auto;
+    max-width: 25rem;
+  }
+
+  &:hover {
+    color: $white;
+    border-color: $white;
+  }
+}
+
+// FONT AWESOME ICONS
+
+.fa-mouse-pointer {
+  margin-left: 1.5rem;
+}

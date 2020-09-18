@@ -1,0 +1,15 @@
+<div class="container" id="home-page">
+  <app-header (sendTypeSearch)="onSendTypeSearch($event)"></app-header>
+  <main class="search-content">
+    <h1 class="page-title">
+      Os melhores hotéis, pacotes e experiências estão no Hurb.
+    </h1>
+
+    <app-form [searchOption]="typeSearchOption"></app-form>
+    
+    <button class="background-place" value="{{ this.name }}" (click)="sendLocationToInput()" id="place-name">
+      Que tal conhecer {{ this.name }}?
+      <i class="fas fa-mouse-pointer"></i>
+    </button>
+  </main>
+</div>

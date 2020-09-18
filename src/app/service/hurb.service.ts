@@ -8,8 +8,6 @@ import { Observable } from 'rxjs';
 
 export class HurbService { 
 
-  stars: Array<any>
-
   constructor(private http: HttpClient) {}
 
   getData(location, filter, page, order, limited, quantityStars):Observable<any> {
