@@ -8,7 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormComponent } from './components/form/form.component';
-import { PageComponent } from './pages/page/page.component';
+import { HotelComponent } from './components/hotel/hotel.component';
+import { HomeComponent } from './pages/home/home.component';
+import { HotelsComponent } from './pages/hotels/hotels.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { PageComponent } from './pages/page/page.component';
     AppComponent,
     HeaderComponent,
     FormComponent,
-    PageComponent,
+    HotelComponent,
+    HomeComponent,
+    HotelsComponent,
   ],
   imports: [
     BrowserModule,
