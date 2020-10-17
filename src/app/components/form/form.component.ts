@@ -29,10 +29,8 @@ export class FormComponent implements OnInit {
   valueSlider: string
   value: string
   typeSearchOption: string
-  typeSearchOptionHotel: string
   packageImage: Array<any>
   smallDescription: string
-  dados: Array<any>
 
   constructor(private hurbService: HurbService, private titleService: Title){
     this.currentPage = 1;
@@ -56,10 +54,6 @@ export class FormComponent implements OnInit {
 
   onSendTypeSearch(event) {
     this.typeSearchOption = event;
-  }
-
-  onSendTypeSearchHotel(event) {
-    this.typeSearchOptionHotel = event;
   }
 
   getHotels(page = 1, typeSearchOption, order: string, limited: string, quantityStars: Array<any>) {
