@@ -38,7 +38,7 @@ export class HotelComponent implements OnInit {
     const nav = this.router.getCurrentNavigation();
     this.hotels = nav.extras.state.hotels;
     
-    this.currentPage = 1;
+    this.currentPage = nav.extras.state.page;
   }
   
   getLocation(evento: KeyboardEvent, value: string){

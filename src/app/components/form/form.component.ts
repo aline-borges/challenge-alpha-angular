@@ -50,9 +50,9 @@ export class FormComponent implements OnInit {
     this.typeSearchOption = event;
   }
 
-  goToHotels(hotels: Array<any>) {
+  goToHotels(hotels: Array<any>, page: number) {
     this.router.navigateByUrl('/hotels', {
-      state: { hotels: this.hotels }
+      state: { hotels: this.hotels, page: this.currentPage }
     });
   }
 
@@ -66,12 +66,12 @@ export class FormComponent implements OnInit {
       this.stars = data.results.stars;
       this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
       this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
+      this.currentPage = page;
 
       this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
-      this.goToHotels(this.hotels)
+      this.goToHotels(this.hotels, this.currentPage)
     })
 
-    this.currentPage = page;
     this.quantity;
     this.place;
 
