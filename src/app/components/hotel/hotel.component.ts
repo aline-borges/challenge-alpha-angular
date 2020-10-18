@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+
 import { HurbService } from '../../service/hurb.service';
 import { HeaderComponent } from './../header/header.component';
+
 
 @Component({
   selector: 'app-hotel',
@@ -31,19 +34,14 @@ export class HotelComponent implements OnInit {
   packageImage: Array<any>
   smallDescription: string
 
-  constructor(private hurbService: HurbService, private titleService: Title){
+  constructor(private hurbService: HurbService, private router: Router, private titleService: Title){
+    const nav = this.router.getCurrentNavigation();
+    this.hotels = nav.extras.state.hotels;
+    
     this.currentPage = 1;
   }
   
   getLocation(evento: KeyboardEvent, value: string){
-    if(value !== null) {
-      this.location = value;
-    }
-
-    this.location = (<HTMLInputElement>document.getElementById('input-home')).value;
-  }
-
-  getLocationHotelPage(evento: KeyboardEvent, value: string) {
     if(value !== null) {
       this.location = value;
     }
@@ -66,20 +64,12 @@ export class HotelComponent implements OnInit {
       this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
       this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
 
-      console.log(this.hotels);
-      console.log(this.hotels[0].name);
-
       this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
     })
 
     this.currentPage = page;
     this.quantity;
     this.place;
-
-    this.typeSearchOption === 'offer' ? document.getElementById('hotel-container').style.display = 'none' : document.getElementById('package-container').style.display = 'none';
-
-    (<HTMLInputElement>document.getElementById('home-page')).style.display = 'none';
-    (<HTMLInputElement>document.getElementById('hotel-page')).style.display = 'flex';
 
     window.scrollTo(0, 0);
   }
@@ -144,72 +134,6 @@ export class HotelComponent implements OnInit {
     return this.getHotels(1,null, null, null, starsValue);
   }
 
-  changeBackgroundImage() {
-
-    const buzios = {
-      name: 'Buzios',
-      url: '../../../assets/images/buzios.png',
-    }
-
-    const fernandoDeNoronha = {
-      name: 'Fernando De Noronha',
-      url: '../../../assets/images/fernando-de-noronha.jpg',
-    };
-
-    const portoSeguro = {
-      name: 'Porto Seguro',
-      url: '../../../assets/images/porto-seguro.png',
-    };
-
-    const milao = {
-      name: 'Milão',
-      url: '../../../assets/images/milao.png',
-    };
-
-    const vancouver = {
-      name: 'Vancouver',
-      url: '../../../assets/images/vancouver.png',
-    };
-
-    const santorini = {
-      name: 'Santorini',
-      url: '../../../assets/images/santorini.jpg',
-    };
-
-    const bali = {
-      name: 'Bali',
-      url: '../../../assets/images/bali.png',
-    };
-
-    const kyoto = {
-      name: 'Kioto',
-      url: '../../../assets/images/kyoto.png',
-    };
-
-    const disney = {
-      name: 'Disney',
-      url: '../../../assets/images/disney.png',
-    };
-
-    const Jericoacoara = {
-      name: 'Jericoacoara',
-      url: '../../../assets/images/jericoacoara.jpg',
-    };
-
-    const images = [buzios, fernandoDeNoronha, portoSeguro, milao, 
-                    vancouver, santorini, bali,
-                    kyoto, disney, Jericoacoara];
-
-    const randomNumber = Math.floor(Math.random() * images.length);
-    const bgImg = `url( ${images[randomNumber].url})`;
-    const bgImgName = images[randomNumber].name;
-    
-    const home = document.getElementById('home-page');
-    this.name = document.getElementById('place-name').innerHTML;
-    
-    return home.style.backgroundImage = bgImg, this.name = bgImgName;
-  }
-
   sendLocationToInput() {
     const name = (<HTMLInputElement>document.getElementById('place-name')).value;
     let input = (<HTMLInputElement>document.querySelector('.search-input'));
@@ -253,8 +177,7 @@ export class HotelComponent implements OnInit {
      this.value = (<HTMLInputElement>document.getElementById('range')).value;
   }
 
-  ngOnInit() {
-    this.changeBackgroundImage();
+  ngOnInit():void {
   }
 
 }

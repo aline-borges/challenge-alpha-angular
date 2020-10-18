@@ -1,11 +1,11 @@
-<div class="container-hotels" id="hotel-page">
-  <app-header (sendTypeSearchHotel)="onSendTypeSearch($event)"></app-header>
+<div class="container" id="hotel-page">
+  <app-header (sendTypeSearch)="onSendTypeSearch($event)"></app-header>
   <div id="form-hotel-page" class="search-form">
     <div class="header-form ">
       <i class="fas fa-map-marker-alt"></i>
       <input 
       id="input-hotel"
-      (change)="getLocationHotelPage($event)"
+      (change)="getLocation($event)"
       (keyup.enter)="getHotels()"
       class="search-input" 
       placeholder="Vai pra onde?"
@@ -154,53 +154,7 @@
         </li>
       </ul>
     </div>
-  </div>
-  <div class="body-hotel" id="package-container">
-    <div *ngIf="hotels" class="ordenation" id="ordenation">
-      <div class="slider" id="slider">
-        <p class="rangeText">Valor até: R$ {{ this.value ? this.value : '1500' }}</p>
-        <input type="range" id="range" [min]="minPrice" [max]="1500" [value]="this.value" (click)="limitedByPrice()" (change)="rangeValue()"> 
-      </div>
-    </div>
-    <div class="hotel-list">
-      <img *ngIf="!hotels" id="loading" src="../../../assets/images/loading.gif">
-      <ul class="hotel-cards">
-        <li class="hotel-item" *ngFor="let hotel of hotels">
-          <div class="hotel-information">
-            <div class="header-information">
-              <p class="hotel-name">{{ hotel.name }}</p>
-            </div>
-            
-            <p class="hotel-location">
-              <i class="fas fa-map-marker"></i>
-              {{ hotel.address.city }}, {{ hotel.address.state }}
-            </p>
-            <ul class="hotel-amenities">
-              <li class="amenities-item" *ngFor="let amenity of showAmenities(hotel.amenities)">
-                <p class="amenity-title" *ngIf=" hotel.amenities == '' ? false : true">
-                  {{ amenity }}
-                  <i class="fas fa-check-circle"></i>
-                </p>
-              </li>
-            </ul>
-            <div class="footer-information">
-              <div class="tags">
-                <p class="hotel-tags" *ngIf=" hotel.tags.length === 0 ? false : true">
-                  {{ hotel.tags[0] }}
-                  <i class="fas fa-fire-alt"></i>
-                </p>
-              </div>
-              <div class="hotel-price-information">
-                <p>Diárias a partir de <span class="old-price">{{ hotel.price.old_price > hotel.price.amountPerDay ? hotel.price.old_price : '' }}</span></p>
-                <p><span class="new-price"><span class="currency">R$</span>{{ hotel.price.amountPerDay.toFixed(0) }}</span> + Taxas</p>
-                <button class="button" id="hotel-button"><a target="_blank" href="{{hotel.url}}">Visualizar Hotel</a></button>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>  
+  </div> 
 
   <ul class="buttons-page" *ngIf="hotels">
     <li>
