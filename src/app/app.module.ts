@@ -10,7 +10,8 @@ import { FormComponent } from './components/form/form.component';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HotelsComponent } from './pages/hotels/hotels.component';
-
+import { PackagesComponent } from './pages/packages/packages.component';
+import { PackageComponent } from './components/package/package.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,8 @@ import { HotelsComponent } from './pages/hotels/hotels.component';
     HotelComponent,
     HomeComponent,
     HotelsComponent,
+    PackagesComponent,
+    PackageComponent,
   ],
   imports: [
     BrowserModule,

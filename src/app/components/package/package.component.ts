@@ -7,11 +7,11 @@ import { HurbService } from '../../service/hurb.service';
 import { HeaderComponent } from './../header/header.component';
 
 @Component({
-  selector: 'app-hotel',
-  templateUrl: './hotel.component.html',
-  styleUrls: ['./hotel.component.scss']
+  selector: 'app-package',
+  templateUrl: './package.component.html',
+  styleUrls: ['./package.component.scss']
 })
-export class HotelComponent implements OnInit {
+export class PackageComponent implements OnInit {
 
   packages: Array<any>
   photo: string
@@ -41,12 +41,14 @@ export class HotelComponent implements OnInit {
 
   constructor(private hurbService: HurbService, private router: Router, private titleService: Title){
     const nav = this.router.getCurrentNavigation();
-    this.hotels = nav.extras.state.hotels;
+    this.packages = nav.extras.state.packages;
     this.currentPage = nav.extras.state.page;
     this.pagination = nav.extras.state.pagination;
     this.quantity = nav.extras.state.quantity;
     this.place = nav.extras.state.place;
     this.location = nav.extras.state.place;
+    
+    console.log(this.packages);
   }
   
   getLocation(evento: KeyboardEvent, value: string){
@@ -91,9 +93,10 @@ export class HotelComponent implements OnInit {
 
   getAPI(page = 1, typeSearchOption, order: string, limited: string, quantityStars: Array<any>) {
     this.hurbService.getData(this.location, this.typeSearchOption, page, order, limited, quantityStars).subscribe((data) => {
-      
+     
       if(this.typeSearchOption === 'offer') {
         this.packages = data.results;
+        this.amenities = data.results.amenities;
         this.pagination = data.pagination;
         this.quantity = data.meta.count;
         this.place = data.meta.query;
@@ -130,12 +133,9 @@ export class HotelComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
-  changeHotelPackageFilter(){
-  } 
-
   showForm() {
     const showSearch = (<HTMLInputElement>document.getElementById('show-search-button'));
-    const formHotel = (<HTMLInputElement>document.getElementById('form-hotel-page'));
+    const formHotel = (<HTMLInputElement>document.getElementById('form-package-page'));
 
     formHotel.style.display === 'none' ? formHotel.style.display = 'flex' : formHotel.style.display = 'none';
   }
@@ -170,26 +170,6 @@ export class HotelComponent implements OnInit {
     return this.getAPI(1,null, null, `1,,price_max_${this.valueSlider}00|1`, null);
   }
 
-  getHotelsByStars() {
-    const fiveStars = (<HTMLInputElement>document.getElementById('five-stars'));
-    const fourStars = (<HTMLInputElement>document.getElementById('four-stars'));
-    const threeStars = (<HTMLInputElement>document.getElementById('three-stars'));
-    const twoStars = (<HTMLInputElement>document.getElementById('two-stars'));
-    const oneStar = (<HTMLInputElement>document.getElementById('one-star'));
-    const stars = [fiveStars, fourStars, threeStars, twoStars, oneStar];
-    const starsValue = []
-
-    const isChecked = (star) => {
-      if(star.checked === true) {
-        starsValue.push(star.value);
-      }
-    }
-
-    const newArray = stars.filter(isChecked);
-
-    return this.getAPI(1,null, null, null, starsValue);
-  }
-
   sendLocationToInput() {
     const name = (<HTMLInputElement>document.getElementById('place-name')).value;
     let input = (<HTMLInputElement>document.querySelector('.search-input'));
@@ -200,16 +180,6 @@ export class HotelComponent implements OnInit {
 
   backToTop() {
     window.scrollTo(0, 0);
-  }
-
-  showStars(rating) {
-    this.rating = [];
-
-    for(let i=0; i<rating; i++){
-      this.rating.push(i);
-    }
-
-    return this.rating;
   }
 
   showAmenities(amenities) {

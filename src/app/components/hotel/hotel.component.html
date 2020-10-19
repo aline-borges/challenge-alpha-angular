@@ -6,14 +6,14 @@
       <input 
       id="input-hotel"
       (change)="getLocation($event)"
-      (keyup.enter)="getHotels()"
+      (keyup.enter)="getAPI()"
       class="search-input" 
       placeholder="Vai pra onde?"
       #campoInput
       >
     </div>
 
-    <button class="button" (click)="getHotels()">
+    <button class="button" (click)="getAPI()">
       Pesquisar
       <i class="fas fa-search"></i>
     </button>
@@ -39,6 +39,7 @@
       </select>  
     </div>
   </div>
+
   <div class="body-hotel" id="hotel-container">
     <div *ngIf="hotels" class="ordenation" id="ordenation">
       <div class="slider" id="slider">
@@ -158,25 +159,25 @@
 
   <ul class="buttons-page" *ngIf="hotels">
     <li>
-      <button id="first-page" class="button-page" (click)="getHotels(1)" *ngIf="pagination.previousPage">
+      <button id="first-page" class="button-page" (click)="getAPI(1)" *ngIf="pagination.previousPage">
         <i class="fas fa-angle-double-left"></i>
         Primeira Página
       </button>
     </li>
     <li>
-      <button id="previous-page" class="button-page" (click)="getHotels(currentPage - 1)" *ngIf="pagination.previousPage">
+      <button id="previous-page" class="button-page" (click)="getAPI(currentPage - 1)" *ngIf="pagination.previousPage">
         <i class="fas fa-angle-left"></i>
         Página Anterior
     </button>
     </li>
     <li>
-      <button id="next-page" class="button-page" (click)="getHotels(currentPage + 1)" *ngIf="pagination.nextPage">
+      <button id="next-page" class="button-page" (click)="getAPI(currentPage + 1)" *ngIf="pagination.nextPage">
         Próxima Página
         <i class="fas fa-angle-right"></i>
       </button>
     </li>
     <li>
-      <button id="last-page" class="button-page" (click)="getHotels(pagination.count)" *ngIf="pagination.nextPage">
+      <button id="last-page" class="button-page" (click)="getAPI(pagination.count)" *ngIf="pagination.nextPage">
         Última Página
         <i class="fas fa-angle-double-right"></i>
       </button>

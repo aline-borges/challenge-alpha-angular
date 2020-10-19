@@ -50,11 +50,11 @@ $black: #000000;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  overflow: hidden;
+  overflow-x: hidden;
   color: $white;
 }
 
-#hotel-page {
+#package-page {
   display: flex;
   flex-direction: column;
   min-width: 100vw;
@@ -63,7 +63,6 @@ $black: #000000;
   background-repeat: no-repeat;
   background-position: center;
   background: #ffffff;
-  overflow-x: hidden;
 
   .search-form {
     flex-direction: row;
@@ -655,13 +654,8 @@ $black: #000000;
 
 .header-information {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   margin: 1.5rem 0 1.0rem 0;
-
-  @include for-phone-only {
-    flex-direction: column-reverse;
-  }
 }
 
 .hotel-item {
@@ -672,6 +666,7 @@ $black: #000000;
   box-shadow: 0 0.5rem 1.0rem $darkShadow, 0 1.5rem 4.0rem $lightShadow;
   width: auto;
   height: auto;
+
 
   @include for-tablet-portrait-up {
     height: 24rem;
@@ -708,15 +703,32 @@ $black: #000000;
   }
 }
 
+.hotel-description {
+  color: $grey;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 0.5rem 2.5rem;
+  width: 40rem;
+
+  @include for-tablet-portrait-up {
+    width: 30rem;
+  }
+
+  @include for-phone-only {
+    margin: 0.5rem 0;
+    width: fit-content;
+  }
+}
+
 .hotel-name {
   color: #302E2E;
   font-size: 1.8rem;
   font-weight: 700;
   margin: 0.5rem 2.5rem;
-  width: 30rem;
+  width: 45rem;
 
   @include for-tablet-portrait-up {
-    width: 20rem;
+    width: 30rem;
   }
 
   @include for-phone-only {
