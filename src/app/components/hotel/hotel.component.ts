@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { HurbService } from '../../service/hurb.service';
 import { HeaderComponent } from './../header/header.component';
 
-
 @Component({
   selector: 'app-hotel',
   templateUrl: './hotel.component.html',
@@ -37,8 +36,11 @@ export class HotelComponent implements OnInit {
   constructor(private hurbService: HurbService, private router: Router, private titleService: Title){
     const nav = this.router.getCurrentNavigation();
     this.hotels = nav.extras.state.hotels;
-    
     this.currentPage = nav.extras.state.page;
+    this.pagination = nav.extras.state.pagination;
+    this.quantity = nav.extras.state.quantity;
+    this.place = nav.extras.state.place;
+    this.location = nav.extras.state.place;
   }
   
   getLocation(evento: KeyboardEvent, value: string){
@@ -177,7 +179,7 @@ export class HotelComponent implements OnInit {
      this.value = (<HTMLInputElement>document.getElementById('range')).value;
   }
 
-  ngOnInit():void {
+  ngOnInit():void { 
   }
 
 }
