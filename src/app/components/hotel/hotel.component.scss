@@ -57,7 +57,7 @@ $black: #000000;
 #hotel-page {
   display: flex;
   flex-direction: column;
-  min-width: 100vw;
+  min-width: 100%;
   min-height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -714,6 +714,9 @@ $black: #000000;
   font-weight: 700;
   margin: 0.5rem 2.5rem;
   width: 30rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   @include for-tablet-portrait-up {
     width: 20rem;
@@ -727,6 +730,7 @@ $black: #000000;
 
 .hotel-amenities {
   display: flex;
+  min-height: 30px;
 
   @include for-tablet-portrait-up {
     display: none;
@@ -814,8 +818,7 @@ $black: #000000;
 
 .hotel-photo {
   width: 34rem;
-  height: auto;
-  max-height: fit-content;
+  max-height: 273px;
   border-radius: 6.0rem 6.0rem 0 6.0rem;
 
   @include for-tablet-portrait-up {
