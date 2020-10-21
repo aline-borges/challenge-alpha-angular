@@ -13,6 +13,7 @@ import { HeaderComponent } from './../header/header.component';
 })
 export class PackageComponent implements OnInit {
 
+  tickets: Array<any>
   packages: Array<any>
   photo: string
   smallDescription: string
@@ -77,6 +78,20 @@ export class PackageComponent implements OnInit {
     });
   }
 
+  goToTickets(tickets: Array<any>, page: number, pagination: any, quantity: string, 
+    place: string, location: string) {
+    this.router.navigateByUrl('/tickets', {
+      state: { 
+        tickets: this.hotels, 
+        page: this.currentPage, 
+        pagination: this.pagination,
+        quantity: this.quantity,
+        place: this.place,
+        location: this.location
+      }
+    });
+  }
+
   goToPackages(packages: Array<any>, page: number, pagination: any, quantity: string,
     place: string, location: string){
       this.router.navigateByUrl('/packages', {
@@ -96,7 +111,6 @@ export class PackageComponent implements OnInit {
      
       if(this.typeSearchOption === 'offer') {
         this.packages = data.results;
-        this.amenities = data.results.amenities;
         this.pagination = data.pagination;
         this.quantity = data.meta.count;
         this.place = data.meta.query;
@@ -108,6 +122,21 @@ export class PackageComponent implements OnInit {
 
         this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
         this.goToPackages(this.packages, this.currentPage, this.pagination, this.quantity, this.place,
+        this.location)
+      }
+      else if(this.typeSearchOption === 'ticket') {
+        this.tickets = data.results;
+        this.pagination = data.pagination;
+        this.quantity = data.meta.count;
+        this.place = data.meta.query;
+        this.price = data.results.price;
+        this.stars = data.results.stars;
+        this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
+        this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
+        this.currentPage = page;
+
+        this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
+        this.goToTickets(this.tickets, this.currentPage, this.pagination, this.quantity, this.place,
         this.location)
       }
       else {

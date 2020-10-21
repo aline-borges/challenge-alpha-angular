@@ -7,12 +7,11 @@ import { HurbService } from '../../service/hurb.service';
 import { HeaderComponent } from './../header/header.component';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  selector: 'app-ticket',
+  templateUrl: './ticket.component.html',
+  styleUrls: ['./ticket.component.scss']
 })
-
-export class FormComponent implements OnInit {
+export class TicketComponent implements OnInit {
 
   tickets: Array<any>
   packages: Array<any>
@@ -42,7 +41,15 @@ export class FormComponent implements OnInit {
   typeSearchOption: string
 
   constructor(private hurbService: HurbService, private router: Router, private titleService: Title){
-    this.currentPage = 1;
+    const nav = this.router.getCurrentNavigation();
+    this.tickets = nav.extras.state.tickets;
+    this.currentPage = nav.extras.state.page;
+    this.pagination = nav.extras.state.pagination;
+    this.quantity = nav.extras.state.quantity;
+    this.place = nav.extras.state.place;
+    this.location = nav.extras.state.place;
+    
+    console.log(this.tickets);
   }
   
   getLocation(evento: KeyboardEvent, value: string){
@@ -50,7 +57,7 @@ export class FormComponent implements OnInit {
       this.location = value;
     }
 
-    this.location = (<HTMLInputElement>document.getElementById('input-home')).value;
+    this.location = (<HTMLInputElement>document.getElementById('input-hotel')).value;
   }
 
   onSendTypeSearch(event) {
@@ -75,7 +82,7 @@ export class FormComponent implements OnInit {
     place: string, location: string) {
     this.router.navigateByUrl('/tickets', {
       state: { 
-        tickets: this.tickets, 
+        tickets: this.hotels, 
         page: this.currentPage, 
         pagination: this.pagination,
         quantity: this.quantity,
@@ -100,8 +107,7 @@ export class FormComponent implements OnInit {
   }
 
   getAPI(page = 1, typeSearchOption, order: string, limited: string, quantityStars: Array<any>) {
-    this.hurbService.getData(this.location, this.typeSearchOption, page, order, limited, 
-      quantityStars).subscribe((data) => {
+    this.hurbService.getData(this.location, this.typeSearchOption, page, order, limited, quantityStars).subscribe((data) => {
      
       if(this.typeSearchOption === 'offer') {
         this.packages = data.results;
@@ -153,70 +159,41 @@ export class FormComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
-  changeBackgroundImage() {
+  showForm() {
+    const showSearch = (<HTMLInputElement>document.getElementById('show-search-button'));
+    const formHotel = (<HTMLInputElement>document.getElementById('form-package-page'));
 
-    const buzios = {
-      name: 'Buzios',
-      url: '../../../assets/images/buzios.png',
+    formHotel.style.display === 'none' ? formHotel.style.display = 'flex' : formHotel.style.display = 'none';
+  }
+
+  showFilters() {
+    const ordenation = (<HTMLInputElement>document.getElementById('ordenation'));
+
+    ordenation.style.display === 'none' ? ordenation.style.display = 'flex' :
+    ordenation.style.display = 'none';
+  }
+
+  orderBy(){
+    this.select = (<HTMLInputElement>document.getElementById("selectOrder")).value;
+
+    if(this.select === 'moreRelevance') {
+      return this.getAPI(1, null,'&sort=score&sortOrder=DESC',null, null);
     }
 
-    const fernandoDeNoronha = {
-      name: 'Fernando De Noronha',
-      url: '../../../assets/images/fernando-de-noronha.jpg',
-    };
+    if(this.select  === 'lowPrice') {
+      return this.getAPI(1, null,'&sort=price&sortOrder=ASC',null, null);
+    }
 
-    const portoSeguro = {
-      name: 'Porto Seguro',
-      url: '../../../assets/images/porto-seguro.png',
-    };
+    if(this.select  === 'highPrice') {
+      return this.getAPI(1, null,'&sort=price&sortOrder=DESC',null, null);
+    }
 
-    const milao = {
-      name: 'Milão',
-      url: '../../../assets/images/milao.png',
-    };
+  }
 
-    const vancouver = {
-      name: 'Vancouver',
-      url: '../../../assets/images/vancouver.png',
-    };
+  limitedByPrice(){
+    this.valueSlider = (<HTMLInputElement>document.getElementById('range')).value;
 
-    const santorini = {
-      name: 'Santorini',
-      url: '../../../assets/images/santorini.jpg',
-    };
-
-    const bali = {
-      name: 'Bali',
-      url: '../../../assets/images/bali.png',
-    };
-
-    const kyoto = {
-      name: 'Kioto',
-      url: '../../../assets/images/kyoto.png',
-    };
-
-    const disney = {
-      name: 'Disney',
-      url: '../../../assets/images/disney.png',
-    };
-
-    const Jericoacoara = {
-      name: 'Jericoacoara',
-      url: '../../../assets/images/jericoacoara.jpg',
-    };
-
-    const images = [buzios, fernandoDeNoronha, portoSeguro, milao, 
-                    vancouver, santorini, bali,
-                    kyoto, disney, Jericoacoara];
-
-    const randomNumber = Math.floor(Math.random() * images.length);
-    const bgImg = `url( ${images[randomNumber].url})`;
-    const bgImgName = images[randomNumber].name;
-    
-    const home = document.getElementById('home-page');
-    this.name = document.getElementById('place-name').innerHTML;
-    
-    return home.style.backgroundImage = bgImg, this.name = bgImgName;
+    return this.getAPI(1,null, null, `1,,price_max_${this.valueSlider}00|1`, null);
   }
 
   sendLocationToInput() {
@@ -227,8 +204,32 @@ export class FormComponent implements OnInit {
     return this.getLocation(null, name);
   }
 
-  ngOnInit() {
-    this.changeBackgroundImage();
+  backToTop() {
+    window.scrollTo(0, 0);
   }
 
- }
+  showAmenities(amenities) {
+    this.amenities = [];
+
+    if(amenities.length >= 3) {
+      for(let i=0; i<2; i++){
+        this.amenities.push(amenities[i]);
+      }
+    }
+    else {
+      for(let i=0; i<amenities.length; i++){
+        this.amenities.push(amenities[i]);
+      }
+    }
+
+   return this.amenities
+  }
+
+  rangeValue(){
+     this.value = (<HTMLInputElement>document.getElementById('range')).value;
+  }
+
+  ngOnInit():void { 
+  }
+
+}
