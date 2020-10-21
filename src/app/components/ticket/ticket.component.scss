@@ -736,7 +736,8 @@ $black: #000000;
 
   @include for-phone-only {
     margin: 0.5rem 0;
-    width: fit-content;
+    text-align: center;
+    width: -webkit-fill-available;
   }
 }
 
