@@ -1,0 +1,102 @@
+/* COLORS */
+
+$blue: #055AFE;
+$darkBlue: #0547C7;
+$white: #FEFEFE;
+$ice: #fefefeb6;
+$tuleWhite: #fefefedc;
+
+/* BREAKPOINTS */
+
+@mixin for-phone-only {
+  @media (min-width: 320px) and (max-width: 431px) { @content; }
+}
+
+@mixin for-tablet-portrait-up {
+  @media (min-width: 768px) and (max-width: 1024px) { @content; }
+}
+
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
+
+/* CONTAINERS */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  color: $white;
+  text-align: center;
+  padding-top: 2rem;  
+}
+
+/* TEXTS */
+
+.title-page,
+.help-message {
+  padding: 2rem;
+}
+
+.title-page {
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: #5DBCAA;
+
+  @include for-phone-only {
+    font-size: 2.4rem;
+  }
+}
+
+.error-number {
+  font-size: 12rem;
+  font-weight: 700;
+  color: #FFED00;
+
+  @include for-phone-only {
+    font-size: 10rem;
+  }
+}
+
+.help-message {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color:#5DBCAA;
+
+  @include for-phone-only {
+    font-size: 1.6rem;
+  }
+}
+
+.back-to-homepage {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #FFED00;
+  cursor: pointer;
+
+  @include for-phone-only {
+    font-size: 1.6rem;
+  }
+}
+
+/* IMAGE */
+
+.error-image {
+  width: 50rem;
+  margin:  0 auto 0 auto;
+
+  @include for-phone-only {
+    width: 32rem;
+    margin: auto;
+  }
+}

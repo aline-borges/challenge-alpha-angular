@@ -107,6 +107,10 @@ export class HotelComponent implements OnInit {
   getAPI(page = 1, typeSearchOption, order: string, limited: string, quantityStars: Array<any>) {
     this.hurbService.getData(this.location, this.typeSearchOption, page, order, limited, quantityStars).subscribe((data) => {
       
+      if(data.length < 1) {
+        console.log('Sem resultados')
+      }
+
       if(this.typeSearchOption === 'offer') {
         this.packages = data.results;
         this.pagination = data.pagination;

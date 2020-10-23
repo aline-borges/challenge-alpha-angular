@@ -14,6 +14,14 @@ $white: #FEFEFE;
 $tule: #0f0f0f60;
 $darkBlue: #0547C7;
 
+header,
+nav,
+ul,
+li,
+a {
+  outline: none;
+}
+
 /* ONLY IN HOTEL PAGE */
 
 #hotel-page {

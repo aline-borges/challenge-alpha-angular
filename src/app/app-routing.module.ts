@@ -5,6 +5,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { HotelsComponent } from './pages/hotels/hotels.component';
 import { PackagesComponent } from './pages/packages/packages.component';
 import { TicketsComponent } from './pages/tickets/tickets.component';
+import { NotFoundComponent } from './pages/errors/not-found/not-found.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -12,7 +14,8 @@ const routes: Routes = [
   { path: 'hotels', component: HotelsComponent },
   { path: 'packages', component: PackagesComponent },
   { path: 'tickets', component: TicketsComponent },
-  { path: '**', component: HomeComponent }
+  {path: '404', component: NotFoundComponent},
+  {path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({
