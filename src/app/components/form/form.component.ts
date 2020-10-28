@@ -66,7 +66,7 @@ export class FormComponent implements OnInit {
         pagination: this.pagination,
         quantity: this.quantity,
         place: this.place,
-        location: this.location
+        location: this.location,  
       }
     });
   }
@@ -105,42 +105,76 @@ export class FormComponent implements OnInit {
      
       if(this.typeSearchOption === 'offer') {
         this.packages = data.results;
-        this.pagination = data.pagination;
-        this.quantity = data.meta.count;
-        this.place = data.meta.query;
-        this.price = data.results.price;
-        this.stars = data.results.stars;
-        this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
-        this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
-        this.currentPage = page;
+
+        if(this.packages !== null) {
+          
+          if(data?.pagination !== undefined){
+            this.pagination = data.pagination;
+          }
+
+          this.quantity = data.meta.count;
+          this.place = data.meta.query;
+          this.price = data.results.price;
+          this.stars = data.results.stars;
+  
+          if(data?.filters?.priceInterval?.min !== undefined) {
+            this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
+            this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
+          }
+  
+          this.currentPage = page;
+        }
 
         this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
         this.goToPackages(this.packages, this.currentPage, this.pagination, this.quantity, this.place, this.location)
       }
       else if(this.typeSearchOption === 'ticket') {
         this.tickets = data.results;
-        this.pagination = data.pagination;
-        this.quantity = data.meta.count;
-        this.place = data.meta.query;
-        this.price = data.results.price;
-        this.stars = data.results.stars;
-        this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
-        this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
-        this.currentPage = page;
+
+        if(this.tickets !== null) {
+          
+          if(data?.pagination !== undefined){
+            this.pagination = data.pagination;
+          }
+
+          this.quantity = data.meta.count;
+          this.place = data.meta.query;
+          this.price = data.results.price;
+          this.stars = data.results.stars;
+  
+          if(data?.filters?.priceInterval?.min !== undefined) {
+            this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
+            this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
+          }
+  
+          this.currentPage = page;
+        }
 
         this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
-        this.goToTickets(this.tickets, this.currentPage, this.pagination, this.quantity, this.place, this.location)
+        this.goToTickets(this.tickets, this.currentPage, this.pagination, this.quantity, this.place, 
+        this.location)
       }
       else {
         this.hotels = data.results;
-        this.pagination = data.pagination;
-        this.quantity = data.meta.count;
-        this.place = data.meta.query;
-        this.price = data.results.price;
-        this.stars = data.results.stars;
-        this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
-        this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
-        this.currentPage = page;
+
+        if(this.hotels !== null) {
+          
+          if(data?.pagination !== undefined){
+            this.pagination = data.pagination;
+          }
+          
+          this.quantity = data.meta.count;
+          this.place = data.meta.query;
+          this.price = data.results.price;
+          this.stars = data.results.stars;
+  
+          if(data?.filters?.priceInterval?.min !== undefined) {
+            this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
+            this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
+          }
+  
+          this.currentPage = page;
+        }
   
         this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
         this.goToHotels(this.hotels, this.currentPage, this.pagination, this.quantity, this.place, this.location)
