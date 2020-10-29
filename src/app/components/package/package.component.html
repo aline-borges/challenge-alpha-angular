@@ -18,17 +18,17 @@
       <i class="fas fa-search"></i>
     </button>
   </div>
+  <div class="show-filters-buttons">
+    <button id="show-search-button" (click)="showForm()">
+      Mostrar Pesquisa
+      <i class="fas fa-plus"></i>
+    </button>
+    <button id="filter-button" (click)="showFilters()">
+      Filtrar
+      <i class="fas fa-filter"></i>
+    </button>
+  </div>
   <div *ngIf="packages.length > 0">
-    <div class="show-filters-buttons">
-      <button id="show-search-button" (click)="showForm()">
-        Mostrar Pesquisa
-        <i class="fas fa-plus"></i>
-      </button>
-      <button id="filter-button" (click)="showFilters()">
-        Filtrar
-        <i class="fas fa-filter"></i>
-      </button>
-    </div>
     <div *ngIf="packages" class="header-hotel-bar">
       <p class="hotels-result"><span class="quantity-result">{{ this.quantity }}</span> {{ this.quantity == '1' ? 'pacote' : 'pacotes' }} para <span class="place-result">{{ this.place }}</span></p>
       <div class="ordenation-aside">
@@ -129,7 +129,9 @@
     </ul>
   </div>
 
-  <div *ngIf="packages.length === 0">
-    Não encontramos nenhum resultado para sua busca
+  <div class="not-found" *ngIf="packages.length === 0">
+    <img class="not-found-image" src="../../../assets/images/pool.gif" alt="not found">
+    <p class="not-found-title">Ops! Busca não encontrada.</p>
+    <p class="not-found-message">Relaxa que temos várias ofertas esperando por você. Faça uma nova busca!</p>
   </div>
 </div>

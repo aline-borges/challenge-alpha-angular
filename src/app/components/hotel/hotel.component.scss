@@ -5,6 +5,8 @@ $superDarkBlue: #093282;
 $tuleDarkBlue: #093182b4;
 $blue: #055AFE;
 $darkBlue: #0547C7;
+$purple: #5F42A0;
+$lightPurple: #7C52B4;
 $lightBlue: #D1D6EE;
 $extraLightBlue: #BBC1E1;
 $white: #FEFEFE;
@@ -52,6 +54,21 @@ $black: #000000;
   background-position: center;
   overflow: hidden;
   color: $white;
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include for-tablet-portrait-up {
+    margin: auto;
+  }
+
+  @include for-phone-only {
+    margin: auto;
+  }
 }
 
 #hotel-page {
@@ -361,33 +378,31 @@ $black: #000000;
   }
 }
 
-.background-place {
-  border: 0.2rem dotted $ice;
-  outline: none;
-  padding: 0.8rem 1.6rem;
-  background: transparent;
+.not-found-message,
+.not-found-title {
   font-family: 'Montserrat', sans-serif;
-  margin: 20rem 2.4rem 0 5.0rem;
-  font-weight: 700;
-  cursor: pointer;
-  color: $ice;
-  width: fit-content;
-  font-size: 1.2rem;
+  letter-spacing: .1rem;
+  margin-top: 1.0rem;
 
   @include for-tablet-portrait-up {
-    font-size: 2rem;
-    padding: 1.5rem 3rem;
+    text-align: center;
   }
 
   @include for-phone-only {
-    margin: 3rem auto;
-    max-width: 25rem;
+    text-align: center;
   }
+}
 
-  &:hover {
-    color: $white;
-    border-color: $white;
-  }
+.not-found-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $purple;
+}
+
+.not-found-message {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: $lightPurple;
 }
 
 /* FORMS */
@@ -803,13 +818,14 @@ $black: #000000;
 
 /* IMAGES */
 
-#loading {
-  width: 40rem;
-  margin: 0 50rem;
+#loading,
+.not-found-image {
+  width: 35rem;
+  margin: 5rem auto;
 
   @include for-tablet-portrait-up {
-    width: 60rem;
-    margin: auto;
+    width: 25rem;
+    margin: 5rem auto;
   }
 
   @include for-phone-only {

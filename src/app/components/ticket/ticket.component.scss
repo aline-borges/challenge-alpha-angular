@@ -5,7 +5,8 @@ $superDarkBlue: #093282;
 $tuleDarkBlue: #093182b4;
 $blue: #055AFE;
 $darkBlue: #0547C7;
-$turquoise : #34BEAA;
+$purple: #5F42A0;
+$lightPurple: #7C52B4;
 $lightBlue: #D1D6EE;
 $extraLightBlue: #BBC1E1;
 $white: #FEFEFE;
@@ -60,6 +61,14 @@ $black: #000000;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @include for-tablet-portrait-up {
+    margin: auto;
+  }
+
+  @include for-phone-only {
+    margin: auto;
+  }
 }
 
 #package-page {
@@ -368,22 +377,31 @@ $black: #000000;
   }
 }
 
+.not-found-message,
 .not-found-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 2.1rem;
-  font-weight: 700;
-  color: $turquoise;
   letter-spacing: .1rem;
   margin-top: 1.0rem;
+
+  @include for-tablet-portrait-up {
+    text-align: center;
+  }
+
+  @include for-phone-only {
+    text-align: center;
+  }
+}
+
+.not-found-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $purple;
 }
 
 .not-found-message {
-  font-family: 'Montserrat', sans-serif;
   font-size: 1.8rem;
   font-weight: 600;
-  color: $turquoise;
-  letter-spacing: .1rem;
-  margin-top: 1.0rem;
+  color: $lightPurple;
 }
 
 /* FORMS */
@@ -814,12 +832,12 @@ $black: #000000;
 
 #loading,
 .not-found-image {
-  width: 40rem;
-  margin: 5rem 50rem 0;
+  width: 35rem;
+  margin: 5rem auto;
 
   @include for-tablet-portrait-up {
-    width: 60rem;
-    margin: auto;
+    width: 25rem;
+    margin: 5rem auto;
   }
 
   @include for-phone-only {
