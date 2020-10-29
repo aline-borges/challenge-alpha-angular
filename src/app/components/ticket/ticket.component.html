@@ -28,7 +28,7 @@
       <i class="fas fa-filter"></i>
     </button>
   </div>
-  <div *ngIf="tickets.length > 0">
+  <div *ngIf="tickets?.length > 0">
     <div *ngIf="tickets" class="header-hotel-bar">
       <p class="hotels-result"><span class="quantity-result">{{ this.quantity }}</span> {{ 
         this.quantity == '1' ? 'atividade' : 'atividades' }} para 
@@ -134,7 +134,7 @@
       </li>
     </ul>
   </div>
-  <div class="not-found" *ngIf="tickets.length === 0">
+  <div class="not-found" *ngIf="tickets?.length === 0">
     <img class="not-found-image" src="../../../assets/images/pool.gif" alt="not found">
     <p class="not-found-title">Ops! Busca não encontrada.</p>
     <p class="not-found-message">Relaxa que temos várias ofertas esperando por você. Faça uma nova busca!</p>

@@ -61,6 +61,7 @@ $black: #000000;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 
   @include for-tablet-portrait-up {
     margin: auto;
@@ -382,15 +383,8 @@ $black: #000000;
 .not-found-title {
   font-family: 'Montserrat', sans-serif;
   letter-spacing: .1rem;
-  margin-top: 1.0rem;
-
-  @include for-tablet-portrait-up {
-    text-align: center;
-  }
-
-  @include for-phone-only {
-    text-align: center;
-  }
+  margin-top: 1.2rem;
+  text-align: center;
 }
 
 .not-found-title {
@@ -820,13 +814,8 @@ $black: #000000;
 
 #loading,
 .not-found-image {
-  width: 35rem;
+  width: 30rem;
   margin: 5rem auto;
-
-  @include for-tablet-portrait-up {
-    width: 25rem;
-    margin: 5rem auto;
-  }
 
   @include for-phone-only {
     margin: 0;
