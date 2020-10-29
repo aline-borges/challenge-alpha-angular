@@ -55,7 +55,7 @@ span {
 .title-page {
   font-size: 3.6rem;
   font-weight: 700;
-  color: #5DBCAA;
+  color: #0080A4;
 
   @include for-phone-only {
     font-size: 2.4rem;
@@ -65,7 +65,7 @@ span {
 .error-number {
   font-size: 12rem;
   font-weight: 700;
-  color: #FFED00;
+  color: #E0482F;
 
   @include for-phone-only {
     font-size: 10rem;
@@ -75,7 +75,7 @@ span {
 .help-message {
   font-size: 2.4rem;
   font-weight: 700;
-  color:#5DBCAA;
+  color:#0080A4;
 
   @include for-phone-only {
     font-size: 1.6rem;
@@ -85,7 +85,7 @@ span {
 .back-to-homepage {
   font-size: 2.4rem;
   font-weight: 700;
-  color: #FFED00;
+  color: #E0482F;
   cursor: pointer;
 
   @include for-phone-only {
@@ -96,7 +96,7 @@ span {
 /* IMAGE */
 
 .error-image {
-  width: 50rem;
+  width: 45rem;
   margin:  0 auto 0 auto;
 
   @include for-phone-only {

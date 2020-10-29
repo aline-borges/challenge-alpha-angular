@@ -5,6 +5,7 @@ $superDarkBlue: #093282;
 $tuleDarkBlue: #093182b4;
 $blue: #055AFE;
 $darkBlue: #0547C7;
+$turquoise : #34BEAA;
 $lightBlue: #D1D6EE;
 $extraLightBlue: #BBC1E1;
 $white: #FEFEFE;
@@ -52,6 +53,13 @@ $black: #000000;
   background-position: center;
   overflow-x: hidden;
   color: $white;
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #package-page {
@@ -360,33 +368,22 @@ $black: #000000;
   }
 }
 
-.background-place {
-  border: 0.2rem dotted $ice;
-  outline: none;
-  padding: 0.8rem 1.6rem;
-  background: transparent;
+.not-found-title {
   font-family: 'Montserrat', sans-serif;
-  margin: 20rem 2.4rem 0 5.0rem;
+  font-size: 2.1rem;
   font-weight: 700;
-  cursor: pointer;
-  color: $ice;
-  width: fit-content;
-  font-size: 1.2rem;
+  color: $turquoise;
+  letter-spacing: .1rem;
+  margin-top: 1.0rem;
+}
 
-  @include for-tablet-portrait-up {
-    font-size: 2rem;
-    padding: 1.5rem 3rem;
-  }
-
-  @include for-phone-only {
-    margin: 3rem auto;
-    max-width: 25rem;
-  }
-
-  &:hover {
-    color: $white;
-    border-color: $white;
-  }
+.not-found-message {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: $turquoise;
+  letter-spacing: .1rem;
+  margin-top: 1.0rem;
 }
 
 /* FORMS */
@@ -815,9 +812,10 @@ $black: #000000;
 
 /* IMAGES */
 
-#loading {
+#loading,
+.not-found-image {
   width: 40rem;
-  margin: 0 50rem;
+  margin: 5rem 50rem 0;
 
   @include for-tablet-portrait-up {
     width: 60rem;

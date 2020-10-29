@@ -18,119 +18,126 @@
       <i class="fas fa-search"></i>
     </button>
   </div>
-  <div class="show-filters-buttons">
-    <button id="show-search-button" (click)="showForm()">
-      Mostrar Pesquisa
-      <i class="fas fa-plus"></i>
-    </button>
-    <button id="filter-button" (click)="showFilters()">
-      Filtrar
-      <i class="fas fa-filter"></i>
-    </button>
-  </div>
-  <div *ngIf="tickets" class="header-hotel-bar">
-    <p class="hotels-result"><span class="quantity-result">{{ this.quantity }}</span> {{ 
-      this.quantity == '1' ? 'atividade' : 'atividades' }} para 
-      <span class="place-result">
-        {{ this.place }}
-      </span></p>
-    <div class="ordenation-aside">
-      <select class="ordenation-options" id="selectOrder" (change)="orderBy()">
-        <option disabled="disabled">Ordenar por:</option>
-        <option value="moreRelevance">Mais Relevância</option>
-        <option value="lowPrice">Menor Preço</option>
-        <option value="highPrice">Maior Preço</option>
-      </select>  
+  <div *ngIf="tickets.length > 0">
+    <div class="show-filters-buttons">
+      <button id="show-search-button" (click)="showForm()">
+        Mostrar Pesquisa
+        <i class="fas fa-plus"></i>
+      </button>
+      <button id="filter-button" (click)="showFilters()">
+        Filtrar
+        <i class="fas fa-filter"></i>
+      </button>
     </div>
-  </div>
+    <div *ngIf="tickets" class="header-hotel-bar">
+      <p class="hotels-result"><span class="quantity-result">{{ this.quantity }}</span> {{ 
+        this.quantity == '1' ? 'atividade' : 'atividades' }} para 
+        <span class="place-result">
+          {{ this.place }}
+        </span></p>
+      <div class="ordenation-aside">
+        <select class="ordenation-options" id="selectOrder" (change)="orderBy()">
+          <option disabled="disabled">Ordenar por:</option>
+          <option value="moreRelevance">Mais Relevância</option>
+          <option value="lowPrice">Menor Preço</option>
+          <option value="highPrice">Maior Preço</option>
+        </select>  
+      </div>
+    </div>
 
-  <div class="body-hotel" id="hotel-container">
-    <div *ngIf="tickets" class="ordenation" id="ordenation">
-      <div class="slider" id="slider">
-        <p class="rangeText">Valor até: R$ {{ this.value ? this.value : '1500' }}</p>
-        <input type="range" id="range" [min]="minPrice" [max]="1500" [value]="1500" 
-        (click)="limitedByPrice()" (change)="rangeValue()"> 
-      </div> 
-    </div>
-    <div class="hotel-list">
-      <img *ngIf="!tickets" id="loading" src="../../../assets/images/loading.gif">
-      <ul class="hotel-cards">
-        <li class="hotel-item" *ngFor="let ticket of tickets">
-          <img class="hotel-photo" src="{{ ticket.gallery[0].url }}" alt="{{ ticket.name }}" >
-          <div class="hotel-information">
-            <div class="header-information">
-              <p class="hotel-name">{{ ticket.name }}</p>
-              <p class="hotel-description">{{ ticket.smallDescription }}</p>  
-            </div>
-  
-            <p class="hotel-location">
-              <i class="fas fa-map-marker"></i>
-              {{ ticket.address.city }}, {{ ticket.address.state }}
-            </p>
-            <ul class="hotel-amenities">
-              <li class="amenities-item" *ngFor="let amenity of showAmenities(ticket.amenities)">
-                <p class="amenity-title" *ngIf=" ticket.amenities === '' ? false : true">
-                  {{ amenity.name }}
-                  <i class="fas fa-check-circle"></i>
-                </p>
-              </li>
-            </ul>
-            <div class="footer-information">
-              <div class="tags-container">
-                <p class="hotel-tags specials-tags" *ngIf=" ticket.tags === null ? false : true">
-                  {{ ticket.tags[0] }}
-                  <i class="fas fa-fire-alt"></i>
-                </p>
+    <div class="body-hotel" id="hotel-container">
+      <div *ngIf="tickets" class="ordenation" id="ordenation">
+        <div class="slider" id="slider">
+          <p class="rangeText">Valor até: R$ {{ this.value ? this.value : '1500' }}</p>
+          <input type="range" id="range" [min]="minPrice" [max]="1500" [value]="1500" 
+          (click)="limitedByPrice()" (change)="rangeValue()"> 
+        </div> 
+      </div>
+      <div class="hotel-list">
+        <img *ngIf="!tickets" id="loading" src="../../../assets/images/loading.gif">
+        <ul class="hotel-cards">
+          <li class="hotel-item" *ngFor="let ticket of tickets">
+            <img class="hotel-photo" src="{{ ticket.gallery[0].url }}" alt="{{ ticket.name }}" >
+            <div class="hotel-information">
+              <div class="header-information">
+                <p class="hotel-name">{{ ticket.name }}</p>
+                <p class="hotel-description">{{ ticket.smallDescription }}</p>  
               </div>
-              <div class="hotel-price-information">
-                <p>Diárias a partir de <span class="old-price">{{ ticket.price.old_price > ticket.price.amountPerDay ? 
-                  ticket.price.old_price : '' }}</span></p>
-                <p class="price-taxes-container">
-                  <span class="new-price price-container">
-                    <span class="currency">R$</span>
-                    {{ ticket.price.amountPerDay.toFixed(0) }}
-                  </span> + Taxas
-                </p>
-                <button class="button" id="hotel-button"><a target="_blank" href="{{ticket.url}}">Visualizar Atividade</a></button>
+    
+              <p class="hotel-location">
+                <i class="fas fa-map-marker"></i>
+                {{ ticket.address.city }}, {{ ticket.address.state }}
+              </p>
+              <ul class="hotel-amenities">
+                <li class="amenities-item" *ngFor="let amenity of showAmenities(ticket.amenities)">
+                  <p class="amenity-title" *ngIf=" ticket.amenities === '' ? false : true">
+                    {{ amenity.name }}
+                    <i class="fas fa-check-circle"></i>
+                  </p>
+                </li>
+              </ul>
+              <div class="footer-information">
+                <div class="tags-container">
+                  <p class="hotel-tags specials-tags" *ngIf=" ticket.tags === null ? false : true">
+                    {{ ticket.tags[0] }}
+                    <i class="fas fa-fire-alt"></i>
+                  </p>
+                </div>
+                <div class="hotel-price-information">
+                  <p>Diárias a partir de <span class="old-price">{{ ticket.price.old_price > ticket.price.amountPerDay ? 
+                    ticket.price.old_price : '' }}</span></p>
+                  <p class="price-taxes-container">
+                    <span class="new-price price-container">
+                      <span class="currency">R$</span>
+                      {{ ticket.price.amountPerDay.toFixed(0) }}
+                    </span> + Taxas
+                  </p>
+                  <button class="button" id="hotel-button"><a target="_blank" href="{{ticket.url}}">Visualizar Atividade</a></button>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div> 
+          </li>
+        </ul>
+      </div>
+    </div> 
 
-  <ul class="buttons-page" *ngIf="tickets">
-    <li>
-      <button id="first-page" class="button-page" (click)="getAPI(1)" *ngIf="pagination.previousPage">
-        <i class="fas fa-angle-double-left"></i>
-        Primeira Página
+    <ul class="buttons-page" *ngIf="tickets">
+      <li>
+        <button id="first-page" class="button-page" (click)="getAPI(1)" *ngIf="pagination?.previousPage">
+          <i class="fas fa-angle-double-left"></i>
+          Primeira Página
+        </button>
+      </li>
+      <li>
+        <button id="previous-page" class="button-page" (click)="getAPI(currentPage - 1)" *ngIf="pagination?.previousPage">
+          <i class="fas fa-angle-left"></i>
+          Página Anterior
       </button>
-    </li>
-    <li>
-      <button id="previous-page" class="button-page" (click)="getAPI(currentPage - 1)" *ngIf="pagination.previousPage">
-        <i class="fas fa-angle-left"></i>
-        Página Anterior
-    </button>
-    </li>
-    <li>
-      <button id="next-page" class="button-page" (click)="getAPI(currentPage + 1)" *ngIf="pagination.nextPage">
-        Próxima Página
-        <i class="fas fa-angle-right"></i>
-      </button>
-    </li>
-    <li>
-      <button id="last-page" class="button-page" (click)="getAPI(pagination.count)" *ngIf="pagination.nextPage">
-        Última Página
-        <i class="fas fa-angle-double-right"></i>
-      </button>
-    </li>
-    <li>
-      <button id="back-to-top-page" class="button-page" (click)="backToTop()">
-        Voltar ao Topo
-        <i class="fas fa-angle-up"></i>
-      </button>
-    </li>
-  </ul>
+      </li>
+      <li>
+        <button id="next-page" class="button-page" (click)="getAPI(currentPage + 1)" *ngIf="pagination?.nextPage">
+          Próxima Página
+          <i class="fas fa-angle-right"></i>
+        </button>
+      </li>
+      <li>
+        <button id="last-page" class="button-page" (click)="getAPI(pagination.count)" *ngIf="pagination?.nextPage">
+          Última Página
+          <i class="fas fa-angle-double-right"></i>
+        </button>
+      </li>
+      <li>
+        <button id="back-to-top-page" class="button-page" (click)="backToTop()">
+          Voltar ao Topo
+          <i class="fas fa-angle-up"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div class="not-found" *ngIf="tickets.length === 0">
+    <img class="not-found-image" src="../../../assets/images/search2.gif" alt="not found">
+    <p class="not-found-title">Poxa, que pena!</p>
+    <p class="not-found-message">Infelizmente, não encontramos ofertas para a sua busca.</p>
+  </div>
 </div>
 
