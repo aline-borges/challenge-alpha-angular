@@ -725,15 +725,13 @@ $black: #000000;
   font-size: 1.4rem;
   font-weight: 500;
   margin: 0.5rem 2.5rem;
-  width: 40rem;
-
-  @include for-tablet-portrait-up {
-    width: 30rem;
-  }
+  width: fit-content;
 
   @include for-phone-only {
-    margin: 0.5rem 0;
-    width: fit-content;
+    width: auto;
+    max-width: 20rem;
+    margin: auto;
+    text-align: center;
   }
 }
 
@@ -807,6 +805,10 @@ $black: #000000;
 .specials-tags {
   background: $red;
   margin-bottom: 1.0rem;
+
+  @include for-phone-only {
+    margin-top: 1rem;
+  }
 }
 
 .old-price {
