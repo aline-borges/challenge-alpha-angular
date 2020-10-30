@@ -1,4 +1,4 @@
-![banner-principal](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-home.png?raw=true)
+![hurb-screen-gif](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-screen-gif.gif?raw=true)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/83d65deb-7e08-4531-9419-d27751590bdc/deploy-status)](https://app.netlify.com/sites/hurb-angular/deploys)
 
@@ -7,6 +7,8 @@
 [Visite o Site](https://hurb-angular.netlify.app/)
 
 # Hurb Web Site
+
+![banner-principal](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-home.png?raw=true)
 
 [![Angular since](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/angular-pill.png?raw=true)]() [![Typescript since](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/typescript-pill.png?raw=true)]() [![Javascript since](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/javascript-pill.png?raw=true)]() [![Sass since](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/sass-pill.png?raw=true)]()
 
