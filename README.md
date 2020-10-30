@@ -33,7 +33,7 @@ Criar um site moderno, com uma boa usabilidade que consuma o JSON exposto pela A
 
 ![hotel-page-screen](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel.png?raw=true)
 
-| Tela de Hoteís/Pacotes  |
+| Tela de Hoteís  |
 | ------ |
 | Header: Menu com a logo a opção de página inicial, busca por hoteís e busca por pacotes. | 
 | Form: Parte de formulário do site onde o usuário pode digitar diretamente o local que deseja realizar a pesquisa. | 
@@ -51,6 +51,19 @@ Criar um site moderno, com uma boa usabilidade que consuma o JSON exposto pela A
 
 | Limitação: Mostra o número de hóteis/pacotes limitados por estrelas. |
 | Card do Hotel: Mostra a foto, o nome, a localização, o número de estrelas, o valor da diária, tags e botão de visualizar o hotel|
+
+
+![home-page-screen-package](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-home-packages.png?raw=true)
+
+![package-page-screen-default](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-packages-default.png?raw=true)
+
+![package-page-screen-home](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-home-packages.png?raw=true)
+
+| Tela de Pacotes  |
+| ------ |
+| Header: Menu com a logo a opção de página inicial, busca por hoteís e busca por pacotes. | 
+| Form: Parte de formulário do site onde o usuário pode digitar diretamente o local que deseja realizar a pesquisa. | 
+| Quantidade de Pacotes: Mostra o número de pacotes que retornam da busca |
 
 ## Desenvolvimento no Servidor
 Para rodar esse projeto na sua maquina, após clonar o repositório, digite ng serve e navegue para o link  http://localhost:4200/. Pode digitar ng serve --open e a aplicação abre automaticamente. A aplicação faz o reload automático a cada mudança realizada no código. 
