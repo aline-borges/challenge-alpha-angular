@@ -42,6 +42,11 @@ $tuleWhite: #fefefedc;
   padding-top: 2rem;  
 }
 
+.not-found-container {
+  margin: auto;
+  padding: 2rem;
+}
+
 /* TEXTS */
 
 span {
@@ -50,48 +55,42 @@ span {
 
 .title-page,
 .help-message {
-  padding: 2rem;
-}
-
-.title-page {
-  font-size: 3.2rem;
-  font-weight: 700;
-  color: $superDarkBlue;
+  padding: 1rem;
+  font-size: 2.4rem;
 
   @include for-phone-only {
-    font-size: 2.4rem;
+    font-size: 1.8rem;
   }
 }
 
+.title-page {
+  font-weight: 700;
+  color: $superDarkBlue;
+}
 
 .error-number {
   font-size: 12rem;
   font-weight: 700;
-  color: #E59B2C;
+  color: $blue;
 
   @include for-phone-only {
-    font-size: 10rem;
+    font-size: 8rem;
   }
 }
 
 .help-message {
-  font-size: 2.4rem;
   font-weight: 700;
   color: $superDarkBlue;
-
-  @include for-phone-only {
-    font-size: 1.6rem;
-  }
 }
 
 .back-to-homepage {
   font-size: 2.4rem;
   font-weight: 700;
-  color: #E59B2C;
+  color: $blue;
   cursor: pointer;
 
   @include for-phone-only {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -102,7 +101,7 @@ span {
   margin:  0 auto 0 auto;
 
   @include for-phone-only {
-    width: 32rem;
+    width: 28rem;
     margin: auto;
   }
 }
