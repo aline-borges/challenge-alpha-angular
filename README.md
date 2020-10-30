@@ -1,4 +1,4 @@
-![banner-principal](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen.png?raw=true)
+![banner-principal](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-home.png?raw=true)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/83d65deb-7e08-4531-9419-d27751590bdc/deploy-status)](https://app.netlify.com/sites/hurb-angular/deploys)
 
@@ -23,62 +23,95 @@ Criar um site moderno, com uma boa usabilidade que consuma o JSON exposto pela A
 #### Lista de Elementos do Site
 #
 
-![home-page-screen](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-home.png?raw=true)
-
 | Tela Inicial  |
 | ------ |
-| Header: Menu com a logo a opção de página inicial, busca por hoteís e busca por pacotes. | 
+| Header: Menu com a logo a opção de página inicial, busca por hoteís, busca por pacotes e busca por atividades. | 
 | Form: Parte de formulário do site onde o usuário pode digitar diretamente o local que deseja realizar a pesquisa. | 
 | Footer: Espaço que mostra o local de onde é a imagem do background, posssibilitando o usuário a pesquisar de forma prática. |
 
-![hotel-page-screen](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel.png?raw=true)
-
-| Tela de Hoteís  |
+| Hotéis  |
 | ------ |
-| Header: Menu com a logo a opção de página inicial, busca por hoteís e busca por pacotes. | 
+| Opção de busca por hotéis. | 
+
+![home-page-screen-hotels](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-home-hotels.png?raw=true)
+
+| Pacotes  |
+| ------ |
+| Opção de busca por pacotes. | 
+
+![home-page-screen-packages](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-home-packages.png?raw=true)
+
+| Atividades  |
+| ------ |
+| Opção de busca por atividades. | 
+
+![home-page-screen-tickets](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-home-tickets.png?raw=true)
+
+| Tela da Página de Hotéis - Default  |
+| ------ |
+| Header: Menu com a logo a opção de página inicial, busca por hoteís, busca por pacotes e busca por atividades. | 
 | Form: Parte de formulário do site onde o usuário pode digitar diretamente o local que deseja realizar a pesquisa. | 
-| Quantidade de Hoteís: Mostra o número de hóteis/pacotes que retornam da busca |
 
-![ordenation-byLowPrice](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel-order-by-low-price.png?raw=true)
+![hotel-page-screen-default](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel-default.png?raw=true)
 
-| Ordenação: Mostra o número de hóteis/pacotes ordenados por relevância, menor preço e maior preço |
-
-![ordenation-limitedByPrice](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel-limited-by-price.png?raw=true)
-
-| Limitação: Mostra o número de hóteis/pacotes limitados por preço. |
-
-![ordenation-limitedByStars](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel-order-by-stars.png?raw=true)
-
-| Limitação: Mostra o número de hóteis/pacotes limitados por estrelas. |
-| Card do Hotel: Mostra a foto, o nome, a localização, o número de estrelas, o valor da diária, tags e botão de visualizar o hotel|
-
-
-![home-page-screen-package](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-home-packages.png?raw=true)
+| Tela da Página de Pacotes - Default  |
+| ------ |
+| Header: Menu com a logo a opção de página inicial, busca por hoteís, busca por pacotes e busca por atividades. | 
+| Form: Parte de formulário do site onde o usuário pode digitar diretamente o local que deseja realizar a pesquisa. | 
 
 ![package-page-screen-default](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-packages-default.png?raw=true)
 
-![package-page-screen-home](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-home-packages.png?raw=true)
-
-| Tela de Pacotes  |
+| Tela da Página de Atividades - Default  |
 | ------ |
-| Header: Menu com a logo a opção de página inicial, busca por hoteís e busca por pacotes. | 
+| Header: Menu com a logo a opção de página inicial, busca por hoteís, busca por pacotes e busca por atividades. | 
 | Form: Parte de formulário do site onde o usuário pode digitar diretamente o local que deseja realizar a pesquisa. | 
-| Quantidade de Pacotes: Mostra o número de pacotes que retornam da busca |
 
-## Desenvolvimento no Servidor
-Para rodar esse projeto na sua maquina, após clonar o repositório, digite ng serve e navegue para o link  http://localhost:4200/. Pode digitar ng serve --open e a aplicação abre automaticamente. A aplicação faz o reload automático a cada mudança realizada no código. 
+![tickets-page-screen-default](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-tickets-default.png?raw=true)
 
-## Criar um componente
-Digite ng generate component [nome do componente] para criar um novo componente. 
+| Hóteis  |
+| ------ |
+| Opção de busca por hotéis dentro da página de hoteís. | 
 
-## Criar o projeto
-Executar e construir para construir o projeto digite ng build. Os artefatos de construção serão armazenados no diretório dist/. Use a flag --prod para uma construção de produção.
+![hotel-page-screen](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel.png?raw=true)
 
-## Testes de unidade em execução
-Execute ng test para executar os testes unitários via Karma.
+| Ordenação |
+| ------ |
+| Mostra o número de hóteis/pacotes ordenados por relevância, menor preço e maior preço  | 
 
-## Executar os testes de ponta a ponta
-Execute ng e2e para executar os testes de ponta a ponta através do Protractor.
+![ordenation-byLowPrice](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel-order-by-low-price.png?raw=true)
 
-## Mais ajuda
-Para obter mais ajuda sobre a CLI Angular use a ajuda da CLI ou vá verificar o README da CLI Angular.
+| Limitação |
+| ------ |
+| Mostra o número de hóteis/pacotes limitados por preço.  | 
+
+![ordenation-limitedByPrice](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel-limited-by-price.png?raw=true)
+
+| Limitação |
+| ------ |
+| Mostra o número de hóteis/pacotes limitados por estrelas.  | 
+
+![ordenation-limitedByStars](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel-order-by-stars.png?raw=true)
+
+| Card do Hotel: Mostra a foto, o nome, a localização, o número de estrelas, o valor da diária, tags e botão de visualizar o hotel|
+
+![hurb-project-screen-hotel-cards](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel-cards.png?raw=true)
+
+| Card do Pacote: Mostra a foto, o nome, descrição, a localização, o valor, tags e botão de visualizar o pacote. |
+
+![hurb-project-screen-packages-cards](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-packages-cards.png?raw=true)
+
+| Card da Atividade: Mostra a foto, o nome, descrição, a localização, o valor, tags e botão de visualizar a atividade. |
+
+![hurb-project-screen-tickets-cards](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-tickets-cards.png?raw=true)
+
+| Página Não Encontrada |
+| --------|
+| Caso o usuário digite algum caminho que não existe na barra de endereço, ele será direcionado a uma página de erro 404, e nela terá como voltar para a págia inicial. |
+
+![hurb-project-screen-not-found-404](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-not-found-404.png?raw=true)
+
+| Busca Não Encontrada |
+| --------|
+| Caso o usuário digite algum tipo de busca que não existe para a localidade desejada, será mostrada um aviso com uma imagem. |
+
+![hurb-project-screen-search-not-found](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-search-not-found.png?raw=true)
