@@ -190,8 +190,15 @@
     </ul>
   </div>
   <div class="not-found" *ngIf="hotels?.length === 0">
-    <img class="not-found-image" src="../../../assets/images/pool.gif" alt="not found">
+    <img class="not-found-image" src="../../../assets/images/not-found.png" alt="not found">
     <p class="not-found-title">Ops! Busca não encontrada.</p>
-    <p class="not-found-message">Relaxa que temos várias ofertas esperando por você. Faça uma nova busca!</p>
+    <p class="not-found-message">Relaxa que temos várias ofertas esperando por você.</p>
+    <p class="not-found-message">Faça uma nova busca e encontre o lugar perfeito pra sua viagem!</p>
+  </div>
+  <div class="not-found" *ngIf="!hotels">
+    <img class="not-found-image" src="../../../assets/images/travel.png" alt="not found">
+    <p class="not-found-title">Procurando por hotéis?</p>
+    <p class="not-found-message">Temos várias ofertas esperando por você.</p> 
+    <p class="not-found-message">Faça a sua reserva e prepare as suas malas!</p> 
   </div>
 </div>

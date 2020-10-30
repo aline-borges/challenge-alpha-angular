@@ -61,14 +61,15 @@ $black: #000000;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
 
   @include for-tablet-portrait-up {
     margin: auto;
+    padding: 1rem;
   }
 
   @include for-phone-only {
     margin: auto;
+    padding: 1rem;
   }
 }
 
@@ -383,20 +384,29 @@ $black: #000000;
 .not-found-title {
   font-family: 'Montserrat', sans-serif;
   letter-spacing: .1rem;
-  margin-top: 1.2rem;
-  text-align: center;
+
+  @include for-phone-only {
+    text-align: center;
+  }
 }
 
 .not-found-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: $purple;
+  color: $superDarkBlue;
 }
 
 .not-found-message {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  color: $lightPurple;
+  margin-top: 1.2rem;
+  color: $superDarkBlue;
+
+  @include for-phone-only {
+    &:last-of-type {
+      margin-top: 0;
+    }
+  }
 }
 
 /* FORMS */
@@ -814,7 +824,7 @@ $black: #000000;
 
 #loading,
 .not-found-image {
-  width: 30rem;
+  width: 32rem;
   margin: 5rem auto;
 
   @include for-phone-only {

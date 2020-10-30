@@ -42,14 +42,14 @@ export class TicketComponent implements OnInit {
 
   constructor(private hurbService: HurbService, private router: Router, private titleService: Title){
     const nav = this.router.getCurrentNavigation();
-    this.tickets = nav.extras.state.tickets;
-    this.currentPage = nav.extras.state.page;
-    this.pagination = nav.extras.state.pagination;
-    this.quantity = nav.extras.state.quantity;
-    this.place = nav.extras.state.place;
-    this.location = nav.extras.state.place;
-    
-    console.log(this.tickets);
+    if (nav.extras.state) {
+      this.tickets = nav.extras.state.tickets;
+      this.currentPage = nav.extras.state.page;
+      this.pagination = nav.extras.state.pagination;
+      this.quantity = nav.extras.state.quantity;
+      this.place = nav.extras.state.place;
+      this.location = nav.extras.state.place;
+    }
   }
   
   getLocation(evento: KeyboardEvent, value: string){
@@ -64,57 +64,89 @@ export class TicketComponent implements OnInit {
     this.typeSearchOption = event;
   }
 
-  goToHotels(hotels: Array<any>, page: number, pagination: any, quantity: string, 
-    place: string, location: string) {
-    this.router.navigateByUrl('/hotels', {
-      state: { 
-        hotels: this.hotels, 
-        page: this.currentPage, 
-        pagination: this.pagination,
-        quantity: this.quantity,
-        place: this.place,
-        location: this.location
-      }
-    });
-  }
-
-  goToTickets(tickets: Array<any>, page: number, pagination: any, quantity: string, 
-    place: string, location: string) {
-    this.router.navigateByUrl('/tickets', {
-      state: { 
-        tickets: this.hotels, 
-        page: this.currentPage, 
-        pagination: this.pagination,
-        quantity: this.quantity,
-        place: this.place,
-        location: this.location
-      }
-    });
-  }
-
-  goToPackages(packages: Array<any>, page: number, pagination: any, quantity: string,
-    place: string, location: string){
-      this.router.navigateByUrl('/packages', {
-        state: {
-          packages: this.packages,
-          page: this.currentPage,
-          pagination: this.pagination,
-          quantity: this.quantity,
-          place: this.place,
-          location: this.location
-        }
-      })
-  }
-
   getAPI(page = 1, typeSearchOption, order: string, limited: string, quantityStars: Array<any>) {
-    this.hurbService.getData(this.location, this.typeSearchOption, page, order, limited, 
-      quantityStars).subscribe((data) => {
+    this.hurbService.getData(this.location, this.typeSearchOption, page, order, limited, quantityStars).subscribe((data) => {
      
       if(this.typeSearchOption === 'offer') {
         this.packages = data.results;
 
         if(this.packages !== null) {
+          
+          if(data?.pagination !== undefined){
+            this.pagination = data.pagination;
+          }
 
+          this.quantity = data.meta.count;
+          this.place = data.meta.query;
+          this.price = data.results.price;
+          this.stars = data.results.stars;
+  
+          if(data?.filters?.priceInterval?.min !== undefined) {
+            this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
+            this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
+          }
+  
+          this.currentPage = page;
+
+          const activeSearch = document.querySelector('.underlinedMenuSelection').getAttribute('id');
+
+          this.router.navigateByUrl('/packages', {
+            state: {
+              packages: this.packages,
+              page: this.currentPage,
+              pagination: this.pagination,
+              quantity: this.quantity,
+              place: this.place,
+              location: this.location,
+              active: activeSearch
+            }
+          })
+        }
+
+        this.titleService.setTitle(`Pacotes para ${this.location} | Agência de Viagens - Hurb`);
+      }
+      else if(this.typeSearchOption === 'ticket') {
+        this.tickets = data.results;
+
+        if(this.tickets !== null) {
+          
+          if(data?.pagination !== undefined){
+            this.pagination = data.pagination;
+          }
+
+          this.quantity = data.meta.count;
+          this.place = data.meta.query;
+          this.price = data.results.price;
+          this.stars = data.results.stars;
+  
+          if(data?.filters?.priceInterval?.min !== undefined) {
+            this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
+            this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
+          }
+  
+          this.currentPage = page;
+
+          const activeSearch = document.querySelector('.underlinedMenuSelection').getAttribute('id');
+          this.router.navigateByUrl('/tickets', {
+            state: { 
+              tickets: this.tickets, 
+              page: this.currentPage, 
+              pagination: this.pagination,
+              quantity: this.quantity,
+              place: this.place,
+              location: this.location,
+              active: activeSearch
+            }
+          });
+        }
+
+        this.titleService.setTitle(`Atividades para ${this.location} | Agência de Viagens - Hurb`);
+      }
+      else {
+        this.hotels = data.results;
+
+        if(this.hotels !== null) {
+          
           if(data?.pagination !== undefined){
             this.pagination = data.pagination;
           }
@@ -130,58 +162,23 @@ export class TicketComponent implements OnInit {
           }
   
           this.currentPage = page;
-        }
 
-        this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
-        this.goToPackages(this.packages, this.currentPage, this.pagination, this.quantity, this.place, this.location)
-      }
-      else if(this.typeSearchOption === 'ticket') {
-        this.tickets = data.results;
+          const activeSearch = document.querySelector('.underlinedMenuSelection').getAttribute('id');
 
-        if(this.tickets !== null) {
-          if(data?.pagination !== undefined){
-            this.pagination = data.pagination;
-          }
-          this.quantity = data.meta.count;
-          this.place = data.meta.query;
-          this.price = data.results.price;
-          this.stars = data.results.stars;
-  
-          if(data?.filters?.priceInterval?.min !== undefined) {
-            this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
-            this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
-          }
-  
-          this.currentPage = page;
-        }
-
-
-        this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
-        this.goToTickets(this.tickets, this.currentPage, this.pagination, this.quantity, this.place, 
-        this.location)
-      }
-      else {
-        this.hotels = data.results;
-
-        if(this.hotels !== null) {
-          if(data?.pagination !== undefined){
-            this.pagination = data.pagination;
-          }
-          this.quantity = data.meta.count;
-          this.place = data.meta.query;
-          this.price = data.results.price;
-          this.stars = data.results.stars;
-  
-          if(data?.filters?.priceInterval?.min !== undefined) {
-            this.minPrice = ((data.filters.priceInterval.min)/100).toFixed(0);
-            this.maxPrice = ((data.filters.priceInterval.max)/100).toFixed(0);
-          }
-  
-          this.currentPage = page;
+          this.router.navigateByUrl('/hotels', {
+            state: { 
+              hotels: this.hotels, 
+              page: this.currentPage, 
+              pagination: this.pagination,
+              quantity: this.quantity,
+              place: this.place,
+              location: this.location,
+              active: activeSearch
+            }
+          });
         }
   
-        this.titleService.setTitle(`Hotéis e Pacotes Para ${this.location} | Agência de Viagens - Hurb`);
-        this.goToHotels(this.hotels, this.currentPage, this.pagination, this.quantity, this.place, this.location)
+        this.titleService.setTitle(`Hotéis para ${this.location} | Agência de Viagens - Hurb`);
       }
     })
 

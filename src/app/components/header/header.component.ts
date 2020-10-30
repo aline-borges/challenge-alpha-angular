@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,8 +15,15 @@ export class HeaderComponent implements OnInit {
   hotel: any
   package: any
   ticket: any
+  active: string
   
-  constructor() {}
+  constructor(private router: Router) {
+    const nav = this.router.getCurrentNavigation();
+   
+    if (nav.extras.state?.active) {
+      this.active = nav.extras.state.active;
+    }
+  }
 
   selectedMenuOption() {
     this.hotel = (<HTMLInputElement>document.getElementById('hotelOption'));
@@ -42,11 +50,13 @@ export class HeaderComponent implements OnInit {
       this.package.classList.remove('underlinedMenuSelection');
       this.sendTypeSearch.emit('ticket');
     });
-
   }
 
   ngOnInit() {
     this.selectedMenuOption();
+    if (this.active) {
+      document.getElementById(this.active).click();
+    }
   }
 
 }
