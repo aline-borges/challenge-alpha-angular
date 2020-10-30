@@ -92,15 +92,21 @@ Criar um site moderno, com uma boa usabilidade que consuma o JSON exposto pela A
 
 ![ordenation-limitedByStars](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel-order-by-stars.png?raw=true)
 
-| Card do Hotel: Mostra a foto, o nome, a localização, o número de estrelas, o valor da diária, tags e botão de visualizar o hotel|
+| Card do Hotel |
+| ------ |
+| Mostra a foto, o nome, a localização, o número de estrelas, o valor da diária, tags e botão de visualizar o hotel. |
 
 ![hurb-project-screen-hotel-cards](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-hotel-cards.png?raw=true)
 
-| Card do Pacote: Mostra a foto, o nome, descrição, a localização, o valor, tags e botão de visualizar o pacote. |
+| Card do Pacote |
+| ------ |
+| Mostra a foto, o nome, descrição, a localização, o valor, tags e botão de visualizar o pacote. |
 
 ![hurb-project-screen-packages-cards](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-packages-cards.png?raw=true)
 
-| Card da Atividade: Mostra a foto, o nome, descrição, a localização, o valor, tags e botão de visualizar a atividade. |
+| Card da Atividade |
+| ------ |
+| Mostra a foto, o nome, descrição, a localização, o valor, tags e botão de visualizar a atividade. |
 
 ![hurb-project-screen-tickets-cards](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-project-screen-tickets-cards.png?raw=true)
 
