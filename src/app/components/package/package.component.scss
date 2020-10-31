@@ -1,14 +1,9 @@
 /* COLORS */
 
-$extraDarkBlue: #1E2235;
 $superDarkBlue: #093282;
 $tuleDarkBlue: #093182b4;
 $blue: #055AFE;
 $darkBlue: #0547C7;
-$purple: #5F42A0;
-$lightPurple: #7C52B4;
-$lightBlue: #D1D6EE;
-$extraLightBlue: #BBC1E1;
 $white: #FEFEFE;
 $ice: #fefefeb6;
 $tuleWhite: #fefefedc;
@@ -22,7 +17,6 @@ $lightShadow: #a6adc933;
 $grey: #717171;
 $lightGrey: #656565;
 $extraLightGrey: #757575;
-$black: #000000;
 
 /* BREAKPOINTS */
 
@@ -196,17 +190,6 @@ $black: #000000;
   margin: 5.0rem 0 5.0rem 5.0rem;
 }
 
-.ordenation-stars {
-  display: flex;
-  flex-direction: column;
-  margin-left: 5.0rem;
-}
-
-.ordenation-star-item {
-  display: flex;
-  margin-top: 1.0rem;
-}
-
 #range {
   width: 19rem;
 }
@@ -225,100 +208,6 @@ $black: #000000;
     margin-right: 2rem;
     padding: 0 2rem 0 0;
     display: none;
-  }
-}
-
-.checkbox {
-  margin-right: 15px;
-  --background: #fff;
-  --border: #D1D6EE;
-  --border-hover: #BBC1E1;
-  --border-active: #1E2235;
-  --tick: #fff;
-  position: relative;
-  input,
-  svg {
-      width: 21px;
-      height: 21px;
-      display: block;
-  }
-  input {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      position: relative;
-      outline: none;
-      background: var(--background);
-      border: none;
-      margin: 0;
-      padding: 0;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: box-shadow .3s;
-      box-shadow: inset 0 0 0 var(--s, 1px) var(--b, var(--border));
-      &:hover {
-          --s: 2px;
-          --b: var(--border-hover);
-      }
-      &:checked {
-          --b: var(--border-active);
-      }
-  }
-  svg {
-      pointer-events: none;
-      fill: none;
-      stroke-width: 2px;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke: var(--stroke, var(--border-active));
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 21px;
-      height: 21px;
-      transform: scale(var(--scale, 1)) translateZ(0);
-  }
-  &.path {
-      input {
-          &:checked {
-              --s: 2px;
-              transition-delay: .4s;
-              & + svg {
-                  --a: 16.1 86.12;
-                  --o: 102.22;
-              }
-          }
-      }
-      svg {
-          stroke-dasharray: var(--a, 86.12);
-          stroke-dashoffset: var(--o, 86.12);
-          transition: stroke-dasharray .6s, stroke-dashoffset .6s;
-      }
-  }
-  &.bounce {
-      --stroke: var(--tick);
-      input {
-          &:checked {
-              --s: 11px;
-              & + svg {
-                  animation: bounce .4s linear forwards .2s;
-              }
-          }
-      }
-      svg {
-          --scale: 0;
-      }
-  }
-}
-
-@keyframes bounce {
-  50% {
-      transform: scale(1.2);
-  }
-  75% {
-      transform: scale(.9);
-  }
-  100% {
-      transform: scale(1);
   }
 }
 
@@ -922,24 +811,6 @@ $black: #000000;
 
   @include for-tablet-portrait-up {
     font-size: 3rem;
-  }
-}
-
-.fa-star {
-  color: $yellow;
-  letter-spacing: 0.5rem;
-  font-size: 1.8rem;
-
-  @include for-phone-only {
-    margin-bottom: 1rem;
-  }
-
-  &:last-of-type {
-    padding-right: 2.5rem;
-
-    @include for-phone-only {
-      padding-right: 0;
-    }
   }
 }
 
