@@ -1,4 +1,6 @@
-![hurb-screen-gif](https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-screen-gif.gif?raw=true)
+<p align="center">
+  <img src="https://github.com/aline-borges/challenge-alpha-angular/blob/master/src/assets/images/hurb-screen-gif.gif?raw=true">
+</p>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/83d65deb-7e08-4531-9419-d27751590bdc/deploy-status)](https://app.netlify.com/sites/hurb-angular/deploys)
 
